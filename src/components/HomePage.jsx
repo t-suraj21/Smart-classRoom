@@ -109,15 +109,14 @@ export default function HomePage() {
                   transition={{ delay: 0.6 }}
                 >
                   {slides[currentSlide].description}
-                </motion.p>
-                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}>
-                  <a
-                    href="#"
-                    className="inline-block bg-white text-blue-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition-colors duration-300"
-                  >
-                    Try Demo
-                  </a>
-                </motion.div>
+                  </motion.p>
+                <motion.a
+                  href="#"
+                  className="inline-block bg-white text-blue-900 px-8 py-4 rounded-full text-lg font-semibold 
+                             transition-all duration-300 transform hover:bg-blue-600 hover:text-white hover:scale-105 shadow-md"
+                >
+                  Try Demo
+                </motion.a>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -133,7 +132,7 @@ export default function HomePage() {
                 setIsAutoPlaying(false);
               }}
               className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
-                currentSlide === index ? "bg-blue-500" : "bg-gray-300"
+                currentSlide === index ? "bg-blue-500" : "bg-black-300"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
