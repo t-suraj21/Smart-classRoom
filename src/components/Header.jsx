@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X, UserCircle } from "lucide-react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,10 +15,10 @@ const Header = () => {
         
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6">
-          <NavItem text="Home" />
-          <NavItem text="Courses" />
-          <NavItem text="Resources" />
-          <NavItem text="Contact" />
+          <NavItem text="Home" to="/home" />
+          <NavItem text="Courses" to="/courses" />
+          <NavItem text="Resources" to="/resources" />
+          <NavItem text="Contact" to="/contact" />
         </nav>
         
         {/* Profile Dropdown */}
@@ -46,10 +47,10 @@ const Header = () => {
       {/* Mobile Menu */}
       {menuOpen && (
         <nav className="md:hidden flex flex-col bg-gray-800 p-4 space-y-2 mt-2 rounded-lg">
-          <NavItem text="Home" />
-          <NavItem text="Courses" />
-          <NavItem text="Resources" />
-          <NavItem text="Contact" />
+          <NavItem text="Home" to="/home" />
+          <NavItem text="Courses" to="/courses" />
+          <NavItem text="Resources" to="/resources" />
+          <NavItem text="Contact" to="/contact" />
         </nav>
       )}
     </header>
@@ -57,11 +58,11 @@ const Header = () => {
 };
 
 // Reusable Components
-const NavItem = ({ text }) => (
-  <a href="#" className="relative py-2 px-4 hover:text-blue-400 transition group">
+const NavItem = ({ text, to }) => (
+  <Link to={to} className="relative py-2 px-4 hover:text-blue-400 transition group">
     {text}
     <span className="absolute left-1/2 bottom-0 w-0 h-1 bg-blue-400 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
-  </a>
+  </Link>
 );
 
 const DropdownItem = ({ text }) => (
