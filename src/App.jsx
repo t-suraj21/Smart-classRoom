@@ -17,7 +17,8 @@ const App = () => {
         <div className="flex-1">
           <Header />
           <Routes>
-            <Route path="/" element={<HomePage />} /> {/* Set HomePage as the default route */}
+            <Route path="/" element={<Dashboard />} /> {/* Set Dashboard as the default route */}
+            <Route path="/home" element={<HomePage />} /> {/* Set HomePage to the /home path */}
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/classes" element={<Classes />} />
             <Route path="/messages" element={<Messages />} />
