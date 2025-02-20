@@ -1,15 +1,14 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 //framer-motion
-const images = ["/assets/image1.jpg", "/assets/image2.jpg", "/assets/image3.jpg", "/assets/image4.jpg"]
+const images = ["/assets/image1.jpg", "/assets/image2.jpg", "/assets/image3.jpg", "/assets/image4.jpg"];
 // Slider content
 const slides = [
   {
-    image:"/assets/back.jpg",
+    image: "/assets/back.jpg",
     title: "Unlock Your Potential,\nEmbrace Education.",
     subtitle: "Learn, Achieve, and Believe",
     description: "Transform your classroom experience with our innovative management system.",
@@ -26,31 +25,31 @@ const slides = [
     subtitle: "Track, Analyze, Improve",
     description: "AI-powered tools for seamless classroom management",
   },
-]
+];
 
 export default function HomePage() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   useEffect(() => {
-    if (!isAutoPlaying) return
+    if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [isAutoPlaying])
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length)
-    setIsAutoPlaying(false)
-  }
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+    setIsAutoPlaying(false);
+  };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
-    setIsAutoPlaying(false)
-  }
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+    setIsAutoPlaying(false);
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -124,19 +123,17 @@ export default function HomePage() {
           </div>
         </div>
 
-        
-
         {/* Dots Navigation */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => {
-                setCurrentSlide(index)
-                setIsAutoPlaying(false)
+                setCurrentSlide(index);
+                setIsAutoPlaying(false);
               }}
-              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
-                currentSlide === index ? "bg-white" : "bg-white/50"
+              className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
+                currentSlide === index ? "bg-blue-500" : "bg-gray-300"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -177,17 +174,24 @@ export default function HomePage() {
             </motion.a>
           </div>
 
-          {/* Right Side - Animated Image */}
-          <div className="md:w-1/2 flex justify-center">
-            <motion.img
-              src="/assets/image1.jpg"
-              alt="Campus Buzz"
-              className="rounded-lg shadow-lg w-1/2 h-auto"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            />
-          </div>
+       {/* Right Side - Animated Image */}
+<div className="md:w-1/2 flex justify-center">
+  <AnimatePresence initial={false}>
+    <motion.div
+      key={currentSlide}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.5 }}
+    >
+      <img
+        src={images[currentSlide]}
+        alt="Campus Buzz"
+        className="rounded-lg shadow-lg w-1/2 h-auto" // Adjusted size to 50%
+      />
+    </motion.div>
+  </AnimatePresence>
+</div>
         </div>
       </section>
 
@@ -264,6 +268,5 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-  )
+  );
 }
-
