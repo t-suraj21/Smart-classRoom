@@ -1,29 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
-import Dashboard from "./pages/Dashboard";
-import Classes from "./pages/Classes";
-import Messages from "./pages/Messages";
-import Students from "./pages/Students";
-import Settings from "./pages/Settings";
 import HomePage from "./components/Homepage"; // Import HomePage
+import CoursePage from "./components/CoursePage";
 
 const App = () => {
   return (
     <Router>
       <div className="flex">
-        <Sidebar />
         <div className="flex-1">
           <Header />
           <Routes>
-            <Route path="/" element={<Dashboard />} /> {/* Set Dashboard as the default route */}
-            <Route path="/home" element={<HomePage />} /> {/* Set HomePage to the /home path */}
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/classes" element={<Classes />} />
-            <Route path="/messages" element={<Messages />} />
-            <Route path="/students" element={<Students />} />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/home" element={<HomePage />} /> 
+            <Route path="/CoursePage" element={<CoursePage />} />
           </Routes>
         </div>
       </div>
