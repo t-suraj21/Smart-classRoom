@@ -1,34 +1,151 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
-const images = ["/assets/image1.jpg", "/assets/image2.jpg", "/assets/image3.jpg", "/assets/image4.jpg"];
+//framer-motion
+const images = ["/assets/image1.jpg", "/assets/image2.jpg", "/assets/image3.jpg", "/assets/image4.jpg"]
+// Slider content
+const slides = [
+  {
+    image:"/assets/back.jpg",
+    title: "Unlock Your Potential,\nEmbrace Education.",
+    subtitle: "Learn, Achieve, and Believe",
+    description: "Transform your classroom experience with our innovative management system.",
+  },
+  {
+    image: "/assets/tech.jpg",
+    title: "Welcome to Smart\nClassroom Management",
+    subtitle: "Innovate, Collaborate, Succeed",
+    description: "A Community Based Platform Designed For Modern Education",
+  },
+  {
+    image: "/assets/close.jpg",
+    title: "Empower Your\nTeaching Journey",
+    subtitle: "Track, Analyze, Improve",
+    description: "AI-powered tools for seamless classroom management",
+  },
+]
 
 export default function HomePage() {
-  const [currentImage, setCurrentImage] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 3000); // Change image every 3 seconds
+    if (!isAutoPlaying) return
 
-    return () => clearInterval(interval);
-  }, []);
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [isAutoPlaying])
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length)
+    setIsAutoPlaying(false)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+    setIsAutoPlaying(false)
+  }
 
   return (
-    <div className="flex flex-col min-h-screen bg-blue-50">
-      {/* Hero Section */}
-      <section className="bg-blue-600 text-white text-center py-20 px-6">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Welcome to Smart Classroom Management</h1>
-        <p className="text-lg md:text-xl max-w-3xl mx-auto">
-          AI-powered tools for automated attendance, lesson planning, student performance tracking, and seamless
-          collaboration.
-        </p>
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section with Slider */}
+      <section className="relative h-screen w-full overflow-hidden">
+        {/* Background Images */}
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={currentSlide}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
+            >
+              <div className="absolute inset-0 bg-black/50" />
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Content */}
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="container mx-auto px-4">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5 }}
+                className="max-w-4xl mx-auto text-center text-white"
+              >
+                <motion.h1
+                  className="text-5xl md:text-7xl font-bold mb-6 whitespace-pre-line"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  {slides[currentSlide].title}
+                </motion.h1>
+                <motion.p
+                  className="text-xl md:text-2xl mb-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  {slides[currentSlide].subtitle}
+                </motion.p>
+                <motion.p
+                  className="text-lg md:text-xl mb-12 text-gray-200"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  {slides[currentSlide].description}
+                </motion.p>
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}>
+                  <a
+                    href="#"
+                    className="inline-block bg-white text-blue-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition-colors duration-300"
+                  >
+                    Try Demo
+                  </a>
+                </motion.div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        
+
+        {/* Dots Navigation */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setCurrentSlide(index)
+                setIsAutoPlaying(false)
+              }}
+              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                currentSlide === index ? "bg-white" : "bg-white/50"
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
       </section>
 
       {/* Info Section */}
-      <section className="py-16 px-6">
+      <section className="py-16 px-6 bg-grey-100">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
           {/* Left Side - Text */}
           <div className="md:w-1/2 mb-8 md:mb-0">
@@ -63,7 +180,7 @@ export default function HomePage() {
           {/* Right Side - Animated Image */}
           <div className="md:w-1/2 flex justify-center">
             <motion.img
-              src={images[currentImage]}
+              src="/assets/image1.jpg"
               alt="Campus Buzz"
               className="rounded-lg shadow-lg w-1/2 h-auto"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -121,7 +238,7 @@ export default function HomePage() {
           <div>
             <h4 className="text-lg font-semibold mb-3">Contact Us</h4>
             <p className="text-sm text-gray-400">Email: support@smartclassroom.com</p>
-            <p className="text-sm text-gray-400">Phone: +1 234 567 890</p>
+            <p className="text-sm text-gray-400">Phone: +1 123 456 7890</p>
           </div>
 
           {/* Follow Us */}
@@ -147,5 +264,6 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
-  );
+  )
 }
+
