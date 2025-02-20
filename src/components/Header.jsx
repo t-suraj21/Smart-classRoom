@@ -11,7 +11,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center">
         
         {/* Website Name */}
-        <Link to="/" className="text-2xl font-bold text-white">EduSphere</Link>
+        <h2 className="text-2xl font-bold text-white">EduSphere</h2>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
