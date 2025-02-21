@@ -140,6 +140,7 @@ export default function HomePage() {
         </div>
       </section>
 
+
       {/* Info Section */}
       <section className="py-16 px-6 bg-grey-100">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
@@ -194,78 +195,183 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-16 px-6 text-center bg-white">
+   {/* About Section */}
+   <section className="py-16 px-6 text-center bg-white">
         <h2 className="text-3xl font-semibold mb-4 text-blue-800">About Our Platform</h2>
         <p className="text-lg text-gray-700 max-w-3xl mx-auto">
           Our smart classroom management software is designed to enhance the teaching experience by automating tasks
           such as attendance tracking, lesson planning, and student engagement analytics.
         </p>
       </section>
+    
+{/* Applications Section */}
+<section className="py-16 bg-gray-50">
+  <div className="container mx-auto px-4">
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl font-bold text-gray-900 mb-2">SMART CLASSROOM APPLICATIONS</h2>
+      <div className="w-20 h-1 bg-red-500 mx-auto mt-4 mb-8"></div>
+      <h3 className="text-2xl font-medium text-gray-700">Connect with SmartClass Experience Virtual Learning</h3>
+    </motion.div>
 
-      {/* Footer Section */}
-      <footer className="bg-gray-900 text-white py-10 px-6">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-          {/* About Us */}
-          <div>
-            <h4 className="text-lg font-semibold mb-3">About Us</h4>
-            <p className="text-sm text-gray-400">
-              We provide innovative classroom solutions to streamline attendance, lesson planning, and student
-              performance tracking.
-            </p>
-          </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      {/* Row 1 */}
+      <motion.div 
+  className="relative overflow-hidden rounded-lg shadow-lg group"
+  whileHover={{ scale: 1.03 }}
+  transition={{ duration: 0.3 }}
+>
+  <div className="h-64 bg-cover bg-center">
+    <img src="/assets/colloge.jpg" alt="Engineering Colleges" className="w-full h-full object-cover" />
+    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <h3 className="text-white text-2xl font-semibold">Engineering Colleges</h3>
+    </div>
+  </div>
+</motion.div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
-            <ul className="text-sm text-gray-400 space-y-2">
-              <li>
-                <a href="/dashboard" className="hover:text-gray-300">
-                  Dashboard
-                </a>
-              </li>
-              <li>
-                <a href="/classes" className="hover:text-gray-300">
-                  Classes
-                </a>
-              </li>
-              <li>
-                <a href="/home" className="hover:text-gray-300">
-                  Home
-                </a>
-              </li>
-            </ul>
-          </div>
+<motion.div 
+  className="relative overflow-hidden rounded-lg shadow-lg group"
+  whileHover={{ scale: 1.03 }}
+  transition={{ duration: 0.3 }}
+>
+  <div className="h-64 bg-cover bg-center">
+    <img src="/assets/medical-college.jpg" alt="Medical Colleges" className="w-full h-full object-cover" />
+    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <h3 className="text-white text-2xl font-semibold">Medical Colleges</h3>
+    </div>
+  </div>
+</motion.div>
 
-          {/* Contact Us */}
-          <div>
-            <h4 className="text-lg font-semibold mb-3">Contact Us</h4>
-            <p className="text-sm text-gray-400">Email: support@smartclassroom.com</p>
-            <p className="text-sm text-gray-400">Phone: +1 123 456 7890</p>
-          </div>
+<motion.div 
+  className="relative overflow-hidden rounded-lg shadow-lg group"
+  whileHover={{ scale: 1.03 }}
+  transition={{ duration: 0.3 }}
+>
+  <div className="h-64 bg-cover bg-center">
+    <img src="/assets/universities.jpg" alt="Universities" className="w-full h-full object-cover" />
+    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <h3 className="text-white text-2xl font-semibold">Universities</h3>
+    </div>
+  </div>
+</motion.div>
 
-          {/* Follow Us */}
-          <div>
-            <h4 className="text-lg font-semibold mb-3">Follow Us</h4>
-            <div className="flex justify-center md:justify-start space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/facebook.png" alt="Facebook" className="w-6 h-6" />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/twitter.png" alt="Twitter" className="w-6 h-6" />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                <img src="/assets/instagram.png" alt="Instagram" className="w-6 h-6" />
-              </a>
-            </div>
-          </div>
-        </div>
+<motion.div 
+  className="relative overflow-hidden rounded-lg shadow-lg group"
+  whileHover={{ scale: 1.03 }}
+  transition={{ duration: 0.3 }}
+>
+  <div className="h-64 bg-cover bg-center">
+    <img src="/assets/corporates.jpg" alt="Corporates" className="w-full h-full object-cover" />
+    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <h3 className="text-white text-2xl font-semibold">Corporates</h3>
+    </div>
+  </div>
+</motion.div>
 
-        {/* Footer Bottom */}
-        <div className="mt-8 text-center text-gray-500 text-sm">
-          <p>&copy; 2025 Smart Classroom. All Rights Reserved.</p>
-        </div>
-      </footer>
+<motion.div 
+  className="relative overflow-hidden rounded-lg shadow-lg group"
+  whileHover={{ scale: 1.03 }}
+  transition={{ duration: 0.3 }}
+>
+  <div className="h-64 bg-cover bg-center">
+    <img src="/assets/k12-education.jpg" alt="K12 Education" className="w-full h-full object-cover" />
+    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <h3 className="text-white text-2xl font-semibold">K12 Education</h3>
+    </div>
+  </div>
+</motion.div>
+
+<motion.div 
+  className="relative overflow-hidden rounded-lg shadow-lg group"
+  whileHover={{ scale: 1.03 }}
+  transition={{ duration: 0.3 }}
+>
+  <div className="h-64 bg-cover bg-center">
+    <img src="/assets/training-institute.jpg" alt="Training Institute" className="w-full h-full object-cover" />
+    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
+    <div className="absolute inset-0 flex items-center justify-center">
+      <h3 className="text-white text-2xl font-semibold">Training Institute</h3>
+    </div>
+  </div>
+</motion.div>
+    </div>
+  </div>
+</section>
+
+    {/* Footer Section */}
+<footer className="bg-black text-white py-12 px-6">
+  <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+    {/* About Us */}
+    <div>
+      <h4 className="text-xl font-semibold mb-4">About Us</h4>
+      <p className="text-sm text-gray-400 leading-relaxed">
+        We provide innovative classroom solutions to streamline attendance, lesson planning, and student
+        performance tracking.
+      </p>
+    </div>
+
+    {/* Quick Links */}
+    <div>
+      <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
+      <ul className="text-sm space-y-3">
+        <li>
+          <a href="/dashboard" className="text-gray-400 hover:text-white transition duration-300">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="/classes" className="text-gray-400 hover:text-white transition duration-300">
+            Classes
+          </a>
+        </li>
+        <li>
+          <a href="/home" className="text-gray-400 hover:text-white transition duration-300">
+            Home
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    {/* Contact Us */}
+    <div>
+      <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
+      <p className="text-sm text-gray-400">📧 support@smartclassroom.com</p>
+      <p className="text-sm text-gray-400">📞 +1 123 456 7890</p>
+    </div>
+
+    {/* Follow Us */}
+    <div>
+      <h4 className="text-xl font-semibold mb-4">Follow Us</h4>
+      <div className="flex justify-center md:justify-start space-x-6">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/facebook.png" alt="Facebook" className="w-7 h-7 opacity-80 hover:opacity-100 transition duration-300" />
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/twitter.png" alt="Twitter" className="w-7 h-7 opacity-80 hover:opacity-100 transition duration-300" />
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/instagram.png" alt="Instagram" className="w-7 h-7 opacity-80 hover:opacity-100 transition duration-300" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {/* Footer Bottom */}
+  <div className="mt-12 text-center justify-center text-gray-500 text-sm border-t border-gray-700 pt-6">
+    <p>&copy; 2025 Smart Classroom. All Rights Reserved.</p>
+  </div>
+</footer>
+
     </div>
   );
 }
