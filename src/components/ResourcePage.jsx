@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+
 const resources = [
   { id: 1, title: "Beginner's Guide", category: "Articles", description: "A simple guide to get started.", link: "https://developer.mozilla.org/en-US/" },
   { id: 2, title: "React Cheatsheet", category: "Tools", description: "Quick reference for React concepts.", link: "https://codepen.io/" },
@@ -45,7 +45,7 @@ export default function ResourcePage() {
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={px-6 py-2 rounded-full font-semibold transition duration-300 ${selectedCategory === category ? "bg-blue-600 text-white shadow-lg" : "bg-gray-200 hover:bg-gray-300"}}
+            className={`px-6 py-2 rounded-full font-semibold transition duration-300 ${selectedCategory === category ? "bg-blue-600 text-white shadow-lg" : "bg-gray-200 hover:bg-gray-300"}`}
           >
             {category}
           </button>
