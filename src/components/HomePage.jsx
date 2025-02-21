@@ -168,10 +168,11 @@ export default function HomePage() {
                 <span className="text-purple-600 text-2xl">✧</span>
               </h2>
               <p className="text-gray-600 leading-relaxed">
-                At Engineer's Planet (EP), we are establishing a streamlined platform tailored to
-                the distinct requirements of engineering students and researchers across all
-                disciplines. With a team of industry experts in every technological domain, we're
-                committed to turning your concepts into executable achievements.
+              At Edusphere, we are building a cutting-edge smart classroom platform designed to 
+              meet the evolving needs of students and educators across all engineering disciplines.
+               With a team of industry experts in educational technology, we are dedicated to
+                transforming traditional learning spaces into interactive, tech-driven environments that 
+                enhance engagement, collaboration, and academic success.
               </p>
               <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 py-2 rounded-md font-medium transition-all duration-300 hover:shadow-lg">
                 LEARN MORE
@@ -296,7 +297,7 @@ export default function HomePage() {
     >
       <h2 className="text-4xl font-bold text-gray-900 mb-2">SMART CLASSROOM APPLICATIONS</h2>
       <div className="w-20 h-1 bg-red-500 mx-auto mt-4 mb-8"></div>
-      <h3 className="text-2xl font-medium text-gray-700">Connect with SmartClass Experience Virtual Learning</h3>
+      <h3 className="text-2xl font-medium text-gray-700">Learn smarter, not harder—transform your education with cutting-edge technology.</h3>
     </motion.div>
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
