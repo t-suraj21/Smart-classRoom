@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ExperienceSection from './ExperienceSection';
@@ -36,10 +34,30 @@ const stats = [
   { value: 100, label: 'SATISFACTION', suffix: '%' }
 ];
 
+const faqData = [
+  {
+    question: "How does the Smart Classroom track attendance?",
+    answer: "Our system uses QR codes and AI-powered facial recognition to mark attendance automatically. Teachers can also manually verify attendance when needed."
+  },
+  {
+    question: "How can teachers track student performance?",
+    answer: "Teachers have access to a real-time dashboard that provides insights on student progress, grades, and engagement metrics."
+  },
+  {
+    question: "What features are included in lesson planning?",
+    answer: "Teachers can create interactive lesson plans, add multimedia content, and schedule assignments all in one place."
+  },
+  {
+    question: "Is there a communication tool for students and teachers?",
+    answer: "Yes, our platform includes built-in messaging and announcement features to facilitate communication between students and teachers."
+  }
+];
+
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [isStatsVisible, setIsStatsVisible] = useState(false);
+  const [openIndex, setOpenIndex] = useState(null);
 
   useEffect(() => {
     setIsStatsVisible(true);
@@ -62,6 +80,11 @@ export default function HomePage() {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
     setIsAutoPlaying(false);
   };
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -388,6 +411,20 @@ export default function HomePage() {
     </div>
   </div>
 </section>
+
+ {/* FAQ Section */}
+ <div className="col-span-1 md:col-span-3 p-6">
+        <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
+        {faqData.map((faq, index) => (
+          <div key={index} className="mb-4 shadow-md p-4 bg-white rounded-lg cursor-pointer" onClick={() => toggleFAQ(index)}>
+            <div className="flex justify-between items-center">
+              <h3 className="text-lg font-medium">{faq.question}</h3>
+              <button className="text-xl font-bold">{openIndex === index ? "−" : "+"}</button>
+            </div>
+            {openIndex === index && <p className="mt-2 text-gray-600">{faq.answer}</p>}
+          </div>
+        ))}
+        </div>
 
     {/* Footer Section */}
 <footer className="bg-black text-white py-12 px-6">
