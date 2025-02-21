@@ -1,166 +1,72 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
 const resources = [
-  {
-    domain: "Web Development",
-    icon: "💻",
-    color: "#4f46e5",
-    courses: [
-      { name: "HTML & CSS for Beginners", link: "https://example.com/html-css" },
-      { name: "JavaScript: The Complete Guide", link: "https://example.com/javascript" },
-      { name: "React.js Essentials", link: "https://example.com/react" },
-    ],
-  },
-  {
-    domain: "Data Science",
-    icon: "📊",
-    color: "#0ea5e9",
-    courses: [
-      { name: "Python for Data Science", link: "https://example.com/python-ds" },
-      { name: "Data Analysis with Pandas", link: "https://example.com/pandas" },
-      { name: "Visualization with Matplotlib", link: "https://example.com/matplotlib" },
-    ],
-  },
-  {
-    domain: "Cybersecurity",
-    icon: "🔒",
-    color: "#10b981",
-    courses: [
-      { name: "Introduction to Cybersecurity", link: "https://example.com/cybersecurity" },
-      { name: "Ethical Hacking Basics", link: "https://example.com/ethical-hacking" },
-      { name: "Network Security Fundamentals", link: "https://example.com/network-security" },
-    ],
-  },
-  {
-    domain: "Machine Learning",
-    icon: "🤖",
-    color: "#8b5cf6",
-    courses: [
-      { name: "Machine Learning Basics", link: "https://example.com/ml-basics" },
-      { name: "Deep Learning with TensorFlow", link: "https://example.com/tensorflow" },
-      { name: "Natural Language Processing", link: "https://example.com/nlp" },
-    ],
-  },
+  { id: 1, title: "Beginner's Guide", category: "Articles", description: "A simple guide to get started.", link: "https://developer.mozilla.org/en-US/" },
+  { id: 2, title: "React Cheatsheet", category: "Tools", description: "Quick reference for React concepts.", link: "https://codepen.io/" },
+  { id: 3, title: "Web Development eBook", category: "eBooks", description: "A free eBook on web dev basics.", link: "https://eloquentjavascript.net/" },
+  { id: 4, title: "CSS Tricks - Frontend Tips", category: "Articles", description: "Useful frontend development tips.", link: "https://css-tricks.com/" },
+  { id: 5, title: "HTML & CSS eBook", category: "eBooks", description: "Design and build websites.", link: "https://www.pdfdrive.com/html-css-design-and-build-websites-e33430804.html" },
+  { id: 6, title: "Traversy Media - Web Dev Tutorials", category: "Videos", description: "Web development tutorials.", link: "https://www.youtube.com/c/TraversyMedia" },
+  { id: 7, title: "MIT OpenCourseWare - Engineering", category: "Engineering", description: "Free engineering courses from MIT.", link: "https://ocw.mit.edu/courses/engineering/" },
+  { id: 8, title: "NASA Technical Reports", category: "Science", description: "Access NASA's research and technical papers.", link: "https://ntrs.nasa.gov/" },
+  { id: 9, title: "IEEE Xplore Digital Library", category: "Engineering", description: "Access scientific and engineering research papers.", link: "https://ieeexplore.ieee.org/" },
+  { id: 10, title: "Khan Academy - Physics", category: "Science", description: "Free physics lessons for all levels.", link: "https://www.khanacademy.org/science/physics" },
+  { id: 11, title: "Stack Overflow - Developer Community", category: "Community", description: "Join discussions and get coding help.", link: "https://stackoverflow.com/" },
+  { id: 12, title: "Reddit - Engineering Communities", category: "Community", description: "Engage with engineering discussions.", link: "https://www.reddit.com/r/engineering/" },
+  { id: 13, title: "Dev.to - Developer Articles", category: "Community", description: "Read and share software development articles.", link: "https://dev.to/" }
 ];
 
-const ResourcePage = () => {
-  const [activeCategory, setActiveCategory] = useState(null);
+const categories = ["All", "Articles", "eBooks", "Tools", "Videos", "Community", "Engineering", "Science"];
+
+export default function ResourcePage() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const filteredResources = selectedCategory === "All"
+    ? resources
+    : resources.filter(resource => resource.category === selectedCategory);
 
   return (
-    <div className="resource-container max-w-6xl mx-auto px-4 py-16">
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
-      >
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Educational Resources</h1>
-        <div className="w-24 h-1 bg-blue-500 mx-auto mb-6"></div>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Explore our curated collection of courses organized by domain. Each resource is
-          carefully selected to help you master essential skills.
-        </p>
-      </motion.div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-200 text-gray-900">
+      {/* Header */}
+      <header className="p-6 text-white flex justify-between items-center shadow-lg bg-cover bg-center" style={{ backgroundImage: "url('/mnt/data/b1.jpg')" }}>
+        <h1 className="text-2xl font-extrabold">Resources</h1>
+        <input type="text" placeholder="Search resources..." className="p-2 rounded text-black w-1/3 shadow-inner" />
+      </header>
 
-      {/* Filter Tabs */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className={`px-5 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
-            activeCategory === null ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-          }`}
-          onClick={() => setActiveCategory(null)}
-        >
-          All Domains
-        </motion.button>
-        {resources.map((category, index) => (
-          <motion.button
-            key={index}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
-              activeCategory === index ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-            }`}
-            onClick={() => setActiveCategory(index)}
+      {/* Hero Section */}
+      <section className="text-center py-16 text-white rounded-b-3xl shadow-xl bg-cover bg-center" style={{ backgroundImage: "url('/mnt/data/b1.jpg')" }}>
+        <h2 className="text-4xl font-extrabold">Discover Helpful Resources</h2>
+        <p className="mt-2 text-lg">Find guides, tools, and templates to help you succeed.</p>
+      </section>
+
+      {/* Categories */}
+      <div className="flex justify-center space-x-4 p-6 bg-white shadow-md rounded-xl mt-6">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={px-6 py-2 rounded-full font-semibold transition duration-300 ${selectedCategory === category ? "bg-blue-600 text-white shadow-lg" : "bg-gray-200 hover:bg-gray-300"}}
           >
-            {category.domain}
-          </motion.button>
+            {category}
+          </button>
         ))}
       </div>
 
-      <div className="resource-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {resources
-          .filter((_, index) => activeCategory === null || activeCategory === index)
-          .map((category, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ 
-                y: -8,
-                boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-              }}
-              className="resource-card bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300"
-            >
-              <div 
-                className="p-5" 
-                style={{ 
-                  borderTop: `5px solid ${category.color}`,
-                  background: `linear-gradient(to bottom, ${category.color}10, white)`
-                }}
-              >
-                <div className="flex items-center mb-4">
-                  <span className="text-3xl mr-3">{category.icon}</span>
-                  <h2 className="text-xl font-bold text-gray-800">{category.domain}</h2>
-                </div>
-                <ul className="space-y-3">
-                  {category.courses.map((course, courseIndex) => (
-                    <motion.li 
-                      key={courseIndex}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 + courseIndex * 0.1 }}
-                      className="group"
-                    >
-                      <a 
-                        href={course.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center p-2 -mx-2 rounded-lg group-hover:bg-gray-50 transition-colors duration-200"
-                      >
-                        <span className="w-1 h-1 rounded-full bg-gray-400 mr-2 group-hover:bg-blue-500 transition-colors duration-200"></span>
-                        <span className="text-gray-700 group-hover:text-blue-600 transition-colors duration-200">
-                          {course.name}
-                        </span>
-                        <motion.span 
-                          className="ml-auto opacity-0 group-hover:opacity-100 text-blue-500"
-                          initial={{ x: -5 }}
-                          animate={{ x: 0 }}
-                          transition={{ duration: 0.2 }}
-                        >
-                          →
-                        </motion.span>
-                      </a>
-                    </motion.li>
-                  ))}
-                </ul>
-                <motion.button
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  className="mt-5 w-full py-2 rounded-lg text-sm font-medium text-white transition-colors duration-300"
-                  style={{ backgroundColor: category.color }}
-                >
-                  View All Courses
-                </motion.button>
-              </div>
-            </motion.div>
-          ))}
+      {/* Resource Listings */}
+      <div className="p-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        {filteredResources.map((resource) => (
+          <div key={resource.id} className="bg-white p-6 rounded-lg shadow-md transform transition duration-300 hover:scale-105">
+            <h3 className="font-bold text-xl">{resource.title}</h3>
+            <p className="text-sm text-gray-600 mt-2">{resource.description}</p>
+            <a href={resource.link} className="text-blue-600 font-semibold mt-3 inline-block">View Resource →</a>
+          </div>
+        ))}
       </div>
+
+      {/* Footer */}
+      <footer className="text-center py-6 bg-gray-800 text-white mt-10 rounded-t-3xl shadow-lg">
+        &copy; 2025 Your Website | Follow us on social media
+      </footer>
     </div>
   );
-};
-
-export default ResourcePage;
+}
