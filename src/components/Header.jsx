@@ -17,7 +17,7 @@ const Header = () => {
         <nav className="hidden md:flex items-center gap-8">
           <NavItem text="Home" to="/home" />
           <NavItem text="Courses" to="/CoursePage" />
-          <NavItem text="Resources" to="/resources" />
+          <NavItem text="Resources" to="/ResourcePage" />
           <NavItem text="Contact" to="/contact" />
 
           {/* Student Dropdown */}

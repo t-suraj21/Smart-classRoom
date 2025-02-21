@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import ExperienceSection from './ExperienceSection';
 
 //framer-motion
 const images = ["/assets/image1.jpg", "/assets/image2.jpg", "/assets/image3.jpg", "/assets/image4.jpg"];
@@ -278,6 +279,10 @@ export default function HomePage() {
           such as attendance tracking, lesson planning, and student engagement analytics.
         </p>
       </section>
+
+      {/* Add the Experience Section here */}
+      <ExperienceSection />
+      
     
 {/* Applications Section */}
 <section className="py-16 bg-gray-50">
