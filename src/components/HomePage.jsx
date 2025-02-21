@@ -27,11 +27,22 @@ const slides = [
   },
 ];
 
+// Stats data
+const stats = [
+  { value: 500, label: 'PROJECTS', suffix: '+' },
+  { value: 1000, label: 'STUDENTS TRAINED', suffix: '+' },
+  { value: 20, label: 'DOMAIN EXPERTS', suffix: '+' },
+  { value: 100, label: 'SATISFACTION', suffix: '%' }
+];
+
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isStatsVisible, setIsStatsVisible] = useState(false);
 
   useEffect(() => {
+    setIsStatsVisible(true);
+    
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
@@ -109,7 +120,7 @@ export default function HomePage() {
                   transition={{ delay: 0.6 }}
                 >
                   {slides[currentSlide].description}
-                  </motion.p>
+                </motion.p>
                 <motion.a
                   href="#"
                   className="inline-block bg-white text-blue-900 px-8 py-4 rounded-full text-lg font-semibold 
@@ -137,6 +148,70 @@ export default function HomePage() {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 px-6">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+          {/* Left Content */}
+          <div className="w-full md:w-1/2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: isStatsVisible ? 1 : 0, y: isStatsVisible ? 0 : 20 }}
+              transition={{ duration: 0.6 }}
+              className="space-y-6"
+            >
+              <h2 className="text-4xl font-serif text-gray-800 flex items-center gap-2">
+                We Love What We Do
+                <span className="text-purple-600 text-2xl">✧</span>
+              </h2>
+              <p className="text-gray-600 leading-relaxed">
+                At Engineer's Planet (EP), we are establishing a streamlined platform tailored to
+                the distinct requirements of engineering students and researchers across all
+                disciplines. With a team of industry experts in every technological domain, we're
+                committed to turning your concepts into executable achievements.
+              </p>
+              <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 py-2 rounded-md font-medium transition-all duration-300 hover:shadow-lg">
+                LEARN MORE
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Right Stats */}
+          <div className="w-full md:w-1/2 relative overflow-hidden rounded-3xl bg-purple-900 p-8">
+            {/* Background Design Elements */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-10 right-10 w-20 h-20 border-4 border-white rounded-lg transform rotate-45" />
+              <div className="absolute bottom-10 left-10 w-16 h-16 border-4 border-white rounded-full" />
+              <div className="absolute top-1/2 left-1/2 w-24 h-24 border-4 border-white transform -translate-x-1/2 -translate-y-1/2" />
+            </div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-8 relative z-10">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: isStatsVisible ? 1 : 0, scale: isStatsVisible ? 1 : 0.5 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="text-center"
+                >
+                  <motion.div
+                    initial={{ number: 0 }}
+                    animate={{ number: isStatsVisible ? stat.value : 0 }}
+                    transition={{ duration: 2, delay: 0.5 }}
+                    className="text-4xl md:text-5xl font-bold text-white mb-2"
+                  >
+                    {Math.round(stat.value)}{stat.suffix}
+                  </motion.div>
+                  <div className="text-sm text-purple-200 uppercase tracking-wider">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
