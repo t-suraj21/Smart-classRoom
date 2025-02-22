@@ -33,6 +33,7 @@ const Header = () => {
           <NavItem text="Courses" to="/course" />
           <NavItem text="Resources" to="/resources" />
           <NavItem text="Contact" to="/contact" />
+          <NavItem text="Profile" to="/Profile" />
 
           {/* Student Dropdown */}
           <div className="relative" ref={dropdownRef}>

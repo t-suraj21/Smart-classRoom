@@ -8,6 +8,7 @@ import ContactPage from "./components/ContactPage";
 import Dashboard from "./components/student/Dashboard";
 import TeacherDashboard from "./components/student/TeacherDashboard";
 import Auth from "./components/Auth"; // Import Auth component
+import Profile from "./components/Profile"; // Import Profile component
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/student/dashboard" element={<Dashboard />} />
             <Route path="/student/teacher-dashboard" element={<TeacherDashboard />} />
             <Route path="/auth" element={<Auth />} /> {/* Add Auth Route */}
+            <Route path="/profile" element={<Profile />} /> {/* Add Profile Route */}
           </Routes>
         </div>
       </div>
