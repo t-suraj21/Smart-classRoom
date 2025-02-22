@@ -18,7 +18,7 @@ const Header = () => {
           <NavItem text="Home" to="/home" />
           <NavItem text="Courses" to="/CoursePage" />
           <NavItem text="Resources" to="/ResourcePage" />
-          <NavItem text="Contact" to="/ContactPage" />
+          <NavItem text="Contact" to="/contact" /> {/* Corrected path */}
 
           {/* Student Dropdown */}
           <div className="relative">
@@ -54,8 +54,8 @@ const Header = () => {
         <nav className="md:hidden flex flex-col bg-gray-800 p-4 space-y-2 mt-2 rounded-lg">
           <NavItem text="Home" to="/home" />
           <NavItem text="Courses" to="/CoursePage" />
-          <NavItem text="Resources" to="/resources" />
-          <NavItem text="Contact" to="/contact" />
+          <NavItem text="Resources" to="/ResourcePage" />
+          <NavItem text="Contact" to="/contact" /> {/* Corrected path */}
 
           {/* Student Dropdown */}
           <div className="flex flex-col">

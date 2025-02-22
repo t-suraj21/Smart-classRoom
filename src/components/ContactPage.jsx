@@ -1,91 +1,152 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
-export default function ContactPage() {
+const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Your message has been sent successfully!");
+  };
+
   return (
-    <div className="min-h-screen bg-blue flex flex-col items-center justify-center p-6">
-      {/* Contact Section */}
-      <div className="bg-white shadow-2xl rounded-2xl p-10 max-w-5xl w-full">
-        <h2 className="text-4xl font-extrabold text-center text-gray-800 mb-6">📞 Get in Touch with Us</h2>
-        <p className="text-center text-gray-600 mb-8">
-          Whether you have a question about features, pricing, demos, or anything else, our team is ready to assist you!
-        </p>
+    <div className="max-w-screen-xl mx-auto px-6 py-12">
+      <h2 className="text-4xl font-bold text-center text-blue-700 mb-10">📩 Get in Touch</h2>
 
-        {/* Contact Info */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-          <div className="bg-blue-50 p-6 rounded-lg text-center">
-            <h3 className="text-xl font-semibold text-gray-800">📍 Office Address</h3>
-            <p className="text-gray-600 mt-2">123 Smart Classroom St, City, Country</p>
+      {/* Grid Layout for Contact Details & Form */}
+      <div className="grid lg:grid-cols-2 gap-10">
+        {/* Contact Information */}
+        <div className="space-y-6 bg-gray-100 p-6 rounded-lg shadow-lg">
+          <h3 className="text-2xl font-semibold text-gray-800">📞 Contact Information</h3>
+          <p className="text-gray-600 text-lg">
+            We’re here to assist you. Feel free to reach out via phone, email, or visit us.
+          </p>
+          <div className="text-lg text-gray-700 space-y-3">
+            <p><span className="font-semibold">📍 Address:</span> 123 School Lane, EduCity</p>
+            <p><span className="font-semibold">📧 Email:</span> support@smartclassroom.com</p>
+            <p><span className="font-semibold">📞 Phone:</span> +1 (800) 123-4567</p>
+            <p><span className="font-semibold">⏰ Office Hours:</span> Mon - Fri, 9 AM - 5 PM</p>
           </div>
-          <div className="bg-blue-50 p-6 rounded-lg text-center">
-            <h3 className="text-xl font-semibold text-gray-800">📧 Email Us</h3>
-            <p className="text-gray-600 mt-2">support@smartclassroom.com</p>
+
+          {/* Social Media Links */}
+          <div className="flex gap-4">
+            {["Facebook", "Twitter", "Instagram", "LinkedIn"].map((platform, index) => (
+              <motion.a
+                key={index}
+                href="#"
+                whileHover={{ scale: 1.1 }}
+                className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300"
+              >
+                {platform}
+              </motion.a>
+            ))}
           </div>
-          <div className="bg-blue-50 p-6 rounded-lg text-center">
-            <h3 className="text-xl font-semibold text-gray-800">📞 Call Us</h3>
-            <p className="text-gray-600 mt-2">+1 234 567 890</p>
-          </div>
-          <div className="bg-blue-50 p-6 rounded-lg text-center">
-            <h3 className="text-xl font-semibold text-gray-800">⏰ Office Hours</h3>
-            <p className="text-gray-600 mt-2">Mon-Fri: 9:00 AM - 6:00 PM</p>
-          </div>
-          <div className="bg-blue-50 p-6 rounded-lg text-center">
-            <h3 className="text-xl font-semibold text-gray-800">💬 Live Chat</h3>
-            <p className="text-gray-600 mt-2">Available 24/7</p>
-          </div>
-          <div className="bg-blue-50 p-6 rounded-lg text-center">
-            <h3 className="text-xl font-semibold text-gray-800">📝 Help Center</h3>
-            <a href="#" className="text-blue-600 mt-2 block">Visit our FAQ section</a>
+
+          {/* Google Maps */}
+          <div>
+            <h3 className="text-2xl font-semibold text-gray-800 mb-2">📍 Find Us on the Map</h3>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242117.30778923355!2d-74.25986531998145!3d40.6976701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259af4e8b882b%3A0x9cbcd2a67e5e4c7d!2sNew%20York!5e0!3m2!1sen!2sus!4v1606759536421!5m2!1sen!2sus"
+              width="100%"
+              height="250"
+              frameBorder="0"
+              className="rounded-md shadow-md"
+              allowFullScreen=""
+              aria-hidden="false"
+            ></iframe>
           </div>
         </div>
 
         {/* Contact Form */}
-        <form className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-white p-6 rounded-lg shadow-lg">
+          <h3 className="text-2xl font-semibold text-gray-800">✉️ Send Us a Message</h3>
+          <p className="text-gray-600 mb-4">Fill out the form below, and we’ll get back to you shortly.</p>
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-gray-700 font-medium">Full Name</label>
-              <input type="text" placeholder="Your Name" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+              <label className="block text-gray-600 font-medium mb-1">Full Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md"
+                placeholder="Your Name"
+                required
+              />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium">Email</label>
-              <input type="email" placeholder="Your Email" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+              <label className="block text-gray-600 font-medium mb-1">Email Address</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md"
+                placeholder="Your Email"
+                required
+              />
             </div>
-          </div>
+            <div>
+              <label className="block text-gray-600 font-medium mb-1">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md"
+                placeholder="Subject"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-gray-600 font-medium mb-1">Message</label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full p-3 border border-gray-300 rounded-md"
+                rows="4"
+                placeholder="Your Message"
+                required
+              ></textarea>
+            </div>
 
-          <div>
-            <label className="block text-gray-700 font-medium">Subject</label>
-            <input type="text" placeholder="Subject" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
-          </div>
-
-          <div>
-            <label className="block text-gray-700 font-medium">Message</label>
-            <textarea placeholder="Your Message" rows="4" className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
-          </div>
-
-          <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-blue-700 transition duration-300 shadow-md">
-            Send Message
-          </button>
-        </form>
-
-        {/* Google Map */}
-        <div className="mt-10">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">📍 Our Location</h3>
-          <iframe 
-            className="w-full h-64 rounded-lg shadow-lg"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093944!2d144.95373631531694!3d-37.81720997975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0x5045675218ce6e0!2sMelbourne%2C%20Australia!5e0!3m2!1sen!2sus!4v1620134500807!5m2!1sen!2sus"
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
+            <motion.button
+              type="submit"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300"
+            >
+              Send Message
+            </motion.button>
+          </form>
         </div>
+      </div>
 
-        {/* Social Media Links */}
-        <div className="flex justify-center gap-6 mt-8">
-          <a href="#" className="text-blue-600 text-2xl hover:text-blue-800 transition">🔵 Facebook</a>
-          <a href="#" className="text-blue-400 text-2xl hover:text-blue-600 transition">🐦 Twitter</a>
-          <a href="#" className="text-pink-600 text-2xl hover:text-pink-800 transition">📸 Instagram</a>
-          <a href="#" className="text-red-600 text-2xl hover:text-red-800 transition">▶ YouTube</a>
-          <a href="#" className="text-blue-500 text-2xl hover:text-blue-700 transition">💼 LinkedIn</a>
-        </div>
+      {/* Live Chat & FAQ Section */}
+      <div className="mt-10 text-center">
+        <h3 className="text-2xl font-bold text-gray-800">💬 Live Chat Support</h3>
+        <p className="text-gray-600">Need quick help? Click the button below to chat with us.</p>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+          className="mt-4 px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300"
+        >
+          Start Live Chat
+        </motion.button>
       </div>
     </div>
   );
-}
+};
+
+export default ContactPage;

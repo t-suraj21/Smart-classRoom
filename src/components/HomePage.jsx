@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ExperienceSection from './ExperienceSection';
 
-//framer-motion
-const images = ["/assets/image1.jpg", "/assets/image2.jpg", "/assets/image3.jpg", "/assets/image4.jpg"];
+
 // Slider content
 const slides = [
   {
@@ -241,59 +240,7 @@ export default function HomePage() {
       </section>
 
 
-      {/* Info Section */}
-      <section className="py-16 px-6 bg-grey-100">
-        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-          {/* Left Side - Text */}
-          <div className="md:w-1/2 mb-8 md:mb-0">
-            <motion.h2
-              className="text-3xl md:text-4xl font-bold mb-4 text-blue-800"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              Stay <span className="text-blue-600">Informed.</span> <br />
-              Stay <span className="text-blue-600">Connected.</span>
-            </motion.h2>
-            <motion.p
-              className="text-lg text-gray-700 mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              Your go-to platform for the latest campus news, events, and opportunities.
-            </motion.p>
-            <motion.a
-              href="#"
-              className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              Join Now
-            </motion.a>
-          </div>
-
-       {/* Right Side - Animated Image */}
-<div className="md:w-1/2 flex justify-center">
-  <AnimatePresence initial={false}>
-    <motion.div
-      key={currentSlide}
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 0.8 }}
-      transition={{ duration: 0.5 }}
-    >
-      <img
-        src={images[currentSlide]}
-        alt="Campus Buzz"
-        className="rounded-lg shadow-lg w-1/2 h-auto" // Adjusted size to 50%
-      />
-    </motion.div>
-  </AnimatePresence>
-</div>
-        </div>
-      </section>
+   
 
    {/* About Section */}
    <section className="py-16 px-6 text-center bg-white">

@@ -4,8 +4,7 @@ import Header from "./components/Header";
 import HomePage from "./components/Homepage"; // Import HomePage
 import CoursePage from "./components/CoursePage";
 import ResourcePage from './components/ResourcePage';
-import ContactPage from './components/ContactPage';
-
+import ContactPage from './components/ContactPage'; // Import ContactPage
 
 const App = () => {
   return (
@@ -17,8 +16,7 @@ const App = () => {
             <Route path="/home" element={<HomePage />} /> 
             <Route path="/CoursePage" element={<CoursePage />} />
             <Route path="/ResourcePage" element={<ResourcePage />} />
-            <Route path="/ContantPage" element={<ContactPage />} />
-
+            <Route path="/contact" element={<ContactPage />} /> {/* Ensure this path is correct */}
           </Routes>
         </div>
       </div>
