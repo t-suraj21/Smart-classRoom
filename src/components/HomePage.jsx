@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ExperienceSection from './ExperienceSection';
+import ExperienceSection from "../components/ExperienceSection";
 
 
 // Slider content
