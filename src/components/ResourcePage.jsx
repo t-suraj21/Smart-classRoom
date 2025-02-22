@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const resources = [
+  
   { id: 1, title: "Beginner's Guide", category: "Articles", description: "A simple guide to get started.", link: "https://developer.mozilla.org/en-US/", image: "/api/placeholder/400/200", readTime: "5 min read", author: "John Doe", date: "Feb 20, 2025" },
   { id: 2, title: "React Cheatsheet", category: "Tools", description: "Quick reference for React concepts.", link: "https://codepen.io/", image: "/api/placeholder/400/200", readTime: "3 min read", author: "Jane Smith", date: "Feb 18, 2025" },
   { id: 3, title: "Web Development eBook", category: "eBooks", description: "A free eBook on web dev basics.", link: "https://eloquentjavascript.net/", image: "/api/placeholder/400/200", readTime: "15 min read", author: "Mike Johnson", date: "Feb 15, 2025" },
@@ -138,6 +139,19 @@ export default function ResourcePage() {
           </div>
         )}
       </div>
+      {/* Footer */}
+      <footer className="bg-white mt-12 py-8">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex justify-between items-center">
+            <p className="text-gray-600">© 2025 ResourceHub. All rights reserved.</p>
+            <div className="flex gap-6">
+              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Privacy Policy</a>
+              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Terms of Service</a>
+              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

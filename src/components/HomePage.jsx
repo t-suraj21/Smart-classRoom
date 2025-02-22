@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import ExperienceSection from "../components/ExperienceSection";
-
+import ExperienceSection from './ExperienceSection';
+import Chatbot from './Chatbot'; // Import the Chatbot component
 
 // Slider content
 const slides = [
@@ -156,22 +156,25 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Dots Navigation */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                setCurrentSlide(index);
-                setIsAutoPlaying(false);
-              }}
-              className={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${
-                currentSlide === index ? "bg-blue-500" : "bg-black-300"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
+{/* Dots Navigation */}
+<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+  {slides.map((_, index) => (
+    <button
+      key={index}
+      onClick={() => {
+        setCurrentSlide(index);
+        setIsAutoPlaying(false);
+      }}
+      className={`w-3 h-3 rounded-full transition-all duration-300 transform ${
+        currentSlide === index
+          ? "bg-blue-500 scale-110"
+          : "bg-gray-300 hover:bg-blue-400"
+      }`}
+      aria-label={`Go to slide ${index + 1}`}
+    />
+  ))}
+</div>
+
       </section>
 
       {/* Stats Section */}
@@ -239,17 +242,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-   
-
-   {/* About Section */}
-   <section className="py-16 px-6 text-center bg-white">
-        <h2 className="text-3xl font-semibold mb-4 text-blue-800">About Our Platform</h2>
-        <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-          Our smart classroom management software is designed to enhance the teaching experience by automating tasks
-          such as attendance tracking, lesson planning, and student engagement analytics.
-        </p>
-      </section>
 
       {/* Add the Experience Section here */}
       <ExperienceSection />
@@ -373,70 +365,80 @@ export default function HomePage() {
         ))}
         </div>
 
-    {/* Footer Section */}
-<footer className="bg-black text-white py-12 px-6">
-  <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-    {/* About Us */}
-    <div>
-      <h4 className="text-xl font-semibold mb-4">About Us</h4>
-      <p className="text-sm text-gray-400 leading-relaxed">
-        We provide innovative classroom solutions to streamline attendance, lesson planning, and student
-        performance tracking.
-      </p>
-    </div>
+        
+   {/* About Section */}
+   <section className="py-16 px-6 text-center bg-white">
+        <h2 className="text-3xl font-semibold mb-4 text-blue-800">About Our Platform</h2>
+        <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          Our smart classroom management software is designed to enhance the teaching experience by automating tasks
+          such as attendance tracking, lesson planning, and student engagement analytics.
+        </p>
+      </section>
 
-    {/* Quick Links */}
-    <div>
-      <h4 className="text-xl font-semibold mb-4">Quick Links</h4>
-      <ul className="text-sm space-y-3">
-        <li>
-          <a href="/dashboard" className="text-gray-400 hover:text-white transition duration-300">
-            Dashboard
-          </a>
-        </li>
-        <li>
-          <a href="/classes" className="text-gray-400 hover:text-white transition duration-300">
-            Classes
-          </a>
-        </li>
-        <li>
-          <a href="/home" className="text-gray-400 hover:text-white transition duration-300">
-            Home
-          </a>
-        </li>
-      </ul>
-    </div>
+ {/* Footer Section */}
+ <footer className="bg-black  text-white py-10 px-6">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+          {/* About Us */}
+          <div>
+            <h4 className="text-lg font-semibold mb-3">About Us</h4>
+            <p className="text-sm text-gray-400">
+              We provide innovative classroom solutions to streamline attendance, lesson planning, and student performance tracking.
+            </p>
+          </div>
 
-    {/* Contact Us */}
-    <div>
-      <h4 className="text-xl font-semibold mb-4">Contact Us</h4>
-      <p className="text-sm text-gray-400">📧 support@smartclassroom.com</p>
-      <p className="text-sm text-gray-400">📞 +1 123 456 7890</p>
-    </div>
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
+            <ul className="text-sm text-gray-400 space-y-2">
+              <li><a href="/dashboard" className="hover:text-gray-300">Dashboard</a></li>
+              <li><a href="/course" className="hover:text-gray-300">Courses</a></li>
+              <li><a href="/resources" className="hover:text-gray-300">Resorces</a></li>
+              <li><a href="/home" className="hover:text-gray-300">Homes</a></li>
+              <li><a href="/contact" className="hover:text-gray-300">Contact</a></li>
+            </ul>
+          </div>
 
-    {/* Follow Us */}
-    <div>
-      <h4 className="text-xl font-semibold mb-4">Follow Us</h4>
-      <div className="flex justify-center md:justify-start space-x-6">
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/facebook.png" alt="Facebook" className="w-7 h-7 opacity-80 hover:opacity-100 transition duration-300" />
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/twitter.png" alt="Twitter" className="w-7 h-7 opacity-80 hover:opacity-100 transition duration-300" />
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-          <img src="/assets/instagram.png" alt="Instagram" className="w-7 h-7 opacity-80 hover:opacity-100 transition duration-300" />
-        </a>
-      </div>
-    </div>
-  </div>
+          {/* Contact Us */}
+          <div>
+            <h4 className="text-lg font-semibold mb-3">Contact Us</h4>
+            <p className="text-sm text-gray-400">📧 support@smartclassroom.com</p>
+            <p className="text-sm text-gray-400">📞 +1 234 567 890</p>
+          </div>
 
-  {/* Footer Bottom */}
-  <div className="mt-12 text-center justify-center text-gray-500 text-sm border-t border-gray-700 pt-6">
-    <p>&copy; 2025 Smart Classroom. All Rights Reserved.</p>
-  </div>
-</footer>
+          {/* Follow Us */}
+          <div>
+            <h4 className="text-lg font-semibold mb-3">Follow Us</h4>
+            <div className="flex justify-center md:justify-start space-x-4">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/facebook.png" alt="Facebook" className="w-6 h-6" />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/twitter.png" alt="Twitter" className="w-6 h-6" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <img src="/assets/instagram.png" alt="Instagram" className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="mt-8 text-center text-gray-500 text-sm">
+        <div className="flex justify-between items-center">
+<p className="text-gray-600">© 2025 Edusphere. All rights reserved.</p>
+<div className="flex gap-6">
+  <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Privacy Policy</a>
+  <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Terms of Service</a>
+  <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Contact Us</a>
+</div>
+</div>
+        </div>
+      </footer>
+
+  {/* Include the Chatbot component */}
+  <Chatbot />
 
     </div>
   );
 }
+
