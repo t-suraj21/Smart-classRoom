@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, X, UserCircle, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -9,77 +9,43 @@ const Header = () => {
   return (
     <header className="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        
-        {/* Website Name */}
         <h2 className="text-2xl font-bold text-white">EduSphere</h2>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           <NavItem text="Home" to="/home" />
           <NavItem text="Courses" to="/CoursePage" />
-          <NavItem text="Resources" to="/ResourcePage" />
-          <NavItem text="Contact" to="/contact" /> {/* Corrected path */}
+          <NavItem text="Resources" to="/resources" />
+          <NavItem text="Contact" to="/ContactPage" />
 
           {/* Student Dropdown */}
           <div className="relative">
-            <button 
-              onClick={() => setStudentDropdown(!studentDropdown)} 
+            <button
+              onClick={() => setStudentDropdown(!studentDropdown)}
               className="flex items-center gap-2 hover:text-blue-400 transition"
             >
               Student <ChevronDown className="w-4 h-4" />
             </button>
             {studentDropdown && (
-              <div className="absolute left-0 mt-2 w-40 bg-gray-800 rounded-lg shadow-lg">
-                <DropdownItem text="Dashboard" to="/student/dashboard" />
-                <DropdownItem text="Profile" to="/student/profile" />
-                <DropdownItem text="Assignments" to="/student/assignments" />
+              <div className="absolute left-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-lg">
+                <DropdownItem text="📜 Student List" to="/student/Student-list" />
+                <DropdownItem text="📊 Student Dashboard" to="/student/Dashboard" />
+                <DropdownItem text="👨‍🏫 Teacher Dashboard" to="/teacher/Dashboard" />
+                <DropdownItem text="📅 Attendance" to="/student/Attendance" />
+                <DropdownItem text="📖 Notebook" to="/student/Notebook" />
               </div>
             )}
           </div>
         </nav>
 
-        {/* Login Button */}
         <Link to="/login" className="hidden md:block bg-blue-700 px-5 py-2 rounded-lg hover:bg-blue-800 transition">
           Login
         </Link>
 
-        {/* Mobile Menu Button */}
         <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
-
-      {/* Mobile Navigation */}
-      {menuOpen && (
-        <nav className="md:hidden flex flex-col bg-gray-800 p-4 space-y-2 mt-2 rounded-lg">
-          <NavItem text="Home" to="/home" />
-          <NavItem text="Courses" to="/CoursePage" />
-          <NavItem text="Resources" to="/ResourcePage" />
-          <NavItem text="Contact" to="/contact" /> {/* Corrected path */}
-
-          {/* Student Dropdown */}
-          <div className="flex flex-col">
-            <button 
-              onClick={() => setStudentDropdown(!studentDropdown)} 
-              className="flex justify-between items-center px-4 py-2 hover:text-blue-400"
-            >
-              Student <ChevronDown className="w-4 h-4" />
-            </button>
-            {studentDropdown && (
-              <div className="ml-4 space-y-2">
-                <DropdownItem text="Dashboard" to="/student/dashboard" />
-                <DropdownItem text="Profile" to="/student/profile" />
-                <DropdownItem text="Assignments" to="/student/assignments" />
-              </div>
-            )}
-          </div>
-
-          {/* Login Button */}
-          <Link to="/login" className="bg-blue-700 text-center py-2 rounded-lg hover:bg-blue-800 transition">
-            Login
-          </Link>
-        </nav>
-      )}
     </header>
   );
 };
