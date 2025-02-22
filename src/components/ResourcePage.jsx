@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { Search, BookOpen, PenToolIcon as Tool, Video, Code, FlaskRoundIcon as Flask } from "lucide-react"
-
 const resources = [
   {
     id: 1,
@@ -15,7 +14,83 @@ const resources = [
     author: "John Doe",
     date: "Feb 20, 2025",
   },
-  // ... rest of the resources data remains the same
+  {
+    id: 2,
+    title: "React Cheatsheet",
+    category: "Tools",
+    description: "Quick reference for React concepts and hooks.",
+    link: "https://reactcheatsheet.com/",
+    image: "/placeholder.svg?height=200&width=400",
+    readTime: "5 min read",
+    author: "Jane Smith",
+    date: "Feb 18, 2025",
+  },
+  {
+    id: 3,
+    title: "Web Development eBook",
+    category: "eBooks",
+    description: "A comprehensive eBook on modern web development.",
+    link: "https://eloquentjavascript.net/",
+    image: "/placeholder.svg?height=200&width=400",
+    readTime: "3 hour read",
+    author: "Mike Johnson",
+    date: "Feb 15, 2025",
+  },
+  {
+    id: 4,
+    title: "CSS Grid Mastery",
+    category: "Articles",
+    description: "Master CSS Grid layout with practical examples.",
+    link: "https://css-tricks.com/snippets/css/complete-guide-grid/",
+    image: "/placeholder.svg?height=200&width=400",
+    readTime: "15 min read",
+    author: "Sarah Wilson",
+    date: "Feb 12, 2025",
+  },
+  {
+    id: 5,
+    title: "JavaScript: The Good Parts",
+    category: "eBooks",
+    description: "A classic book on JavaScript best practices.",
+    link: "https://www.oreilly.com/library/view/javascript-the-good/9780596517748/",
+    image: "/placeholder.svg?height=200&width=400",
+    readTime: "4 hour read",
+    author: "Douglas Crockford",
+    date: "Jan 30, 2025",
+  },
+  {
+    id: 6,
+    title: "VS Code Productivity Tips",
+    category: "Videos",
+    description: "Boost your coding speed with these VS Code tricks.",
+    link: "https://code.visualstudio.com/docs/getstarted/tips-and-tricks",
+    image: "/placeholder.svg?height=200&width=400",
+    readTime: "20 min watch",
+    author: "Alex Chen",
+    date: "Feb 5, 2025",
+  },
+  {
+    id: 7,
+    title: "Machine Learning Basics",
+    category: "Engineering",
+    description: "Introduction to machine learning concepts.",
+    link: "https://www.coursera.org/learn/machine-learning",
+    image: "/placeholder.svg?height=200&width=400",
+    readTime: "1 hour read",
+    author: "Dr. Emily Watson",
+    date: "Feb 8, 2025",
+  },
+  {
+    id: 8,
+    title: "Quantum Computing Explained",
+    category: "Science",
+    description: "Simplified explanation of quantum computing principles.",
+    link: "https://quantum.country/",
+    image: "/placeholder.svg?height=200&width=400",
+    readTime: "30 min read",
+    author: "Prof. David Quantum",
+    date: "Feb 1, 2025",
+  },
 ]
 
 const categories = ["All", "Articles", "eBooks", "Tools", "Videos", "Engineering", "Science"]
