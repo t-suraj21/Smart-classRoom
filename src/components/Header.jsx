@@ -18,7 +18,7 @@ const Header = () => {
           <NavItem text="Home" to="/home" />
           <NavItem text="Courses" to="/CoursePage" />
           <NavItem text="Resources" to="/ResourcePage" />
-          <NavItem text="Contact" to="/contact" />
+          <NavItem text="Contact" to="/ContactPage" />
 
           {/* Student Dropdown */}
           <div className="relative">
