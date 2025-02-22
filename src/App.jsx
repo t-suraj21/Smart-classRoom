@@ -13,6 +13,8 @@ const App = () => {
         <div className="flex-1">
           <Header />
           <Routes>
+             <Route path="/" element={<HomePage />} /> 
+            
             <Route path="/home" element={<HomePage />} /> 
             <Route path="/CoursePage" element={<CoursePage />} />
             <Route path="/ResourcePage" element={<ResourcePage />} />
