@@ -7,8 +7,9 @@ import ResourcePage from "./components/ResourcePage";
 import ContactPage from "./components/ContactPage";
 import Dashboard from "./components/student/Dashboard";
 import TeacherDashboard from "./components/student/TeacherDashboard";
-import Auth from "./components/Auth"; // Import Auth component
-import Profile from "./components/Profile"; // Import Profile component
+import Auth from "./components/Auth"; 
+import Profile from "./components/Profile"; // Ensure correct case
+import StudentList from "./components/student/StudentList"; // Correct import name
 
 const App = () => {
   return (
@@ -24,8 +25,9 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/student/dashboard" element={<Dashboard />} />
             <Route path="/student/teacher-dashboard" element={<TeacherDashboard />} />
-            <Route path="/auth" element={<Auth />} /> {/* Add Auth Route */}
-            <Route path="/profile" element={<Profile />} /> {/* Add Profile Route */}
+            <Route path="/auth" element={<Auth />} /> 
+            <Route path="/profile" element={<Profile />} /> 
+            <Route path="/student/Student-List" element={<StudentList />} /> {/* Corrected usage */}
           </Routes>
         </div>
       </div>

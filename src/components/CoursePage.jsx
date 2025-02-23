@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Icon } from "@iconify/react";
 
 const courses = [
   {
@@ -9,7 +11,8 @@ const courses = [
     price: 499,
     originalPrice: 2699,
     category: "AI",
-    image: "https://via.placeholder.com/300",
+    image: "/api/placeholder/300/200",
+    link: "https://www.udemy.com/course/chatgpt-complete-guide-to-chatgpt-openai-apis/",
   },
   {
     title: "The Complete AI-Powered Copywriting Course & ChatGPT",
@@ -20,9 +23,10 @@ const courses = [
     originalPrice: 3099,
     category: "AI",
     image: "https://via.placeholder.com/300",
+    link: "https://www.udemy.com/course/ai-powered-copywriting-course/",
   },
   {
-    title: "Machine Learning Fundamentals",
+    title: "Machine Learning Specialization",
     instructor: "Andrew Ng",
     rating: 4.7,
     learners: "85,000",
@@ -30,19 +34,21 @@ const courses = [
     originalPrice: 1599,
     category: "Machine Learning",
     image: "https://via.placeholder.com/300",
+    link: "https://www.coursera.org/specializations/machine-learning-introduction",
   },
   {
     title: "Deep Learning Specialization",
-    instructor: "Ian Goodfellow",
+    instructor: "Andrew Ng",
     rating: 4.8,
     learners: "70,500",
     price: 999,
     originalPrice: 1999,
     category: "Deep Learning",
     image: "https://via.placeholder.com/300",
+    link: "https://www.coursera.org/specializations/deep-learning",
   },
   {
-    title: "Python for Data Science",
+    title: "Python for Data Science and Machine Learning Bootcamp",
     instructor: "Jose Portilla",
     rating: 4.6,
     learners: "95,000",
@@ -50,100 +56,196 @@ const courses = [
     originalPrice: 1299,
     category: "Python",
     image: "https://via.placeholder.com/300",
+    link: "https://www.udemy.com/course/python-for-data-science-and-machine-learning-bootcamp/",
   },
   {
-    title: "Statistics for Data Science",
-    instructor: "Khan Academy",
+    title: "Statistics for Data Science and Business Analysis",
+    instructor: "365 Careers",
     rating: 4.4,
     learners: "50,000",
     price: 599,
     originalPrice: 1199,
     category: "Data Science",
     image: "https://via.placeholder.com/300",
+    link: "https://www.udemy.com/course/statistics-for-data-science-and-business-analysis/",
   },
   {
-    title: "Artificial Intelligence & Ethics",
-    instructor: "Stuart Russell",
+    title: "AI For Everyone",
+    instructor: "Andrew Ng",
     rating: 4.2,
     learners: "15,000",
     price: 499,
     originalPrice: 999,
     category: "AI",
     image: "https://via.placeholder.com/300",
+    link: "https://www.coursera.org/learn/ai-for-everyone",
   },
   {
-    title: "Full-Stack Web Development with React",
-    instructor: "Colt Steele",
+    title: "The Complete 2023 Web Development Bootcamp",
+    instructor: "Dr. Angela Yu",
     rating: 4.7,
     learners: "100,000",
     price: 899,
     originalPrice: 1799,
     category: "Web Development",
     image: "https://via.placeholder.com/300",
+    link: "https://www.udemy.com/course/the-complete-web-development-bootcamp/",
   },
+
 ];
 
-const categories = ["All", "AI", "Data Science", "Python", "Machine Learning", "Deep Learning", "Web Development"];
+const categories = [
+  { name: "All", icon: "mdi:view-grid" },
+  { name: "AI", icon: "mdi:robot" },
+  { name: "Data Science", icon: "mdi:chart-bar" },
+  { name: "Python", icon: "mdi:language-python" },
+  { name: "Machine Learning", icon: "mdi:brain" },
+  { name: "Deep Learning", icon: "mdi:layers" },
+  { name: "Web Development", icon: "mdi:web" },
+];
 
 const CoursePage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filteredCourses =
-    selectedCategory === "All"
-      ? courses
-      : courses.filter((course) => course.category === selectedCategory);
+    selectedCategory === "All" 
+    ? courses 
+    : courses.filter((course) => course.category === selectedCategory);
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="min-h-screen flex flex-col bg-gray-100">
       {/* Hero Section */}
-      <div className="bg-blue-600 text-white text-center py-16 px-6">
-        <h1 className="text-4xl font-bold mb-4">Upgrade Your Skills with Our Top Courses</h1>
-        <p className="text-lg mb-6">Learn from industry experts and enhance your career prospects.</p>
-        <button className="bg-white text-blue-600 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-200 transition">
-          Browse Courses
-        </button>
+      <div className="w-full bg-gradient-to-r from-blue-600 to-purple-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="text-center max-w-3xl mx-auto">
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6"
+            >
+              Transform Your Future with Expert-Led Courses
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed"
+            >
+              Discover cutting-edge courses designed to help you master the skills 
+              that drive innovation and shape tomorrow's technology.
+            </motion.p>
+            <motion.button
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-white text-blue-600 font-semibold px-8 py-4 rounded-full 
+                shadow-lg hover:bg-gray-100 transition duration-300 text-lg"
+            >
+              Browse All Courses
+            </motion.button>
+          </div>
+        </div>
       </div>
 
       {/* Categories Filter */}
-      <div className="flex gap-4 p-6 overflow-x-auto">
-        {categories.map((category, index) => (
-          <button
-            key={index}
-            onClick={() => setSelectedCategory(category)}
-            className={`px-4 py-2 rounded-lg border border-gray-300 text-gray-800 hover:bg-gray-200 transition ${
-              selectedCategory === category ? "bg-gray-300" : ""
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
-      {/* Courses List */}
-      <div className="grid md:grid-cols-4 gap-6 px-6">
-        {filteredCourses.map((course, index) => (
-          <div key={index} className="bg-white p-4 rounded-lg shadow-md">
-            <img src={course.image} alt={course.title} className="w-full rounded-lg mb-3" />
-            <h3 className="text-lg font-semibold text-gray-900">{course.title}</h3>
-            <p className="text-gray-600 text-sm">{course.instructor}</p>
-            <p className="text-yellow-500 font-bold">⭐ {course.rating} ({course.learners})</p>
-            <p className="text-gray-900 font-bold text-lg">₹{course.price} <span className="text-gray-500 line-through text-sm">₹{course.originalPrice}</span></p>
-            <button className="mt-3 w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
-              Enroll Now
-            </button>
+      <div className="w-full bg-white shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-wrap justify-center gap-4">
+            {categories.map((category, index) => (
+              <motion.button
+                key={index}
+                onClick={() => setSelectedCategory(category.name)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-6 py-3 rounded-full border text-base font-medium
+                  flex items-center space-x-2 transition duration-300
+                  ${selectedCategory === category.name 
+                    ? "bg-blue-100 border-blue-500 text-blue-700" 
+                    : "border-gray-300 text-gray-700 hover:bg-gray-100"
+                  }`}
+              >
+                <Icon icon={category.icon} className="text-xl" />
+                <span>{category.name}</span>
+              </motion.button>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
 
-     {/* Footer */}
-     <footer className="bg-white mt-12 py-8">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="flex justify-between items-center">
-            <p className="text-gray-600">© 2025 Courses. All rights reserved.</p>
-            <div className="flex gap-6">
-              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Privacy Policy</a>
-              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Terms of Service</a>
-              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Contact Us</a>
+      {/* Courses Grid */}
+      <div className="flex-grow w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredCourses.map((course, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl 
+                  transition duration-300 overflow-hidden"
+              >
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2 
+                    line-clamp-2 min-h-[3.5rem]">
+                    {course.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-2">{course.instructor}</p>
+                  <div className="flex items-center mb-2">
+                    <Icon icon="mdi:star" className="text-yellow-500 mr-1" />
+                    <span className="text-yellow-500 font-bold">{course.rating}</span>
+                    <span className="text-gray-500 text-sm ml-2">
+                      ({course.learners} learners)
+                    </span>
+                  </div>
+                  <p className="text-gray-900 font-bold text-2xl mb-4">
+                    ₹{course.price}{" "}
+                    <span className="text-gray-500 line-through text-lg">
+                      ₹{course.originalPrice}
+                    </span>
+                  </p>
+                  <a
+                    href={course.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center bg-blue-600 text-white 
+                      py-3 rounded-lg hover:bg-blue-700 transition duration-300"
+                  >
+                    Enroll Now
+                  </a>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="w-full bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-600 mb-4 md:mb-0">
+              © 2025 Courses. All rights reserved.
+            </p>
+            <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+              <a href="#" className="text-gray-600 hover:text-blue-500 
+                transition-colors duration-300">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-gray-600 hover:text-blue-500 
+                transition-colors duration-300">
+                Terms of Service
+              </a>
+              <a href="#" className="text-gray-600 hover:text-blue-500 
+                transition-colors duration-300">
+                Contact Us
+              </a>
             </div>
           </div>
         </div>
