@@ -10,6 +10,8 @@ import TeacherDashboard from "./components/student/TeacherDashboard";
 import Auth from "./components/Auth"; 
 import Profile from "./components/Profile"; // Ensure correct case
 import StudentList from "./components/student/StudentList"; // Correct import name
+import StudentProfile from "./components/student/StudentProfile"; // Correct import name
+
 
 const App = () => {
   return (
@@ -28,6 +30,7 @@ const App = () => {
             <Route path="/auth" element={<Auth />} /> 
             <Route path="/profile" element={<Profile />} /> 
             <Route path="/student/Student-List" element={<StudentList />} /> {/* Corrected usage */}
+            <Route path="/students/:id" element={<StudentProfile />} />
           </Routes>
         </div>
       </div>
