@@ -145,8 +145,8 @@ const ExperienceSection = () => {
               Leverage <span className="text-purple-500">AI tools</span> for smarter teaching
             </h3>
             <div className="flex flex-wrap gap-2 mt-4">
-              <img src="/chatgpt.png" alt="ChatGPT" className="h-6" />
-              <img src="/perplexity.png" alt="Perplexity" className="h-6" />
+              <img src="/assets/chatgpt.png" alt="ChatGPT" className="h-6" />
+              <img src="/assets/perplexity.png" alt="Perplexity" className="h-6" />
               <img src="/claude.png" alt="Claude" className="h-6" />
               <img src="/gamma.png" alt="Gamma" className="h-6" />
               <img src="/manychat.png" alt="Manychat" className="h-6" />

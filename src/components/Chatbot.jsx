@@ -19,6 +19,7 @@ const styles = {
     cursor: 'pointer',
     transition: 'all 0.3s',
     zIndex: 50,
+    fontSize: '20px',
   },
 
   chatWindow: {
@@ -132,7 +133,8 @@ const styles = {
     cursor: 'pointer',
     transition: 'all 0.3s',
     marginLeft: 'auto',
-  }
+    fontSize: '20px', // Adjust icon size
+  },
 };
 
 const Chatbot = () => {
@@ -184,7 +186,7 @@ const Chatbot = () => {
           transform: isOpen ? 'scale(0)' : 'scale(1)',
         }}
       >
-        <MessageCircle size={32} />
+        <span style={{ fontSize: '32px' }}>💬</span> {/* Chatbot icon */}
       </button>
 
       <div style={{
@@ -287,25 +289,9 @@ const Chatbot = () => {
                 cursor: !input.trim() || loading ? 'not-allowed' : 'pointer',
               }}
             >
-              <Send size={24} style={{ opacity: loading ? 0 : 1 }} />
-              {loading && (
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  animation: 'spin 1s linear infinite'
-                }}>
-                  <div style={{
-                    width: '20px',
-                    height: '20px',
-                    border: '2px solid white',
-                    borderTopColor: 'transparent',
-                    borderRadius: '50%',
-                  }} />
-                </div>
-              )}
+             <button style={styles.sendButton}>
+           <span style={{ fontSize: '20px' }}>▶</span>
+            </button>
             </button>
           </div>
         </div>

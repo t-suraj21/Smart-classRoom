@@ -225,31 +225,65 @@ const CoursePage = () => {
           </div>
         </div>
       </div>
+      
+      <footer className="bg-black text-white py-10 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+        {/* About Us */}
+        <div>
+          <h4 className="text-lg font-semibold mb-3">About Us</h4>
+          <p className="text-sm text-gray-400">
+            We provide innovative classroom solutions to streamline attendance, lesson planning, and student performance tracking.
+          </p>
+        </div>
 
-      {/* Footer */}
-      <footer className="w-full bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-600 mb-4 md:mb-0">
-              © 2025 Courses. All rights reserved.
-            </p>
-            <div className="flex flex-col md:flex-row gap-4 md:gap-6">
-              <a href="#" className="text-gray-600 hover:text-blue-500 
-                transition-colors duration-300">
-                Privacy Policy
+        {/* Quick Links */}
+        <div>
+          <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
+          <ul className="space-y-2">
+            {["Dashboard", "Courses", "Resources", "Home", "Contact"].map((item, i) => (
+              <li key={i}>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  {item}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Legal */}
+        <div>
+          <h4 className="text-lg font-semibold mb-3">Legal</h4>
+          <ul className="space-y-2">
+            <li><a href="#" className="text-gray-400 hover:text-white">Privacy Policy</a></li>
+            <li><a href="#" className="text-gray-400 hover:text-white">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        {/* Follow Us */}
+        <div>
+          <h4 className="text-lg font-semibold mb-3">Follow Us</h4>
+          <div className="flex justify-center md:justify-start space-x-4">
+            {["facebook", "twitter", "instagram"].map((social, idx) => (
+              <a
+                key={idx}
+                href={`https://${social}.com`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-75 transition duration-300"
+              >
+                <img src={`/assets/${social}.png`} alt={social} className="w-6 h-6" />
               </a>
-              <a href="#" className="text-gray-600 hover:text-blue-500 
-                transition-colors duration-300">
-                Terms of Service
-              </a>
-              <a href="#" className="text-gray-600 hover:text-blue-500 
-                transition-colors duration-300">
-                Contact Us
-              </a>
-            </div>
+            ))}
           </div>
         </div>
-      </footer>
+      </div>
+
+      {/* Copyright */}
+      <p className="text-center text-gray-500 mt-6 text-sm">
+        © 2025 Smart Classroom. All rights reserved.
+      </p>
+    </footer>
+
     </div>
   );
 };
