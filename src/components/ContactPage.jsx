@@ -45,7 +45,7 @@ const ContactPage = () => {
                 key={index}
                 href="#"
                 whileHover={{ scale: 1.1 }}
-                className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition duration-300"
+                className="px-4 py-2 bg-blue-200 text-white rounded-full hover:bg-blue-500 transition duration-300"
               >
                 {platform}
               </motion.a>
@@ -133,18 +133,19 @@ const ContactPage = () => {
         </div>
       </div>
 
-      {/* Live Chat & FAQ Section */}
-      <div className="mt-10 text-center">
-        <h3 className="text-2xl font-bold text-gray-800">💬 Live Chat Support</h3>
-        <p className="text-gray-600">Need quick help? Click the button below to chat with us.</p>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-4 px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300"
-        >
-          Start Live Chat
-        </motion.button>
-      </div>
+{/* Footer */}
+      <footer className="bg-white mt-12 py-8">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex justify-between items-center">
+            <p className="text-gray-600">© 2025 Contact. All rights reserved.</p>
+            <div className="flex gap-6">
+              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Privacy Policy</a>
+              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Terms of Service</a>
+              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

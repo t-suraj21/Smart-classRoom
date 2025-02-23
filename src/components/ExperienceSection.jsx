@@ -10,60 +10,54 @@ const ExperienceSection = () => {
           transition={{ duration: 0.6 }}
           className="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left max-w-3xl"
         >
-          Get professional experience that matters with Extern
+          Transform Learning with AI-Powered Smart Classrooms
         </motion.h2>
         <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4"
-            >
-              <div>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <div className="min-w-4 mt-1.5 mr-2">•</div>
-                    <p>Test drive career paths with real projects</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="min-w-4 mt-1.5 mr-2">•</div>
-                    <p>Build your resume with skills you've applied</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="min-w-4 mt-1.5 mr-2">•</div>
-                    <p>Connect with professionals from startups to Fortune brands</p>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <div className="min-w-4 mt-1.5 mr-2">•</div>
-                    <p>Develop soft skills through professional collaboration</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="min-w-4 mt-1.5 mr-2">•</div>
-                    <p>Learn how to use Gen AI tools through real projects</p>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="min-w-4 mt-1.5 mr-2">•</div>
-                    <p>Gain real project experience to discuss at job interviews</p>
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
-
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+        >
+          <div>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <div className="min-w-4 mt-1.5 mr-2">•</div>
+                <p>Track student progress with AI-driven analytics</p>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-4 mt-1.5 mr-2">•</div>
+                <p>Automate attendance with facial recognition</p>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-4 mt-1.5 mr-2">•</div>
+                <p>Interactive lessons powered by AI suggestions</p>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <div className="min-w-4 mt-1.5 mr-2">•</div>
+                <p>Personalized learning paths for every student</p>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-4 mt-1.5 mr-2">•</div>
+                <p>AI-powered assignment grading & feedback</p>
+              </li>
+              <li className="flex items-start">
+                <div className="min-w-4 mt-1.5 mr-2">•</div>
+                <p>Seamless integration with AI chatbots & tutors</p>
+              </li>
+            </ul>
+          </div>
+        </motion.div>
       </div>
 
       <div className="flex flex-col md:flex-row items-start justify-center gap-6 p-6">
         {/* Left Blue Box */}
-        <motion.div
-          className="bg-blue-100 rounded-2xl p-6 w-full md:w-[55%]"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="bg-blue-100 rounded-2xl p-6 w-full md:w-[55%]">
           <h3 className="text-lg font-semibold text-blue-700">
-            Flexibly <span className="text-blue-500">explore careers</span> through real experience
+            Experience the future of education with AI-powered learning
           </h3>
           <div className="mt-4 space-y-4 overflow-hidden">
             {/* Motion div for looping animation */}
@@ -73,50 +67,51 @@ const ExperienceSection = () => {
               transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
             >
               <div className="bg-white rounded-lg p-4 shadow flex items-center">
-                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Consulting</span>
+                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">AI Attendance</span>
                 <div className="ml-4">
-                  <p className="text-sm font-semibold">Market Analysis & Strategy Consulting</p>
-                  <p className="text-xs text-gray-500">Men's casual apparel</p>
-                </div>
-                <img src="/assets/microsoft.png" alt="Microsoft Logo" className="h-8 ml-auto" />
-              </div>
-              <div className="bg-white rounded-lg p-4 shadow flex items-center">
-                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Venture Capital</span>
-                <div className="ml-4">
-                  <p className="text-sm font-semibold">VC Deal Sourcing & Startup Analysis</p>
-                  <p className="text-xs text-gray-500">VC arm of HP Inc.</p>
-                </div>
-                <img src="/assets/hp-ventures-logo.png" alt="HP Ventures Logo" className="h-8 ml-auto" />
-              </div>
-              <div className="bg-white rounded-lg p-4 shadow flex items-center">
-                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Data</span>
-                <div className="ml-4">
-                  <p className="text-sm font-semibold">Consumer Behavior & Market Analysis</p>
-                  <p className="text-xs text-gray-500">Analytics and insights</p>
-                </div>
-                <img src="/assets/beats-logo.png" alt="Beats Logo" className="h-8 ml-auto" />
-              </div>
-              <div className="bg-white rounded-lg p-4 shadow flex items-center">
-                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Artificial Intelligence</span>
-                <div className="ml-4">
-                  <p className="text-sm font-semibold">Machine Learning Applications</p>
-                  <p className="text-xs text-gray-500">AI implementation strategy</p>
+                  <p className="text-sm font-semibold">Real-time Student Tracking</p>
+                  <p className="text-xs text-gray-500">Facial recognition-based attendance</p>
                 </div>
                 <img src="/assets/ai-logo.png" alt="AI Logo" className="h-8 ml-auto" />
               </div>
               <div className="bg-white rounded-lg p-4 shadow flex items-center">
-                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Digital Marketing</span>
+                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Performance Insights</span>
                 <div className="ml-4">
-                  <p className="text-sm font-semibold">Social Media & Content Strategy</p>
-                  <p className="text-xs text-gray-500">Engagement optimization</p>
+                  <p className="text-sm font-semibold">AI-Generated Student Reports</p>
+                  <p className="text-xs text-gray-500">Identify learning gaps & strengths</p>
                 </div>
-                <img src="/assets/digital-logo.png" alt="Digital Marketing Logo" className="h-8 ml-auto" />
+                <img src="/assets/data-logo.png" alt="Data Analytics Logo" className="h-8 ml-auto" />
               </div>
+              <div className="bg-white rounded-lg p-4 shadow flex items-center">
+                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Smart Assignments</span>
+                <div className="ml-4">
+                  <p className="text-sm font-semibold">Auto-Graded AI-Enhanced Homework</p>
+                  <p className="text-xs text-gray-500">Instant feedback & analytics</p>
+                </div>
+                <img src="/assets/assignment-logo.png" alt="Assignment Logo" className="h-8 ml-auto" />
+              </div>
+              <div className="bg-white rounded-lg p-4 shadow flex items-center">
+                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Smart Assignments</span>
+                <div className="ml-4">
+                  <p className="text-sm font-semibold">Auto-Graded AI-Enhanced Homework</p>
+                  <p className="text-xs text-gray-500">Instant feedback & analytics</p>
+                </div>
+                <img src="/assets/assignment-logo.png" alt="Assignment Logo" className="h-8 ml-auto" />
+              </div>
+              <div className="bg-white rounded-lg p-4 shadow flex items-center">
+                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Smart Assignments</span>
+                <div className="ml-4">
+                  <p className="text-sm font-semibold">Auto-Graded AI-Enhanced Homework</p>
+                  <p className="text-xs text-gray-500">Instant feedback & analytics</p>
+                </div>
+                <img src="/assets/assignment-logo.png" alt="Assignment Logo" className="h-8 ml-auto" />
+              </div>
+              
             </motion.div>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Right Side (Green and Pink Boxes) */}
+        {/* Right Side (Green and Purple Boxes) */}
         <div className="w-full md:w-[40%] space-y-4">
           {/* Green Box */}
           <motion.div
@@ -126,20 +121,20 @@ const ExperienceSection = () => {
             transition={{ duration: 0.5 }}
           >
             <h3 className="text-lg font-semibold text-green-700">
-              Build a <span className="text-green-500">resume</span> employers will notice
+              Track student <span className="text-green-500">progress</span> with AI-driven analytics
             </h3>
             <div className="bg-white rounded-lg p-4 shadow mt-4">
-              <p className="text-sm font-semibold">Experience</p>
-              <p className="text-xs text-gray-500">Extern | Blockchain Extern, Webacy</p>
-              <p className="text-xs text-gray-500">Mar 2024 - Apr 2024 • 2 mos</p>
+              <p className="text-sm font-semibold">Analytics</p>
+              <p className="text-xs text-gray-500">Smart Classroom AI</p>
+              <p className="text-xs text-gray-500">Real-time dashboards & reports</p>
               <ul className="text-xs text-gray-500 list-disc list-inside mt-2">
-                <li>Analyzed Ethereum blockchain</li>
-                <li>Investigated suspicious transactions</li>
+                <li>Customizable progress tracking</li>
+                <li>Automated performance evaluation</li>
               </ul>
             </div>
           </motion.div>
 
-          {/* Pink Box */}
+          {/* Purple Box */}
           <motion.div
             className="bg-purple-200 rounded-2xl p-6"
             initial={{ opacity: 0, y: 50 }}
@@ -147,7 +142,7 @@ const ExperienceSection = () => {
             transition={{ duration: 0.5 }}
           >
             <h3 className="text-lg font-semibold text-purple-700">
-              Learn how to use <span className="text-purple-500">Gen AI tools</span> through real projects
+              Leverage <span className="text-purple-500">AI tools</span> for smarter teaching
             </h3>
             <div className="flex flex-wrap gap-2 mt-4">
               <img src="/chatgpt.png" alt="ChatGPT" className="h-6" />

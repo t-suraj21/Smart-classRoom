@@ -135,9 +135,18 @@ const CoursePage = () => {
         ))}
       </div>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white text-center py-6 mt-10">
-        <p>&copy; 2025 Course Hub. All Rights Reserved.</p>
+     {/* Footer */}
+     <footer className="bg-white mt-12 py-8">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex justify-between items-center">
+            <p className="text-gray-600">© 2025 Courses. All rights reserved.</p>
+            <div className="flex gap-6">
+              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Privacy Policy</a>
+              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Terms of Service</a>
+              <a href="#" className="text-gray-600 hover:text-blue-500 transition-colors duration-300">Contact Us</a>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );

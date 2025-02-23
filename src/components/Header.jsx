@@ -23,9 +23,12 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="bg-gray-900 text-white p-4 shadow-md sticky top-0 z-50">
+    <header className="bg-white text-white p-4 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-white">EduSphere</h2>
+        <div className="flex items-center">
+          <img src="/assets/edusphere.jpg" alt="EduSphere Logo" className="h-8 mr-2" />
+          <h2 className="text-2xl font-bold text-white">EduSphere</h2>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
@@ -44,7 +47,7 @@ const Header = () => {
               Student <ChevronDown className="w-4 h-4" />
             </button>
             {studentDropdown && (
-              <div className="absolute left-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-lg">
+              <div className="absolute left-0 mt-2 w-48 bg-white  rounded-lg shadow-lg">
                 <DropdownItem text="📜 Student List" to="/student/student-list" />
                 <DropdownItem text="📊 Student Dashboard" to="/student/Dashboard" />
                 <DropdownItem text="👨‍🏫 Teacher Dashboard" to="/student/TeacherDashboard" />
@@ -70,7 +73,7 @@ const Header = () => {
       {menuOpen && (
         <div
           ref={mobileMenuRef}
-          className="md:hidden bg-gray-900 text-white p-4 absolute top-16 left-0 w-full shadow-md"
+          className="md:hidden bg-white text-white p-4 absolute top-16 left-0 w-full shadow-md"
         >
           <NavItem text="Home" to="/home" onClick={() => setMenuOpen(false)} />
           <NavItem text="Courses" to="/course" onClick={() => setMenuOpen(false)} />
@@ -79,7 +82,7 @@ const Header = () => {
 
           {/* Student Dropdown (Mobile) */}
           <div className="mt-2">
-            <p className="text-gray-400 px-5">Student</p>
+            <p className="text-white px-5">Student</p>
             <DropdownItem text="📜 Student List" to="/student/student-list" onClick={() => setMenuOpen(false)} />
             <DropdownItem text="📊 Student Dashboard" to="/student/dashboard" onClick={() => setMenuOpen(false)} />
             <DropdownItem text="👨‍🏫 Teacher Dashboard" to="/student/teacher-dashboard" onClick={() => setMenuOpen(false)} />
