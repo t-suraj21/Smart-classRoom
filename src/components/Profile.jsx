@@ -17,7 +17,7 @@ const Profile = () => {
     }
 
     axios
-      .get("https://class-room-backend.onrender.com/profile", {
+      .get("http://localhost:3000/profile", {
         headers: { "x-auth-token": token },
       })
       .then((res) => {
