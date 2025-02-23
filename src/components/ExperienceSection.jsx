@@ -98,14 +98,7 @@ const ExperienceSection = () => {
                 </div>
                 <img src="/assets/assignment-logo.png" alt="Assignment Logo" className="h-8 ml-auto" />
               </div>
-              <div className="bg-white rounded-lg p-4 shadow flex items-center">
-                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Smart Assignments</span>
-                <div className="ml-4">
-                  <p className="text-sm font-semibold">Auto-Graded AI-Enhanced Homework</p>
-                  <p className="text-xs text-gray-500">Instant feedback & analytics</p>
-                </div>
-                <img src="/assets/assignment-logo.png" alt="Assignment Logo" className="h-8 ml-auto" />
-              </div>
+              
               
             </motion.div>
           </div>
@@ -145,13 +138,14 @@ const ExperienceSection = () => {
               Leverage <span className="text-purple-500">AI tools</span> for smarter teaching
             </h3>
             <div className="flex flex-wrap gap-2 mt-4">
-              <img src="/assets/chatgpt.png" alt="ChatGPT" className="h-6" />
-              <img src="/assets/perplexity.png" alt="Perplexity" className="h-6" />
-              <img src="/claude.png" alt="Claude" className="h-6" />
-              <img src="/gamma.png" alt="Gamma" className="h-6" />
-              <img src="/manychat.png" alt="Manychat" className="h-6" />
-              <img src="/gemini.png" alt="Gemini" className="h-6" />
-              <img src="/zapier.png" alt="Zapier" className="h-6" />
+              <img src="/assets/chatgpt.png" alt="ChatGPT" className="h-10" />
+              <img src="/assets/perplexity.png" alt="Perplexity" className="h-10" />
+              <img src="/assets/cluade.png" alt="Claude" className="h-10" />
+              <img src="/assets/gamma.png" alt="Gamma" className="h-10" />
+              <img src="/assets/manychat.png" alt="Manychat" className="h-10" />
+              <img src="/assets/gemini.png" alt="Gemini" className="h-10" />
+            
+              <img src="/assets/zapier.png" alt="Zapier" className="h-10" />
             </div>
           </motion.div>
         </div>

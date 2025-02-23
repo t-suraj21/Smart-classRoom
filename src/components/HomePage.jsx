@@ -52,6 +52,37 @@ const faqData = [
   }
 ];
 
+  const cards = [
+    { title: "Engineering Colleges", image: "/assets/colloge.jpg" },
+    { title: "Medical Colleges", image: "/assets/medical-college.jpg" },
+    { title: "Universities", image: "/assets/universities.jpg" },
+    { title: "Corporates", image: "/assets/corporates.jpg" },
+    { title: "K12 Education", image: "/assets/k12-education.jpg" },
+    { title: "Training Institute", image: "/assets/training-institute.jpg" }
+  ];
+
+  // Animation variants for staggered children
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -87,95 +118,79 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section with Slider */}
-      <section className="relative h-screen w-full overflow-hidden">
-        {/* Background Images */}
-        <AnimatePresence initial={false}>
-          <motion.div
-            key={currentSlide}
-            className="absolute inset-0"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7 }}
+    {/* Hero Section with Slider */}
+    <section className="relative w-full overflow-hidden h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-screen">
+      {/* Background Images */}
+      <AnimatePresence initial={false}>
+        <motion.div
+          key={currentSlide}
+          className="absolute inset-0"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
-            >
-              <div className="absolute inset-0 bg-black/50" />
-            </div>
-          </motion.div>
-        </AnimatePresence>
+            <div className="absolute inset-0 bg-black/50" />
+          </div>
+        </motion.div>
+      </AnimatePresence>
 
-        {/* Content */}
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <div className="container mx-auto px-4">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentSlide}
+      {/* Content */}
+      <div className="relative z-10 flex items-center justify-center h-full">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="max-w-4xl mx-auto text-center text-white"
+            >
+              <motion.h1
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-3 sm:mb-4 md:mb-6 whitespace-pre-line"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="max-w-4xl mx-auto text-center text-white"
+                transition={{ delay: 0.2 }}
               >
-                <motion.h1
-                  className="text-5xl md:text-7xl font-bold mb-6 whitespace-pre-line"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                >
-                  {slides[currentSlide].title}
-                </motion.h1>
-                <motion.p
-                  className="text-xl md:text-2xl mb-8"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  {slides[currentSlide].subtitle}
-                </motion.p>
-                <motion.p
-                  className="text-lg md:text-xl mb-12 text-gray-200"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                >
-                  {slides[currentSlide].description}
-                </motion.p>
-                <motion.a
-                  href="#"
-                  className="inline-block bg-white text-blue-900 px-8 py-4 rounded-full text-lg font-semibold 
-                             transition-all duration-300 transform hover:bg-blue-600 hover:text-white hover:scale-105 shadow-md"
-                >
-                  Try Demo
-                </motion.a>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                {slides[currentSlide].title}
+              </motion.h1>
+              <motion.p
+                className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 md:mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                {slides[currentSlide].subtitle}
+              </motion.p>
+              <motion.p
+                className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 md:mb-12 text-gray-200"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                {slides[currentSlide].description}
+              </motion.p>
+              <motion.a
+                href="#"
+                className="inline-block bg-white text-blue-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full 
+                         text-base sm:text-lg font-semibold transition-all duration-300 
+                         hover:bg-blue-600 hover:text-white hover:scale-105 shadow-md"
+              >
+                Try Demo
+              </motion.a>
+            </motion.div>
+          </AnimatePresence>
         </div>
+      </div>
 
-{/* Dots Navigation */}
-<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-  {slides.map((_, index) => (
-    <button
-      key={index}
-      onClick={() => {
-        setCurrentSlide(index);
-        setIsAutoPlaying(false);
-      }}
-      className={`w-3 h-3 rounded-full transition-all duration-300 transform ${
-        currentSlide === index
-          ? "bg-blue-500 scale-110"
-          : "bg-gray-300 hover:bg-blue-400"
-      }`}
-      aria-label={`Go to slide ${index + 1}`}
-    />
-  ))}
-</div>
-
-      </section>
+      {/* Dots Navigation */}
+     
+    </section>
 
       {/* Stats Section */}
       <section className="py-16 px-6">
@@ -246,110 +261,69 @@ export default function HomePage() {
       {/* Add the Experience Section here */}
       <ExperienceSection />
       
-    
-{/* Applications Section */}
-<section className="py-16 bg-gray-50">
-  <div className="container mx-auto px-4">
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="text-center mb-16"
-    >
-      <h2 className="text-4xl font-bold text-gray-900 mb-2">SMART CLASSROOM APPLICATIONS</h2>
-      <div className="w-20 h-1 bg-red-500 mx-auto mt-4 mb-8"></div>
-      <h3 className="text-2xl font-medium text-gray-700">Learn smarter, not harder—transform your education with cutting-edge technology.</h3>
-    </motion.div>
+      {/* Add the application  Section here */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50">
+          {/* Animated Header */}
+          <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+            SMART CLASSROOM APPLICATIONS
+          </h2>
+          <motion.div 
+            className="w-24 h-1 bg-red-500 mx-auto"
+            initial={{ width: 0 }}
+            animate={{ width: "6rem" }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          />
+        </motion.div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+       
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-      {/* Row 1 */}
-      <motion.div 
-  className="relative overflow-hidden rounded-lg shadow-lg group"
-  whileHover={{ scale: 1.03 }}
-  transition={{ duration: 0.3 }}
->
-  <div className="h-64 bg-cover bg-center">
-    <img src="/assets/colloge.jpg" alt="Engineering Colleges" className="w-full h-full object-cover" />
-    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
-    <div className="absolute inset-0 flex items-center justify-center">
-      <h3 className="text-white text-2xl font-semibold">Engineering Colleges</h3>
-    </div>
-  </div>
-</motion.div>
-
-<motion.div 
-  className="relative overflow-hidden rounded-lg shadow-lg group"
-  whileHover={{ scale: 1.03 }}
-  transition={{ duration: 0.3 }}
->
-  <div className="h-64 bg-cover bg-center">
-    <img src="/assets/medical-college.jpg" alt="Medical Colleges" className="w-full h-full object-cover" />
-    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
-    <div className="absolute inset-0 flex items-center justify-center">
-      <h3 className="text-white text-2xl font-semibold">Medical Colleges</h3>
-    </div>
-  </div>
-</motion.div>
-
-<motion.div 
-  className="relative overflow-hidden rounded-lg shadow-lg group"
-  whileHover={{ scale: 1.03 }}
-  transition={{ duration: 0.3 }}
->
-  <div className="h-64 bg-cover bg-center">
-    <img src="/assets/universities.jpg" alt="Universities" className="w-full h-full object-cover" />
-    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
-    <div className="absolute inset-0 flex items-center justify-center">
-      <h3 className="text-white text-2xl font-semibold">Universities</h3>
-    </div>
-  </div>
-</motion.div>
-
-<motion.div 
-  className="relative overflow-hidden rounded-lg shadow-lg group"
-  whileHover={{ scale: 1.03 }}
-  transition={{ duration: 0.3 }}
->
-  <div className="h-64 bg-cover bg-center">
-    <img src="/assets/corporates.jpg" alt="Corporates" className="w-full h-full object-cover" />
-    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
-    <div className="absolute inset-0 flex items-center justify-center">
-      <h3 className="text-white text-2xl font-semibold">Corporates</h3>
-    </div>
-  </div>
-</motion.div>
-
-<motion.div 
-  className="relative overflow-hidden rounded-lg shadow-lg group"
-  whileHover={{ scale: 1.03 }}
-  transition={{ duration: 0.3 }}
->
-  <div className="h-64 bg-cover bg-center">
-    <img src="/assets/k12-education.jpg" alt="K12 Education" className="w-full h-full object-cover" />
-    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
-    <div className="absolute inset-0 flex items-center justify-center">
-      <h3 className="text-white text-2xl font-semibold">K12 Education</h3>
-    </div>
-  </div>
-</motion.div>
-
-<motion.div 
-  className="relative overflow-hidden rounded-lg shadow-lg group"
-  whileHover={{ scale: 1.03 }}
-  transition={{ duration: 0.3 }}
->
-  <div className="h-64 bg-cover bg-center">
-    <img src="/assets/training-institute.jpg" alt="Training Institute" className="w-full h-full object-cover" />
-    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300"></div>
-    <div className="absolute inset-0 flex items-center justify-center">
-      <h3 className="text-white text-2xl font-semibold">Training Institute</h3>
-    </div>
-  </div>
-</motion.div>
-    </div>
-  </div>
-</section>
+        {/* Animated Grid */}
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          {cards.map((card, index) => (
+            <motion.div 
+              key={index}
+              className="relative overflow-hidden rounded-xl group transform transition-all duration-300 hover:shadow-2xl"
+              variants={itemVariants}
+            >
+              <div className="aspect-[4/3] relative">
+                <img 
+                  src={card.image} 
+                  alt={card.title} 
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-300"/>
+                
+                {/* Title Container */}
+                <motion.div 
+                  className="absolute inset-0 flex flex-col items-center justify-center p-4"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    {card.title}
+                  </h3>
+                  <div className="w-0 group-hover:w-16 h-0.5 bg-red-500 mt-2 transition-all duration-300"/>
+                </motion.div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+   
 
  {/* FAQ Section */}
  <div className="col-span-1 md:col-span-3 p-6">
