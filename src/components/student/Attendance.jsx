@@ -9,7 +9,7 @@ const Dashboard = () => {
   
   const markAttendance = async () => {
     try {
-      await axios.post("http://localhost:5000/attendance", { studentId });
+      await axios.post("https://class-room-backend.onrender.com/attendance", { studentId });
       alert("Attendance Marked!");
     } catch (error) {
       alert("Error marking attendance");
