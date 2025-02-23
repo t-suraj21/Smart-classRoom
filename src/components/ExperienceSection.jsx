@@ -72,7 +72,7 @@ const ExperienceSection = () => {
                   <p className="text-sm font-semibold">Real-time Student Tracking</p>
                   <p className="text-xs text-gray-500">Facial recognition-based attendance</p>
                 </div>
-                <img src="/assets/ai-logo.png" alt="AI Logo" className="h-8 ml-auto" />
+                <img src="/assets/ai.jpg" alt="AI Logo" className="h-27 w-27 ml-auto" />
               </div>
               <div className="bg-white rounded-lg p-4 shadow flex items-center">
                 <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Performance Insights</span>
@@ -80,7 +80,7 @@ const ExperienceSection = () => {
                   <p className="text-sm font-semibold">AI-Generated Student Reports</p>
                   <p className="text-xs text-gray-500">Identify learning gaps & strengths</p>
                 </div>
-                <img src="/assets/data-logo.png" alt="Data Analytics Logo" className="h-8 ml-auto" />
+                <img src="/assets/pr.jpg" alt="Data Analytics Logo" className="h-27 w-27 ml-auto" />
               </div>
               <div className="bg-white rounded-lg p-4 shadow flex items-center">
                 <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Smart Assignments</span>
@@ -88,17 +88,24 @@ const ExperienceSection = () => {
                   <p className="text-sm font-semibold">Auto-Graded AI-Enhanced Homework</p>
                   <p className="text-xs text-gray-500">Instant feedback & analytics</p>
                 </div>
-                <img src="/assets/assignment-logo.png" alt="Assignment Logo" className="h-8 ml-auto" />
+                <img src="/assets/as.jpg" alt="Assignment Logo" className="h-27 w-27 ml-auto" />
               </div>
               <div className="bg-white rounded-lg p-4 shadow flex items-center">
-                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Smart Assignments</span>
+                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Virtual Labs</span>
                 <div className="ml-4">
-                  <p className="text-sm font-semibold">Auto-Graded AI-Enhanced Homework</p>
-                  <p className="text-xs text-gray-500">Instant feedback & analytics</p>
+                  <p className="text-sm font-semibold">AI-Powered Simulated Experiments</p>
+                  <p className="text-xs text-gray-500">Hands-on learning in a digital environment</p>
                 </div>
-                <img src="/assets/assignment-logo.png" alt="Assignment Logo" className="h-8 ml-auto" />
+                <img src="/assets/lab.jpg" alt="Assignment Logo" className="h-27 w-27 ml-auto" />
               </div>
-              
+              <div className="bg-white rounded-lg p-4 shadow flex items-center">
+                <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">AI Tutoring</span>
+                <div className="ml-4">
+                  <p className="text-sm font-semibold">Personalized Learning Assistance</p>
+                  <p className="text-xs text-gray-500">AI-driven mentorship for students</p>
+                </div>
+                <img src="/assets/tu.jpg" alt="Assignment Logo" className="h-27 w-27 ml-auto" />
+              </div>
               
             </motion.div>
           </div>

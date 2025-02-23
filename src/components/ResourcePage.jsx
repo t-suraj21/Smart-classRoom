@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react"
 import { Search, BookOpen, PenToolIcon as Tool, Video, Code, FlaskRoundIcon as Flask } from "lucide-react"
+
+
+
 const resources = [
   {
     id: 1,
@@ -9,7 +12,7 @@ const resources = [
     category: "Articles",
     description: "A comprehensive guide to get started with React.",
     link: "https://reactjs.org/docs/getting-started.html",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/assets/article1.jpg",
     readTime: "10 min read",
     author: "John Doe",
     date: "Feb 20, 2025",
@@ -20,7 +23,7 @@ const resources = [
     category: "Tools",
     description: "Quick reference for React concepts and hooks.",
     link: "https://reactcheatsheet.com/",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/assets/tools.jpg",
     readTime: "5 min read",
     author: "Jane Smith",
     date: "Feb 18, 2025",
@@ -31,7 +34,7 @@ const resources = [
     category: "eBooks",
     description: "A comprehensive eBook on modern web development.",
     link: "https://eloquentjavascript.net/",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/assets/ebook1.jpg",
     readTime: "3 hour read",
     author: "Mike Johnson",
     date: "Feb 15, 2025",
@@ -42,7 +45,7 @@ const resources = [
     category: "Articles",
     description: "Master CSS Grid layout with practical examples.",
     link: "https://css-tricks.com/snippets/css/complete-guide-grid/",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/assets/article2.jpg",
     readTime: "15 min read",
     author: "Sarah Wilson",
     date: "Feb 12, 2025",
@@ -53,7 +56,7 @@ const resources = [
     category: "eBooks",
     description: "A classic book on JavaScript best practices.",
     link: "https://www.oreilly.com/library/view/javascript-the-good/9780596517748/",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/assets/ebooks2.jpg",
     readTime: "4 hour read",
     author: "Douglas Crockford",
     date: "Jan 30, 2025",
@@ -64,7 +67,7 @@ const resources = [
     category: "Videos",
     description: "Boost your coding speed with these VS Code tricks.",
     link: "https://code.visualstudio.com/docs/getstarted/tips-and-tricks",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/assets/video1.jpg",
     readTime: "20 min watch",
     author: "Alex Chen",
     date: "Feb 5, 2025",
@@ -75,7 +78,7 @@ const resources = [
     category: "Engineering",
     description: "Introduction to machine learning concepts.",
     link: "https://www.coursera.org/learn/machine-learning",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/assets/engi1.jpg",
     readTime: "1 hour read",
     author: "Dr. Emily Watson",
     date: "Feb 8, 2025",
@@ -86,7 +89,7 @@ const resources = [
     category: "Science",
     description: "Simplified explanation of quantum computing principles.",
     link: "https://quantum.country/",
-    image: "/placeholder.svg?height=200&width=400",
+    image: "/assets/science1.jpg",
     readTime: "30 min read",
     author: "Prof. David Quantum",
     date: "Feb 1, 2025",

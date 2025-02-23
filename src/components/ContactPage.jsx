@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
+
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -100,41 +101,63 @@ const ContactPage = () => {
           </form>
         </div>
       </div>
+      <footer className="bg-black text-white py-10 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+        {/* About Us */}
+        <div>
+          <h4 className="text-lg font-semibold mb-3">About Us</h4>
+          <p className="text-sm text-gray-400">
+            We provide innovative classroom solutions to streamline attendance, lesson planning, and student performance tracking.
+          </p>
+        </div>
 
-      {/* Footer Section */}
-      <footer className="bg-black bg-opacity-75 text-white py-8 px-4 mt-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
-          {[
-            { title: "About Us", content: "We provide innovative classroom solutions..." },
-            { title: "Quick Links", links: ["Dashboard", "Courses", "Resources", "Home", "Contact"] },
-            { title: "Legal", links: ["Privacy Policy", "Terms of Service"] },
-          ].map((section, idx) => (
-            <div key={idx}>
-              <h4 className="text-lg font-semibold mb-3">{section.title}</h4>
-              {section.content ? (
-                <p className="text-sm text-gray-400">{section.content}</p>
-              ) : (
-                <ul className="space-y-2">
-                  {section.links.map((link, i) => (
-                    <li key={i}><a href="#" className="text-gray-400 hover:text-white">{link}</a></li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
-          <div>
-            <h4 className="text-lg font-semibold mb-3">Follow Us</h4>
-            <div className="flex justify-center md:justify-start space-x-4">
-              {["facebook", "twitter", "instagram"].map((social, idx) => (
-                <a key={idx} href={`https://${social}.com`} className="hover:opacity-75 transition duration-300">
-                  <img src={`/assets/${social}.png`} alt={social} className="w-6 h-6" />
+        {/* Quick Links */}
+        <div>
+          <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
+          <ul className="space-y-2">
+            {["Dashboard", "Courses", "Resources", "Home", "Contact"].map((item, i) => (
+              <li key={i}>
+                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  {item}
                 </a>
-              ))}
-            </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Legal */}
+        <div>
+          <h4 className="text-lg font-semibold mb-3">Legal</h4>
+          <ul className="space-y-2">
+            <li><a href="#" className="text-gray-400 hover:text-white">Privacy Policy</a></li>
+            <li><a href="#" className="text-gray-400 hover:text-white">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        {/* Follow Us */}
+        <div>
+          <h4 className="text-lg font-semibold mb-3">Follow Us</h4>
+          <div className="flex justify-center md:justify-start space-x-4">
+            {["facebook", "twitter", "instagram"].map((social, idx) => (
+              <a
+                key={idx}
+                href={`https://${social}.com`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-75 transition duration-300"
+              >
+                <img src={`/assets/${social}.png`} alt={social} className="w-6 h-6" />
+              </a>
+            ))}
           </div>
         </div>
-        <p className="text-center text-gray-500 mt-6 text-sm">© 2025 Smart Classroom. All rights reserved.</p>
-      </footer>
+      </div>
+
+      {/* Copyright */}
+      <p className="text-center text-gray-500 mt-6 text-sm">
+        © 2025 Smart Classroom. All rights reserved.
+      </p>
+    </footer>
     </div>
   );
 };

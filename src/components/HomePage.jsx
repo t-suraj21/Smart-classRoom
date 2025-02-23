@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import ExperienceSection from './ExperienceSection';
 import Chatbot from './Chatbot'; // Import the Chatbot component
 
+
+
 // Slider content
 const slides = [
   {
@@ -53,12 +55,12 @@ const faqData = [
 ];
 
   const cards = [
-    { title: "Engineering Colleges", image: "/assets/colloge.jpg" },
-    { title: "Medical Colleges", image: "/assets/medical-college.jpg" },
-    { title: "Universities", image: "/assets/universities.jpg" },
-    { title: "Corporates", image: "/assets/corporates.jpg" },
-    { title: "K12 Education", image: "/assets/k12-education.jpg" },
-    { title: "Training Institute", image: "/assets/training-institute.jpg" }
+    { title: "Engineering Colleges", image: "/assets/engicoll.jpg" },
+    { title: "Medical Colleges", image: "/assets/medical.jpg" },
+    { title: "Universities", image: "/assets/uni.jpg" },
+    { title: "Corporates", image: "/assets/cop.jpg" },
+    { title: "K12 Education", image: "/assets/sch.jpg" },
+    { title: "Training Institute", image: "/assets/inst.jpg" }
   ];
 
   // Animation variants for staggered children
@@ -307,16 +309,17 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-300"/>
                 
                 {/* Title Container */}
-                <motion.div 
-                  className="absolute inset-0 flex flex-col items-center justify-center p-4"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    {card.title}
-                  </h3>
-                  <div className="w-0 group-hover:w-16 h-0.5 bg-red-500 mt-2 transition-all duration-300"/>
-                </motion.div>
+               {/* Title Container */}
+<motion.div 
+  className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white"
+  whileHover={{ scale: 1.05 }}
+  transition={{ duration: 0.3 }}
+>
+  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white-900 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+    {card.title}
+  </h3>
+  <div className="w-0 group-hover:w-16 h-0.5 bg-red-500 mt-2 transition-all duration-300"/>
+</motion.div>
               </div>
             </motion.div>
           ))}
@@ -348,7 +351,6 @@ export default function HomePage() {
           such as attendance tracking, lesson planning, and student engagement analytics.
         </p>
       </section>
-
       <footer className="bg-black text-white py-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
         {/* About Us */}
@@ -406,6 +408,7 @@ export default function HomePage() {
         © 2025 Smart Classroom. All rights reserved.
       </p>
     </footer>
+
 
   {/* Include the Chatbot component */}
   <Chatbot />

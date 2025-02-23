@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 
+
 const courses = [
   {
     title: "ChatGPT Complete Guide: Learn Generative AI, ChatGPT & More",
@@ -11,7 +12,7 @@ const courses = [
     price: 499,
     originalPrice: 2699,
     category: "AI",
-    image: "/api/placeholder/300/200",
+    image: "/assets/ai1.jpg",
     link: "https://www.udemy.com/course/chatgpt-complete-guide-to-chatgpt-openai-apis/",
   },
   {
@@ -22,7 +23,7 @@ const courses = [
     price: 499,
     originalPrice: 3099,
     category: "AI",
-    image: "https://via.placeholder.com/300",
+    image: "/assets/ai2.jpg",
     link: "https://www.udemy.com/course/ai-powered-copywriting-course/",
   },
   {
@@ -33,7 +34,7 @@ const courses = [
     price: 799,
     originalPrice: 1599,
     category: "Machine Learning",
-    image: "https://via.placeholder.com/300",
+    image: "/assets/ml.jpg",
     link: "https://www.coursera.org/specializations/machine-learning-introduction",
   },
   {
@@ -44,7 +45,7 @@ const courses = [
     price: 999,
     originalPrice: 1999,
     category: "Deep Learning",
-    image: "https://via.placeholder.com/300",
+    image: "/assets/dl.jpg",
     link: "https://www.coursera.org/specializations/deep-learning",
   },
   {
@@ -55,7 +56,7 @@ const courses = [
     price: 699,
     originalPrice: 1299,
     category: "Python",
-    image: "https://via.placeholder.com/300",
+    image: "/assets/py.jpg",
     link: "https://www.udemy.com/course/python-for-data-science-and-machine-learning-bootcamp/",
   },
   {
@@ -66,7 +67,7 @@ const courses = [
     price: 599,
     originalPrice: 1199,
     category: "Data Science",
-    image: "https://via.placeholder.com/300",
+    image: "/assets/data1.jpg",
     link: "https://www.udemy.com/course/statistics-for-data-science-and-business-analysis/",
   },
   {
@@ -77,7 +78,7 @@ const courses = [
     price: 499,
     originalPrice: 999,
     category: "AI",
-    image: "https://via.placeholder.com/300",
+    image: "/assets/ai3.jpg",
     link: "https://www.coursera.org/learn/ai-for-everyone",
   },
   {
@@ -88,7 +89,7 @@ const courses = [
     price: 899,
     originalPrice: 1799,
     category: "Web Development",
-    image: "https://via.placeholder.com/300",
+    image: "/assets/webd.jpg",
     link: "https://www.udemy.com/course/the-complete-web-development-bootcamp/",
   },
 
@@ -225,7 +226,7 @@ const CoursePage = () => {
           </div>
         </div>
       </div>
-      
+
       <footer className="bg-black text-white py-10 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
         {/* About Us */}
@@ -283,7 +284,6 @@ const CoursePage = () => {
         © 2025 Smart Classroom. All rights reserved.
       </p>
     </footer>
-
     </div>
   );
 };
