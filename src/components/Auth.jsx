@@ -22,7 +22,7 @@ const Auth = () => {
       return;
     }
 
-    const url = step === "register" ? "http://localhost:3000/register" : "http://localhost:3000/login";
+    const url = step === "register" ? "https://class-room-backend.onrender.com/register" : "https://class-room-backend.onrender.com/login";
     try {
       const res = await axios.post(url, formData, { headers: { "Content-Type": "application/json" } });
       if (step === "login") {
