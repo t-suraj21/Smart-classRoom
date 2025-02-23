@@ -6,7 +6,7 @@ const StudentList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/students")
+      .get("https://backend-zgt2.onrender.com/students")
       .then((res) => setStudents(res.data))
       .catch((err) => console.error("Error fetching students:", err));
   }, []);
