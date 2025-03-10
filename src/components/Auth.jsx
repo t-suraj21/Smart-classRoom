@@ -5,7 +5,13 @@ import { UserIcon, EnvelopeIcon, LockClosedIcon, IdentificationIcon } from "@her
 
 const Auth = () => {
   const [step, setStep] = useState("login"); // "login" or "register"
-  const [formData, setFormData] = useState({ name: "", email: "", password: "", studentId: "", domain: "" });
+  const [formData, setFormData] = useState({
+    name: "Guest User",
+    email: "guest@example.com",
+    password: "123456",
+    studentId: "N/A",
+    domain: "Student",
+  });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,12 +24,15 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (step === "register" && (!formData.name || !formData.email || !formData.password || !formData.studentId || !formData.domain)) {
-      alert("❌ Please fill in all fields.");
+    // Basic validation
+    if (step === "register" && (!formData.name || !formData.email || !formData.password || !formData.studentId)) {
+      alert("❌ Please fill in all required fields.");
       return;
     }
 
-    const url = step === "register" ? "https://backend-zgt2.onrender.com/register" : "https://backend-zgt2.onrender.com/login";
+    const url = step === "register"
+      ? "https://backend-zgt2.onrender.com/register"
+      : "https://backend-zgt2.onrender.com/login";
 
     try {
       const res = await axios.post(url, formData, { headers: { "Content-Type": "application/json" } });
@@ -55,8 +64,7 @@ const Auth = () => {
                 <input 
                   type="text" name="name" placeholder="Full Name" 
                   className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-blue-500"
-                  onChange={handleChange} required 
-                  aria-label="Full Name"
+                  onChange={handleChange} value={formData.name} required 
                 />
               </div>
               <div className="relative mb-3">
@@ -64,8 +72,7 @@ const Auth = () => {
                 <input 
                   type="text" name="studentId" placeholder="Student ID" 
                   className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-blue-500"
-                  onChange={handleChange} required 
-                  aria-label="Student ID"
+                  onChange={handleChange} value={formData.studentId} required 
                 />
               </div>
             </>
@@ -76,8 +83,7 @@ const Auth = () => {
             <input 
               type="email" name="email" placeholder="Email" 
               className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-blue-500"
-              onChange={handleChange} required 
-              aria-label="Email"
+              onChange={handleChange} value={formData.email} required 
             />
           </div>
           
@@ -86,8 +92,7 @@ const Auth = () => {
             <input 
               type="password" name="password" placeholder="Password" 
               className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-blue-500"
-              onChange={handleChange} required 
-              aria-label="Password"
+              onChange={handleChange} value={formData.password} required 
             />
           </div>
 
@@ -97,11 +102,8 @@ const Auth = () => {
               <select 
                 name="domain" 
                 className="w-full p-2 border border-gray-400 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-blue-500" 
-                onChange={handleChange} 
-                required 
-                aria-label="Select Role"
+                onChange={handleChange} value={formData.domain} required 
               >
-                <option value="" disabled selected>Choose your role</option>
                 <option value="Student">Student</option>
                 <option value="Faculty">Faculty</option>
               </select>

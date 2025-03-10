@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "serve": "vite preview",
-  "start": "npm run dev"
+    "start": "npm run dev"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -24,7 +24,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
     "react-qr-barcode-scanner": "^2.0.0",
-    "react-router-dom": "^7.2.0",
+    "react-router-dom": "^7.3.0",
     "react-slick": "^0.30.3",
     "recharts": "^2.15.1",
     "slick-carousel": "^1.8.1",
