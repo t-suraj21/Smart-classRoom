@@ -55,11 +55,11 @@ const ExperienceSection = () => {
 
       <div className="flex flex-col md:flex-row items-start justify-center gap-6 p-6">
         {/* Left Blue Box */}
-        <div className="bg-blue-100 rounded-2xl p-6 w-full md:w-[55%]">
+        <div className="bg-blue-100 rounded-2xl p-4 md:p-6 w-full md:w-[55%] flex flex-col justify-between">
           <h3 className="text-lg font-semibold text-blue-700">
             Experience the future of education with AI-powered learning
           </h3>
-          <div className="mt-4 space-y-4 overflow-hidden">
+          <div className="mt-4 space-y-4 overflow-hidden flex-grow">
             {/* Motion div for looping animation */}
             <motion.div
               className="space-y-4"
@@ -72,7 +72,7 @@ const ExperienceSection = () => {
                   <p className="text-sm font-semibold">Real-time Student Tracking</p>
                   <p className="text-xs text-gray-500">Facial recognition-based attendance</p>
                 </div>
-                <img src="/assets/ai.jpg" alt="AI Logo" className="h-27 w-27 ml-auto" />
+                <img src="/assets/ai.jpg" alt="AI Logo" className="h-16 w-16 ml-auto" />
               </div>
               <div className="bg-white rounded-lg p-4 shadow flex items-center">
                 <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Performance Insights</span>
@@ -80,7 +80,7 @@ const ExperienceSection = () => {
                   <p className="text-sm font-semibold">AI-Generated Student Reports</p>
                   <p className="text-xs text-gray-500">Identify learning gaps & strengths</p>
                 </div>
-                <img src="/assets/pr.jpg" alt="Data Analytics Logo" className="h-27 w-27 ml-auto" />
+                <img src="/assets/pr.jpg" alt="Data Analytics Logo" className="h-16 w-16 ml-auto" />
               </div>
               <div className="bg-white rounded-lg p-4 shadow flex items-center">
                 <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Smart Assignments</span>
@@ -88,7 +88,7 @@ const ExperienceSection = () => {
                   <p className="text-sm font-semibold">Auto-Graded AI-Enhanced Homework</p>
                   <p className="text-xs text-gray-500">Instant feedback & analytics</p>
                 </div>
-                <img src="/assets/as.jpg" alt="Assignment Logo" className="h-27 w-27 ml-auto" />
+                <img src="/assets/as.jpg" alt="Assignment Logo" className="h-16 w-16 ml-auto" />
               </div>
               <div className="bg-white rounded-lg p-4 shadow flex items-center">
                 <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">Virtual Labs</span>
@@ -96,7 +96,7 @@ const ExperienceSection = () => {
                   <p className="text-sm font-semibold">AI-Powered Simulated Experiments</p>
                   <p className="text-xs text-gray-500">Hands-on learning in a digital environment</p>
                 </div>
-                <img src="/assets/lab.jpg" alt="Assignment Logo" className="h-27 w-27 ml-auto" />
+                <img src="/assets/lab.jpg" alt="Assignment Logo" className="h-16 w-16 ml-auto" />
               </div>
               <div className="bg-white rounded-lg p-4 shadow flex items-center">
                 <span className="text-sm font-medium bg-gray-200 px-2 py-1 rounded">AI Tutoring</span>
@@ -104,9 +104,8 @@ const ExperienceSection = () => {
                   <p className="text-sm font-semibold">Personalized Learning Assistance</p>
                   <p className="text-xs text-gray-500">AI-driven mentorship for students</p>
                 </div>
-                <img src="/assets/tu.jpg" alt="Assignment Logo" className="h-27 w-27 ml-auto" />
+                <img src="/assets/tu.jpg" alt="Assignment Logo" className="h-16 w-16 ml-auto" />
               </div>
-              
             </motion.div>
           </div>
         </div>
@@ -115,7 +114,7 @@ const ExperienceSection = () => {
         <div className="w-full md:w-[40%] space-y-4">
           {/* Green Box */}
           <motion.div
-            className="bg-green-100 rounded-2xl p-6"
+            className="bg-green-100 rounded-2xl p-4 md:p-6"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -136,7 +135,7 @@ const ExperienceSection = () => {
 
           {/* Purple Box */}
           <motion.div
-            className="bg-purple-200 rounded-2xl p-6"
+            className="bg-purple-200 rounded-2xl p-4 md:p-6"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -145,14 +144,13 @@ const ExperienceSection = () => {
               Leverage <span className="text-purple-500">AI tools</span> for smarter teaching
             </h3>
             <div className="flex flex-wrap gap-2 mt-4">
-              <img src="/assets/chatgpt.png" alt="ChatGPT" className="h-10" />
-              <img src="/assets/perplexity.png" alt="Perplexity" className="h-10" />
-              <img src="/assets/cluade.png" alt="Claude" className="h-10" />
-              <img src="/assets/gamma.png" alt="Gamma" className="h-10" />
-              <img src="/assets/manychat.png" alt="Manychat" className="h-10" />
-              <img src="/assets/gemini.png" alt="Gemini" className="h-10" />
-            
-              <img src="/assets/zapier.png" alt="Zapier" className="h-10" />
+              <img src="/assets/chatgpt.png" alt="ChatGPT" className="h-14" />
+              <img src="/assets/perplexity.png" alt="Perplexity" className="h-14" />
+              <img src="/assets/cluade.png" alt="Claude" className="h-14" />
+              <img src="/assets/gamma.png" alt="Gamma" className="h-14" />
+              <img src="/assets/manychat.png" alt="Manychat" className="h-14" />
+              <img src="/assets/gemini.png" alt="Gemini" className="h-14" />
+              <img src="/assets/zapier.png" alt="Zapier" className="h-14" />
             </div>
           </motion.div>
         </div>
