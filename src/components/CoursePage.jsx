@@ -406,4 +406,4 @@ const CoursesPage = () => {
   );
 };
 
-export default CoursePage ;
+export default CoursesPage;
