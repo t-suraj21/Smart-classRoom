@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ExperienceSection from './ExperienceSection';
 import Chatbot from './Chatbot'; // Import the Chatbot component
-
+import { Link } from "react-router-dom";
 
 
 // Slider content
@@ -366,17 +366,15 @@ export default function HomePage() {
         </p>
       </div>
       
-    
       <div>
-        <h4 class="text-lg font-bold mb-3">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Dashboard</a></li>
-          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Courses</a></li>
-          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Resources</a></li>
-          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Home</a></li>
-          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Contact</a></li>
-        </ul>
-      </div>
+  <h4 className="text-lg font-bold mb-3">Quick Links</h4>
+  <ul className="space-y-2">
+    <li><Link to="/course" className="text-blue-200 hover:text-white transition-colors duration-300">Courses</Link></li>
+    <li><Link to="/resources" className="text-blue-200 hover:text-white transition-colors duration-300">Resources</Link></li>
+    <li><Link to="/home" className="text-blue-200 hover:text-white transition-colors duration-300">Home</Link></li>
+    <li><Link to="/contact" className="text-blue-200 hover:text-white transition-colors duration-300">Contact</Link></li>
+  </ul>
+</div>
   
       <div>
         <h4 class="text-lg font-bold mb-3">Legal</h4>

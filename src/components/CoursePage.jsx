@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Search } from 'lucide-react';
+import { Search, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const CoursesPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredCourses, setFilteredCourses] = useState([]);
+  const navigate = useNavigate();
   
   const categories = [
     'All', 'AI', 'Data Science', 'Python', 'Machine Learning', 
@@ -19,10 +22,11 @@ const CoursesPage = () => {
       instructor: 'Dr. Sarah Johnson',
       rating: 4.8,
       students: 1245,
-      image: '/api/placeholder/300/200',
+      image: '/assets/ai1.jpg',
       price: 49.99,
       duration: '8 weeks',
-      level: 'Beginner'
+      level: 'Beginner',
+      externalLink: 'https://www.coursera.org/learn/intro-to-ai'
     },
     {
       id: 2,
@@ -31,10 +35,11 @@ const CoursesPage = () => {
       instructor: 'Prof. Michael Chen',
       rating: 4.9,
       students: 3421,
-      image: '/api/placeholder/300/200',
+      image: '/assets/py.jpg',
       price: 59.99,
       duration: '10 weeks',
-      level: 'Intermediate'
+      level: 'Intermediate',
+      externalLink: 'https://www.edx.org/learn/python-for-data-science'
     },
     {
       id: 3,
@@ -46,7 +51,8 @@ const CoursesPage = () => {
       image: '/api/placeholder/300/200',
       price: 44.99,
       duration: '6 weeks',
-      level: 'Advanced'
+      level: 'Advanced',
+      externalLink: 'https://www.udemy.com/course/advanced-python-programming'
     },
     {
       id: 4,
@@ -55,10 +61,11 @@ const CoursesPage = () => {
       instructor: 'Dr. Emily Wong',
       rating: 4.8,
       students: 2543,
-      image: '/api/placeholder/300/200',
+      image: '/assets/ml.jpg',
       price: 69.99,
       duration: '12 weeks',
-      level: 'Intermediate'
+      level: 'Intermediate',
+      externalLink: 'https://www.datacamp.com/courses/machine-learning-fundamentals'
     },
     {
       id: 5,
@@ -70,7 +77,8 @@ const CoursesPage = () => {
       image: '/api/placeholder/300/200',
       price: 79.99,
       duration: '10 weeks',
-      level: 'Advanced'
+      level: 'Advanced',
+      externalLink: 'https://www.tensorflow.org/learn'
     },
     {
       id: 6,
@@ -79,10 +87,11 @@ const CoursesPage = () => {
       instructor: 'Jessica Martinez',
       rating: 4.7,
       students: 3156,
-      image: '/api/placeholder/300/200',
+      image: '/assets/webd.jpg',
       price: 39.99,
       duration: '8 weeks',
-      level: 'Beginner'
+      level: 'Beginner',
+      externalLink: 'https://www.freecodecamp.org/learn/responsive-web-design/'
     },
     {
       id: 7,
@@ -94,7 +103,8 @@ const CoursesPage = () => {
       image: '/api/placeholder/300/200',
       price: 69.99,
       duration: '14 weeks',
-      level: 'Intermediate'
+      level: 'Intermediate',
+      externalLink: 'https://www.codecademy.com/learn/paths/full-stack-engineer-career-path'
     },
     {
       id: 8,
@@ -103,10 +113,11 @@ const CoursesPage = () => {
       instructor: 'Dr. Rachel Green',
       rating: 4.9,
       students: 1543,
-      image: '/api/placeholder/300/200',
+      image: '/assets/dl.jpg',
       price: 74.99,
       duration: '12 weeks',
-      level: 'Advanced'
+      level: 'Advanced',
+      externalLink: 'https://www.deeplearning.ai/courses/neural-networks-deep-learning/'
     },
     {
       id: 9,
@@ -118,7 +129,8 @@ const CoursesPage = () => {
       image: '/api/placeholder/300/200',
       price: 34.99,
       duration: '6 weeks',
-      level: 'Beginner'
+      level: 'Beginner',
+      externalLink: 'https://www.learnpython.org/'
     },
     {
       id: 10,
@@ -127,10 +139,11 @@ const CoursesPage = () => {
       instructor: 'Lisa Wong',
       rating: 4.7,
       students: 2875,
-      image: '/api/placeholder/300/200',
+      image: '/assets/data1.jpg',
       price: 49.99,
       duration: '8 weeks',
-      level: 'Intermediate'
+      level: 'Intermediate',
+      externalLink: 'https://www.kaggle.com/learn/python'
     },
     {
       id: 11,
@@ -142,7 +155,8 @@ const CoursesPage = () => {
       image: '/api/placeholder/300/200',
       price: 59.99,
       duration: '10 weeks',
-      level: 'Intermediate'
+      level: 'Intermediate',
+      externalLink: 'https://react.dev/learn'
     },
     {
       id: 12,
@@ -151,10 +165,11 @@ const CoursesPage = () => {
       instructor: 'Dr. Sophia Martinez',
       rating: 4.6,
       students: 1234,
-      image: '/api/placeholder/300/200',
+      image: '/assets/ai2.jpg',
       price: 54.99,
       duration: '6 weeks',
-      level: 'Intermediate'
+      level: 'Intermediate',
+      externalLink: 'https://ethics.harvard.edu/ai-ethics-resources'
     }
   ];
 
@@ -182,8 +197,19 @@ const CoursesPage = () => {
     setFilteredCourses(filtered);
   };
 
+  // Function to handle course click and navigation
+  const handleCourseClick = (courseId) => {
+    navigate(`/course/${courseId}`);
+  };
+
+  // Function to handle external link click
+  const handleExternalLinkClick = (e, link) => {
+    e.stopPropagation(); // Prevent triggering the card click
+    window.open(link, '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
@@ -239,10 +265,10 @@ const CoursesPage = () => {
         {filteredCourses.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredCourses.map((course) => (
-              <a 
-                href={`/course/${course.id}`} 
+              <div 
                 key={course.id}
-                className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg"
+                onClick={() => handleCourseClick(course.id)}
+                className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer relative"
               >
                 <div className="relative">
                   <img 
@@ -272,8 +298,16 @@ const CoursesPage = () => {
                     <div className="text-blue-600 font-bold">${course.price}</div>
                     <div className="text-gray-600 text-sm">{course.duration}</div>
                   </div>
+                  
+                  {/* External Link Button */}
+                  <button
+                    onClick={(e) => handleExternalLinkClick(e, course.externalLink)}
+                    className="mt-4 flex items-center text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                  >
+                    View Course <ExternalLink size={14} className="ml-1" />
+                  </button>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         ) : (
@@ -284,6 +318,8 @@ const CoursesPage = () => {
         )}
       </div>
 
+
+      
       <footer class="bg-white pt-8 border-t border-blue-700 mt-2  text-white py-12 px-6">
   <div class="max-w-7xl mx-auto">
   
@@ -298,16 +334,16 @@ const CoursesPage = () => {
       </div>
       
     
+       
       <div>
-        <h4 class="text-lg font-bold mb-3">Quick Links</h4>
-        <ul class="space-y-2">
-          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Dashboard</a></li>
-          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Courses</a></li>
-          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Resources</a></li>
-          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Home</a></li>
-          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Contact</a></li>
-        </ul>
-      </div>
+  <h4 className="text-lg font-bold mb-3">Quick Links</h4>
+  <ul className="space-y-2">
+    <li><Link to="/course" className="text-blue-200 hover:text-white transition-colors duration-300">Courses</Link></li>
+    <li><Link to="/resources" className="text-blue-200 hover:text-white transition-colors duration-300">Resources</Link></li>
+    <li><Link to="/home" className="text-blue-200 hover:text-white transition-colors duration-300">Home</Link></li>
+    <li><Link to="/contact" className="text-blue-200 hover:text-white transition-colors duration-300">Contact</Link></li>
+  </ul>
+</div>
   
       <div>
         <h4 class="text-lg font-bold mb-3">Legal</h4>
