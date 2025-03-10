@@ -119,7 +119,7 @@ export default function HomePage() {
 
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className=" w-full flex flex-col min-h-screen">
     {/* Hero Section with Slider */}
     <section className="relative w-full overflow-hidden h-[50vh] sm:h-[60vh] md:h-[80vh] lg:h-screen">
       {/* Background Images */}
@@ -329,7 +329,7 @@ export default function HomePage() {
    
 
  {/* FAQ Section */}
- <div className="col-span-1 md:col-span-3 p-6">
+ <div className=" w-full col-span-1 md:col-span-3 p-6">
         <h2 className="text-2xl font-bold mb-4">Frequently Asked Questions</h2>
         {faqData.map((faq, index) => (
           <div key={index} className="mb-4 shadow-md p-4 bg-white rounded-lg cursor-pointer" onClick={() => toggleFAQ(index)}>
@@ -344,7 +344,7 @@ export default function HomePage() {
 
         
    {/* About Section */}
-   <section className="py-16 px-6 text-center bg-white">
+   <section className=" w- full py-16 px-6 text-center bg-white">
         <h2 className="text-3xl font-semibold mb-4 text-blue-800">About Our Platform</h2>
         <p className="text-lg text-gray-700 max-w-3xl mx-auto">
           Our smart classroom management software is designed to enhance the teaching experience by automating tasks
@@ -352,8 +352,8 @@ export default function HomePage() {
         </p>
       </section>
 
-
-      <footer class="bg-white pt-8 border-t border-blue-700 mt-2  text-white py-12 px-6">
+ {/* footer  Section */}
+      <footer class=" w-full bg-white pt-8 border-t border-blue-700 mt-2  text-white py-12 px-6">
   <div class="max-w-7xl mx-auto">
   
    

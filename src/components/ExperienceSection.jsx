@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const ExperienceSection = () => {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className=" w-full py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
