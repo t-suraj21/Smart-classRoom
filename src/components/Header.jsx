@@ -24,11 +24,11 @@ const Header = () => {
 
   return (
     <header className="bg-white text-white p-4 shadow-md sticky top-0 z-50">
-    <div className="container mx-auto flex justify-between items-center">
-      <div className="flex items-center">
-        <img src="/assets/edusphere.png" alt="EduSphere Logo" className="h-20 w-20 ml-2" />
-        <h2 className="text-2xl font-bold text-white">EduSphere</h2>
-      </div>
+      <div className="container mx-auto flex justify-between items-center">
+        <div className="flex items-center">
+          <img src="/assets/edusphere.png" alt="EduSphere Logo" className="h-20 w-20 ml-2" />
+          <h2 className="text-2xl font-bold text-white">EduSphere</h2>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6 text-gray-700 font-medium">
