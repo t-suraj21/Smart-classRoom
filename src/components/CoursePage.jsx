@@ -1,291 +1,369 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { Icon } from "@iconify/react";
+import React, { useState, useEffect } from 'react';
+import { Search } from 'lucide-react';
 
+const CoursesPage = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [filteredCourses, setFilteredCourses] = useState([]);
+  
+  const categories = [
+    'All', 'AI', 'Data Science', 'Python', 'Machine Learning', 
+    'Deep Learning', 'Web Development', 'Database', 'Cloud Computing'
+  ];
 
-const courses = [
-  {
-    title: "ChatGPT Complete Guide: Learn Generative AI, ChatGPT & More",
-    instructor: "Julian Melanson, Benza Maman",
-    rating: 4.5,
-    learners: "44,394",
-    price: 499,
-    originalPrice: 2699,
-    category: "AI",
-    image: "/assets/ai1.jpg",
-    link: "https://www.udemy.com/course/chatgpt-complete-guide-to-chatgpt-openai-apis/",
-  },
-  {
-    title: "The Complete AI-Powered Copywriting Course & ChatGPT",
-    instructor: "Tomas Moravek",
-    rating: 4.3,
-    learners: "1,748",
-    price: 499,
-    originalPrice: 3099,
-    category: "AI",
-    image: "/assets/ai2.jpg",
-    link: "https://www.udemy.com/course/ai-powered-copywriting-course/",
-  },
-  {
-    title: "Machine Learning Specialization",
-    instructor: "Andrew Ng",
-    rating: 4.7,
-    learners: "85,000",
-    price: 799,
-    originalPrice: 1599,
-    category: "Machine Learning",
-    image: "/assets/ml.jpg",
-    link: "https://www.coursera.org/specializations/machine-learning-introduction",
-  },
-  {
-    title: "Deep Learning Specialization",
-    instructor: "Andrew Ng",
-    rating: 4.8,
-    learners: "70,500",
-    price: 999,
-    originalPrice: 1999,
-    category: "Deep Learning",
-    image: "/assets/dl.jpg",
-    link: "https://www.coursera.org/specializations/deep-learning",
-  },
-  {
-    title: "Python for Data Science and Machine Learning Bootcamp",
-    instructor: "Jose Portilla",
-    rating: 4.6,
-    learners: "95,000",
-    price: 699,
-    originalPrice: 1299,
-    category: "Python",
-    image: "/assets/py.jpg",
-    link: "https://www.udemy.com/course/python-for-data-science-and-machine-learning-bootcamp/",
-  },
-  {
-    title: "Statistics for Data Science and Business Analysis",
-    instructor: "365 Careers",
-    rating: 4.4,
-    learners: "50,000",
-    price: 599,
-    originalPrice: 1199,
-    category: "Data Science",
-    image: "/assets/data1.jpg",
-    link: "https://www.udemy.com/course/statistics-for-data-science-and-business-analysis/",
-  },
-  {
-    title: "AI For Everyone",
-    instructor: "Andrew Ng",
-    rating: 4.2,
-    learners: "15,000",
-    price: 499,
-    originalPrice: 999,
-    category: "AI",
-    image: "/assets/ai3.jpg",
-    link: "https://www.coursera.org/learn/ai-for-everyone",
-  },
-  {
-    title: "The Complete 2023 Web Development Bootcamp",
-    instructor: "Dr. Angela Yu",
-    rating: 4.7,
-    learners: "100,000",
-    price: 899,
-    originalPrice: 1799,
-    category: "Web Development",
-    image: "/assets/webd.jpg",
-    link: "https://www.udemy.com/course/the-complete-web-development-bootcamp/",
-  },
+  const courses = [
+    {
+      id: 1,
+      title: 'Introduction to Artificial Intelligence',
+      category: 'AI',
+      instructor: 'Dr. Sarah Johnson',
+      rating: 4.8,
+      students: 1245,
+      image: '/api/placeholder/300/200',
+      price: 49.99,
+      duration: '8 weeks',
+      level: 'Beginner'
+    },
+    {
+      id: 2,
+      title: 'Python for Data Science',
+      category: 'Data Science',
+      instructor: 'Prof. Michael Chen',
+      rating: 4.9,
+      students: 3421,
+      image: '/api/placeholder/300/200',
+      price: 59.99,
+      duration: '10 weeks',
+      level: 'Intermediate'
+    },
+    {
+      id: 3,
+      title: 'Advanced Python Programming',
+      category: 'Python',
+      instructor: 'Alex Rodriguez',
+      rating: 4.7,
+      students: 1876,
+      image: '/api/placeholder/300/200',
+      price: 44.99,
+      duration: '6 weeks',
+      level: 'Advanced'
+    },
+    {
+      id: 4,
+      title: 'Machine Learning Fundamentals',
+      category: 'Machine Learning',
+      instructor: 'Dr. Emily Wong',
+      rating: 4.8,
+      students: 2543,
+      image: '/api/placeholder/300/200',
+      price: 69.99,
+      duration: '12 weeks',
+      level: 'Intermediate'
+    },
+    {
+      id: 5,
+      title: 'Deep Learning with TensorFlow',
+      category: 'Deep Learning',
+      instructor: 'Dr. James Wilson',
+      rating: 4.9,
+      students: 1932,
+      image: '/api/placeholder/300/200',
+      price: 79.99,
+      duration: '10 weeks',
+      level: 'Advanced'
+    },
+    {
+      id: 6,
+      title: 'Responsive Web Design',
+      category: 'Web Development',
+      instructor: 'Jessica Martinez',
+      rating: 4.7,
+      students: 3156,
+      image: '/api/placeholder/300/200',
+      price: 39.99,
+      duration: '8 weeks',
+      level: 'Beginner'
+    },
+    {
+      id: 7,
+      title: 'Full Stack JavaScript Development',
+      category: 'Web Development',
+      instructor: 'David Kim',
+      rating: 4.8,
+      students: 2765,
+      image: '/api/placeholder/300/200',
+      price: 69.99,
+      duration: '14 weeks',
+      level: 'Intermediate'
+    },
+    {
+      id: 8,
+      title: 'Neural Networks and Deep Learning',
+      category: 'Deep Learning',
+      instructor: 'Dr. Rachel Green',
+      rating: 4.9,
+      students: 1543,
+      image: '/api/placeholder/300/200',
+      price: 74.99,
+      duration: '12 weeks',
+      level: 'Advanced'
+    },
+    {
+      id: 9,
+      title: 'Python for Beginners',
+      category: 'Python',
+      instructor: 'Thomas Clark',
+      rating: 4.6,
+      students: 4532,
+      image: '/api/placeholder/300/200',
+      price: 34.99,
+      duration: '6 weeks',
+      level: 'Beginner'
+    },
+    {
+      id: 10,
+      title: 'Data Analysis with Python',
+      category: 'Data Science',
+      instructor: 'Lisa Wong',
+      rating: 4.7,
+      students: 2875,
+      image: '/api/placeholder/300/200',
+      price: 49.99,
+      duration: '8 weeks',
+      level: 'Intermediate'
+    },
+    {
+      id: 11,
+      title: 'Modern React Development',
+      category: 'Web Development',
+      instructor: 'Chris Johnson',
+      rating: 4.8,
+      students: 2134,
+      image: '/api/placeholder/300/200',
+      price: 59.99,
+      duration: '10 weeks',
+      level: 'Intermediate'
+    },
+    {
+      id: 12,
+      title: 'AI Ethics and Governance',
+      category: 'AI',
+      instructor: 'Dr. Sophia Martinez',
+      rating: 4.6,
+      students: 1234,
+      image: '/api/placeholder/300/200',
+      price: 54.99,
+      duration: '6 weeks',
+      level: 'Intermediate'
+    }
+  ];
 
-];
+  useEffect(() => {
+    filterCourses();
+  }, [activeCategory, searchQuery]);
 
-const categories = [
-  { name: "All", icon: "mdi:view-grid" },
-  { name: "AI", icon: "mdi:robot" },
-  { name: "Data Science", icon: "mdi:chart-bar" },
-  { name: "Python", icon: "mdi:language-python" },
-  { name: "Machine Learning", icon: "mdi:brain" },
-  { name: "Deep Learning", icon: "mdi:layers" },
-  { name: "Web Development", icon: "mdi:web" },
-];
-
-const CoursePage = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  const filteredCourses =
-    selectedCategory === "All" 
-    ? courses 
-    : courses.filter((course) => course.category === selectedCategory);
+  const filterCourses = () => {
+    let filtered = courses;
+    
+    if (activeCategory !== 'All') {
+      filtered = filtered.filter(course => course.category === activeCategory);
+    }
+    
+    if (searchQuery.trim() !== '') {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(
+        course => 
+          course.title.toLowerCase().includes(query) || 
+          course.instructor.toLowerCase().includes(query) ||
+          course.category.toLowerCase().includes(query)
+      );
+    }
+    
+    setFilteredCourses(filtered);
+  };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
-      {/* Hero Section */}
-      <div className="w-full bg-gradient-to-r from-blue-600 to-purple-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center max-w-3xl mx-auto">
-            <motion.h1
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-4xl md:text-6xl font-bold text-white leading-tight mb-6"
-            >
-              Transform Your Future with Expert-Led Courses
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed"
-            >
-              Discover cutting-edge courses designed to help you master the skills 
-              that drive innovation and shape tomorrow's technology.
-            </motion.p>
-            <motion.button
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-white text-blue-600 font-semibold px-8 py-4 rounded-full 
-                shadow-lg hover:bg-gray-100 transition duration-300 text-lg"
-            >
-              Browse All Courses
-            </motion.button>
-          </div>
-        </div>
-      </div>
-
-      {/* Categories Filter */}
-      <div className="w-full bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-wrap justify-center gap-4">
-            {categories.map((category, index) => (
-              <motion.button
-                key={index}
-                onClick={() => setSelectedCategory(category.name)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-full border text-base font-medium
-                  flex items-center space-x-2 transition duration-300
-                  ${selectedCategory === category.name 
-                    ? "bg-blue-100 border-blue-500 text-blue-700" 
-                    : "border-gray-300 text-gray-700 hover:bg-gray-100"
-                  }`}
-              >
-                <Icon icon={category.icon} className="text-xl" />
-                <span>{category.name}</span>
-              </motion.button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Courses Grid */}
-      <div className="flex-grow w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredCourses.map((course, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg hover:shadow-xl 
-                  transition duration-300 overflow-hidden"
-              >
-                <img
-                  src={course.image}
-                  alt={course.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 
-                    line-clamp-2 min-h-[3.5rem]">
-                    {course.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm mb-2">{course.instructor}</p>
-                  <div className="flex items-center mb-2">
-                    <Icon icon="mdi:star" className="text-yellow-500 mr-1" />
-                    <span className="text-yellow-500 font-bold">{course.rating}</span>
-                    <span className="text-gray-500 text-sm ml-2">
-                      ({course.learners} learners)
-                    </span>
-                  </div>
-                  <p className="text-gray-900 font-bold text-2xl mb-4">
-                    ₹{course.price}{" "}
-                    <span className="text-gray-500 line-through text-lg">
-                      ₹{course.originalPrice}
-                    </span>
-                  </p>
-                  <a
-                    href={course.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full text-center bg-blue-600 text-white 
-                      py-3 rounded-lg hover:bg-blue-700 transition duration-300"
-                  >
-                    Enroll Now
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <footer className="bg-black text-white py-10 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
-        {/* About Us */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3">About Us</h4>
-          <p className="text-sm text-gray-400">
-            We provide innovative classroom solutions to streamline attendance, lesson planning, and student performance tracking.
+    <div className="min-h-screen ">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16 px-4">
+        <div className="max-w-7xl mx-auto text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Explore Our Courses</h1>
+          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+            Discover professional courses to enhance your skills and advance your career
           </p>
+          
+          {/* Search Bar */}
+          <div className="mt-8 max-w-xl mx-auto flex items-center bg-white rounded-full overflow-hidden px-4 shadow-lg">
+            <Search className="text-gray-400" size={20} />
+            <input
+              type="text"
+              placeholder="Search for courses, instructors, or topics..."
+              className="w-full py-3 px-4 outline-none"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
         </div>
+      </header>
 
-        {/* Quick Links */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
-          <ul className="space-y-2">
-            {["Dashboard", "Courses", "Resources", "Home", "Contact"].map((item, i) => (
-              <li key={i}>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300">
-                  {item}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Legal */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3">Legal</h4>
-          <ul className="space-y-2">
-            <li><a href="#" className="text-gray-400 hover:text-white">Privacy Policy</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white">Terms of Service</a></li>
-          </ul>
-        </div>
-
-        {/* Follow Us */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3">Follow Us</h4>
-          <div className="flex justify-center md:justify-start space-x-4">
-            {["facebook", "twitter", "instagram"].map((social, idx) => (
-              <a
-                key={idx}
-                href={`https://${social}.com`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:opacity-75 transition duration-300"
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        {/* Categories Section */}
+        <div className="mb-12 overflow-x-auto">
+          <div className="flex space-x-2 md:space-x-4 min-w-max pb-4">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-2 rounded-full font-medium text-sm md:text-base transition-all 
+                ${activeCategory === category 
+                  ? 'bg-blue-600 text-white shadow-md' 
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
               >
-                <img src={`/assets/${social}.png`} alt={social} className="w-6 h-6" />
+                {category}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Results Info */}
+        <div className="flex justify-between items-center mb-8">
+          <h2 className="text-xl font-semibold text-gray-800">
+            {filteredCourses.length} course{filteredCourses.length !== 1 ? 's' : ''} found
+          </h2>
+          <div className="text-gray-600">
+            {activeCategory !== 'All' ? activeCategory : 'All Categories'}
+          </div>
+        </div>
+
+        {/* Courses Grid */}
+        {filteredCourses.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {filteredCourses.map((course) => (
+              <a 
+                href={`/course/${course.id}`} 
+                key={course.id}
+                className="bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg"
+              >
+                <div className="relative">
+                  <img 
+                    src={course.image} 
+                    alt={course.title} 
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-lg">
+                    {course.level}
+                  </div>
+                </div>
+                <div className="p-5">
+                  <div className="text-xs text-blue-600 font-semibold mb-2">{course.category}</div>
+                  <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">{course.title}</h3>
+                  <p className="text-gray-600 text-sm mb-3">{course.instructor}</p>
+                  
+                  <div className="flex items-center mb-3">
+                    <div className="flex items-center">
+                      <span className="text-yellow-500 mr-1">★</span>
+                      <span className="font-medium text-gray-800">{course.rating}</span>
+                    </div>
+                    <span className="mx-2 text-gray-300">|</span>
+                    <span className="text-gray-600 text-sm">{course.students.toLocaleString()} students</span>
+                  </div>
+                  
+                  <div className="flex justify-between items-center">
+                    <div className="text-blue-600 font-bold">${course.price}</div>
+                    <div className="text-gray-600 text-sm">{course.duration}</div>
+                  </div>
+                </div>
               </a>
             ))}
           </div>
-        </div>
+        ) : (
+          <div className="text-center py-16">
+            <h3 className="text-xl font-medium text-gray-800 mb-2">No courses found</h3>
+            <p className="text-gray-600">Try adjusting your search or filter to find what you're looking for</p>
+          </div>
+        )}
       </div>
 
-      {/* Copyright */}
-      <p className="text-center text-gray-500 mt-6 text-sm">
-        © 2025 Smart Classroom. All rights reserved.
-      </p>
-    </footer>
+      <footer class="bg-white pt-8 border-t border-blue-700 mt-2  text-white py-12 px-6">
+  <div class="max-w-7xl mx-auto">
+  
+   
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 py-8 text-center md:text-left">
+    
+      <div>
+        <h4 class="text-lg font-bold mb-3">About Us</h4>
+        <p class="text-blue-200 text-sm">
+          We provide innovative classroom solutions to streamline attendance, lesson planning, and student performance tracking.
+        </p>
+      </div>
+      
+    
+      <div>
+        <h4 class="text-lg font-bold mb-3">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Dashboard</a></li>
+          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Courses</a></li>
+          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Resources</a></li>
+          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Home</a></li>
+          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Contact</a></li>
+        </ul>
+      </div>
+  
+      <div>
+        <h4 class="text-lg font-bold mb-3">Legal</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Privacy Policy</a></li>
+          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Terms of Service</a></li>
+          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Cookie Policy</a></li>
+          <li><a href="#" class="text-blue-200 hover:text-white transition-colors duration-300">Accessibility</a></li>
+        </ul>
+      </div>
+      
+   
+      <div>
+        <h4 class="text-lg font-semibold mb-3">Connect With Us</h4>
+        <div class="flex justify-center md:justify-start space-x-4 mb-4">
+          
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white  flex items-center justify-center hover:bg-blue-700 transition duration-300">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+              <path d="M9.19795 21.5H13.198V13.4901H16.8021L17.198 9.50977H13.198V7.5C13.198 6.94772 13.6457 6.5 14.198 6.5H17.198V2.5H14.198C11.4365 2.5 9.19795 4.73858 9.19795 7.5V9.50977H7.19795L6.80206 13.4901H9.19795V21.5Z"></path>
+            </svg>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white  flex items-center justify-center hover:bg-blue-700 transition duration-300">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+              <path d="M22.162 5.65593C21.3986 5.99373 20.589 6.2154 19.76 6.31393C20.6337 5.79136 21.2877 4.96894 21.6 3.99993C20.78 4.48793 19.881 4.82993 18.944 5.01493C18.3146 4.34151 17.4804 3.89489 16.5709 3.74539C15.6615 3.59589 14.7279 3.74932 13.9153 4.18338C13.1026 4.61743 12.4564 5.30967 12.0772 6.14978C11.6979 6.98989 11.6067 7.93177 11.818 8.82893C10.1551 8.74558 8.52832 8.31353 7.04328 7.56073C5.55823 6.80793 4.24812 5.75103 3.19799 4.45893C2.82628 5.0976 2.63095 5.82629 2.63199 6.56993C2.63199 8.01193 3.36999 9.29293 4.49199 10.0429C3.828 10.022 3.17862 9.84276 2.59799 9.51993V9.57193C2.59819 10.5376 2.93236 11.472 3.54384 12.2211C4.15532 12.9703 5.00647 13.4861 5.95299 13.6729C5.33661 13.84 4.6903 13.8646 4.06299 13.7449C4.30897 14.5762 4.80901 15.3039 5.48994 15.824C6.17087 16.344 6.99699 16.6316 7.85199 16.6499C6.17801 17.9779 4.1861 18.6997 2.13199 18.6969C1.77799 18.6969 1.42399 18.6789 1.07199 18.6419C3.15976 20.0338 5.60943 20.7795 8.10199 20.7769C15.558 20.7769 19.616 14.8889 19.616 9.79193C19.616 9.60193 19.612 9.41193 19.602 9.22393C20.4201 8.62577 21.1224 7.87534 21.666 7.01393L22.162 5.65593Z"></path>
+            </svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-blue-700 transition duration-300">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+              <path d="M16.5 0h-9C3.4 0 0 3.4 0 7.5v9C0 20.6 3.4 24 7.5 24h9c4.1 0 7.5-3.4 7.5-7.5v-9C24 3.4 20.6 0 16.5 0zm5 16.5c0 2.8-2.2 5-5 5h-9c-2.8 0-5-2.2-5-5v-9c0-2.8 2.2-5 5-5h9c2.8 0 5 2.2 5 5v9z"></path>
+              <path d="M12 5.9c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10c-2.1 0-3.8-1.7-3.8-3.8s1.7-3.8 3.8-3.8 3.8 1.7 3.8 3.8-1.7 3.8-3.8 3.8z"></path>
+              <circle cx="18.5" cy="5.5" r="1.5"></circle>
+            </svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white flex items-center justify-center hover:bg-blue-700 transition duration-300">
+            <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+            </svg>
+          </a>
+        </div>
+        <p class="text-blue-200 text-sm">
+          Need help? <a href="#" class="underline hover:text-white">Contact support</a>
+        </p>
+      </div>
+    </div>
+    
+    <div className="pt-8 border-t border-blue-700 mt-2 text-center sm:flex sm:justify-center sm:items-center">
+  <p className="text-blue-200 text-sm">
+    © 2025 Smart Classroom. All rights reserved.
+  </p>
+</div>
+
+  </div>
+</footer>
+
     </div>
   );
 };
 
-export default CoursePage;
+export default CoursesPage;

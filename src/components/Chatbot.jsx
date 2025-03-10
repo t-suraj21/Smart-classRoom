@@ -26,8 +26,10 @@ const styles = {
     position: 'fixed',
     bottom: '24px',
     right: '24px',
-    width: '384px',
-    height: '600px',
+    width: '90%',
+    maxWidth: '384px',
+    height: '80%',
+    maxHeight: '600px',
     backgroundColor: 'rgba(255, 255, 255, 0.95)',
     backdropFilter: 'blur(8px)',
     borderRadius: '16px',
@@ -289,9 +291,7 @@ const Chatbot = () => {
                 cursor: !input.trim() || loading ? 'not-allowed' : 'pointer',
               }}
             >
-             <button style={styles.sendButton}>
-           <span style={{ fontSize: '20px' }}>▶</span>
-            </button>
+              <span style={{ fontSize: '20px' }}>▶</span>
             </button>
           </div>
         </div>

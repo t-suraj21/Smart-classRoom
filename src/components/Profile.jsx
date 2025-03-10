@@ -4,7 +4,11 @@ import axios from "axios";
 import { UserCircleIcon, ArrowRightOnRectangleIcon } from "@heroicons/react/24/solid";
 
 const Profile = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    name: "Guest User",
+    email: "guest@example.com",
+    studentId: "N/A",
+  });
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
@@ -21,7 +25,7 @@ const Profile = () => {
         headers: { "x-auth-token": token },
       })
       .then((res) => {
-        setUser(res.data);
+        setUser(res.data || user); // Use backend data if available
         setLoading(false);
       })
       .catch(() => {
@@ -44,9 +48,9 @@ const Profile = () => {
           <>
             <UserCircleIcon className="w-24 h-24 text-gray-200 mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-gray-100 mb-2">Profile</h2>
-            <p className="text-gray-300 text-lg"><strong>Name:</strong> {user.name}</p>
-            <p className="text-gray-300 text-lg"><strong>Email:</strong> {user.email}</p>
-            <p className="text-gray-300 text-lg"><strong>Student ID:</strong> {user.studentId}</p>
+            <p className="text-gray-300 text-lg"><strong>Name:</strong> {user.name || "Guest User"}</p>
+            <p className="text-gray-300 text-lg"><strong>Email:</strong> {user.email || "guest@example.com"}</p>
+            <p className="text-gray-300 text-lg"><strong>Student ID:</strong> {user.studentId || "N/A"}</p>
 
             <button
               className="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg mt-6 flex items-center justify-center gap-2 transition-transform transform hover:scale-105"
