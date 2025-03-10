@@ -422,7 +422,7 @@ export default function HomePage() {
     
     <div className="pt-8 border-t border-blue-700 mt-2 text-center sm:flex sm:justify-center sm:items-center">
   <p className="text-blue-200 text-sm">
-    © 2025 Smart Classroom. All rights reserved.
+    © 2025 Edusphere. All rights reserved.
   </p>
 </div>
 

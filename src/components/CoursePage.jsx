@@ -35,7 +35,7 @@ const CoursesPage = () => {
       instructor: 'Prof. Michael Chen',
       rating: 4.9,
       students: 3421,
-      image: '/assets/py.jpg',
+      image: '/assets/pydata.jpg',
       price: 59.99,
       duration: '10 weeks',
       level: 'Intermediate',
@@ -48,7 +48,7 @@ const CoursesPage = () => {
       instructor: 'Alex Rodriguez',
       rating: 4.7,
       students: 1876,
-      image: '/api/placeholder/300/200',
+      image: '/assets/adpyt.jpg',
       price: 44.99,
       duration: '6 weeks',
       level: 'Advanced',
@@ -74,7 +74,7 @@ const CoursesPage = () => {
       instructor: 'Dr. James Wilson',
       rating: 4.9,
       students: 1932,
-      image: '/api/placeholder/300/200',
+      image: '/assets/deepl.jpg',
       price: 79.99,
       duration: '10 weeks',
       level: 'Advanced',
@@ -100,7 +100,7 @@ const CoursesPage = () => {
       instructor: 'David Kim',
       rating: 4.8,
       students: 2765,
-      image: '/api/placeholder/300/200',
+      image: '/assets/fsjsd.jpg',
       price: 69.99,
       duration: '14 weeks',
       level: 'Intermediate',
@@ -126,7 +126,7 @@ const CoursesPage = () => {
       instructor: 'Thomas Clark',
       rating: 4.6,
       students: 4532,
-      image: '/api/placeholder/300/200',
+      image: '/assets/py.jpg',
       price: 34.99,
       duration: '6 weeks',
       level: 'Beginner',
@@ -152,7 +152,7 @@ const CoursesPage = () => {
       instructor: 'Chris Johnson',
       rating: 4.8,
       students: 2134,
-      image: '/api/placeholder/300/200',
+      image: '/assets/react.jpg',
       price: 59.99,
       duration: '10 weeks',
       level: 'Intermediate',
@@ -391,7 +391,7 @@ const CoursesPage = () => {
     
     <div className="pt-8 border-t border-blue-700 mt-2 text-center sm:flex sm:justify-center sm:items-center">
   <p className="text-blue-200 text-sm">
-    © 2025 Smart Classroom. All rights reserved.
+    © 2025 Edusphere. All rights reserved.
   </p>
 </div>
 
