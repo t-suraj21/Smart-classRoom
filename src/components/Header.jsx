@@ -1,3 +1,4 @@
+// filepath: c:\Users\VICTUS\TECH\Smart-classRoom\src\components\Header.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -59,7 +60,7 @@ const Header = () => {
         </nav>
 
         {/* Login Button (Desktop) */}
-        <Link to="/Auth" className="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">
+        <Link to="/auth" className="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">
           Let's Go!
         </Link>
 
@@ -89,7 +90,7 @@ const Header = () => {
 
           {/* Login Button (Mobile) */}
           <Link
-            to="/Auth"
+            to="/auth"
             className="block text-center bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition mt-4"
             onClick={() => setMenuOpen(false)}
           >
