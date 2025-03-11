@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Search, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -171,6 +170,125 @@ const CoursesPage = () => {
       duration: '6 weeks',
       level: 'Intermediate',
       externalLink: 'https://ethics.harvard.edu/ai-ethics-resources'
+    },
+    // New Database Courses
+    {
+      id: 13,
+      title: 'SQL Database Fundamentals',
+      category: 'Database',
+      instructor: 'Robert Anderson',
+      rating: 4.7,
+      students: 2543,
+      image: '/assets/db4.jpg',
+      price: 44.99,
+      duration: '8 weeks',
+      level: 'Beginner',
+      externalLink: 'https://www.mysql.com/training/'
+    },
+    {
+      id: 14,
+      title: 'MongoDB for Modern Applications',
+      category: 'Database',
+      instructor: 'Jennifer Lee',
+      rating: 4.8,
+      students: 1876,
+      image: '/assets/db3.jpg',
+      price: 54.99,
+      duration: '6 weeks',
+      level: 'Intermediate',
+      externalLink: 'https://university.mongodb.com/'
+    },
+    {
+      id: 15,
+      title: 'PostgreSQL Administration',
+      category: 'Database',
+      instructor: 'Dr. Miguel Sanchez',
+      rating: 4.9,
+      students: 1540,
+      image: '/assets/db2.jpg',
+      price: 69.99,
+      duration: '10 weeks',
+      level: 'Advanced',
+      externalLink: 'https://www.postgresql.org/docs/online-resources/'
+    },
+    {
+      id: 16,
+      title: 'Database Design and Normalization',
+      category: 'Database',
+      instructor: 'Priya Patel',
+      rating: 4.6,
+      students: 1982,
+      image: '/assets/db1.jpg',
+      price: 49.99,
+      duration: '6 weeks',
+      level: 'Intermediate',
+      externalLink: 'https://www.udemy.com/course/database-design/'
+    },
+    // New Cloud Computing Courses
+    {
+      id: 17,
+      title: 'AWS Certified Solutions Architect',
+      category: 'Cloud Computing',
+      instructor: 'Mark Thompson',
+      rating: 4.9,
+      students: 3862,
+      image: '/assets/cp2.jpg',
+      price: 79.99,
+      duration: '12 weeks',
+      level: 'Intermediate',
+      externalLink: 'https://aws.amazon.com/training/'
+    },
+    {
+      id: 18,
+      title: 'Microsoft Azure Fundamentals',
+      category: 'Cloud Computing',
+      instructor: 'Samantha Wright',
+      rating: 4.7,
+      students: 2741,
+      image: '/assets/cp3.jpg',
+      price: 59.99,
+      duration: '8 weeks',
+      level: 'Beginner',
+      externalLink: 'https://learn.microsoft.com/en-us/azure/'
+    },
+    {
+      id: 19,
+      title: 'Google Cloud Platform Engineering',
+      category: 'Cloud Computing',
+      instructor: 'Jason Patel',
+      rating: 4.8,
+      students: 2153,
+      image: '/assets/cp4.jpg',
+      price: 69.99,
+      duration: '10 weeks',
+      level: 'Intermediate',
+      externalLink: 'https://cloud.google.com/training'
+    },
+    {
+      id: 20,
+      title: 'Cloud Security and Compliance',
+      category: 'Cloud Computing',
+      instructor: 'Dr. Lauren Turner',
+      rating: 4.9,
+      students: 1654,
+      image: '/assets/cp5.jpg',
+      price: 74.99,
+      duration: '8 weeks',
+      level: 'Advanced',
+      externalLink: 'https://www.sans.org/cloud-security/'
+    },
+    {
+      id: 21,
+      title: 'DevOps for Cloud Environments',
+      category: 'Cloud Computing',
+      instructor: 'Daniel Martinez',
+      rating: 4.8,
+      students: 2385,
+      image: '/assets/cp6.jpg',
+      price: 69.99,
+      duration: '10 weeks',
+      level: 'Intermediate',
+      externalLink: 'https://www.devopsschool.com/courses/'
     }
   ];
 
@@ -323,7 +441,8 @@ const CoursesPage = () => {
 
 
       
-      <footer class="bg-white pt-8 border-t border-blue-700 mt-2  text-white py-12 px-6">
+   {/* footer  Section */}
+   <footer class=" w-full bg-white pt-8 border-t border-blue-700 mt-2  text-white py-12 px-6">
   <div class="max-w-7xl mx-auto">
   
    
@@ -336,8 +455,6 @@ const CoursesPage = () => {
         </p>
       </div>
       
-    
-       
       <div>
   <h4 className="text-lg font-bold mb-3">Quick Links</h4>
   <ul className="space-y-2">

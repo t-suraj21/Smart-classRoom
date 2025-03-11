@@ -13,7 +13,7 @@ const ResourcePage = () => {
         title: 'The Art of Classroom Management', 
         author: 'Dr. Sarah Johnson', 
         link: 'https://example.com/ebooks/classroom-management',
-        image:"/assets/ebook1.jpg",
+        image: "/assets/ebook1.jpg",
         description: 'A comprehensive guide to managing modern classrooms effectively.'
       },
       { 
@@ -29,6 +29,27 @@ const ResourcePage = () => {
         link: 'https://example.com/ebooks/engagement', 
         image: "/assets/ebooks3.jpg",
         description: 'Learn proven techniques to boost student engagement and participation.'
+      },
+      { 
+        title: 'Differentiated Instruction: A Guide for K-12 Teachers', 
+        author: 'Dr. James Wilson', 
+        link: 'https://example.com/ebooks/differentiated-instruction', 
+        image: "/assets/ebook4.jpg",
+        description: 'Practical strategies for meeting the diverse needs of all students in your classroom.'
+      },
+      { 
+        title: 'The Future of Assessment in Education', 
+        author: 'Prof. Amara Singh', 
+        link: 'https://example.com/ebooks/future-assessment', 
+        image: "/assets/ebook5.jpg",
+        description: 'New paradigms for evaluating student learning in the digital age.'
+      },
+      { 
+        title: 'Building a Positive Classroom Culture', 
+        author: 'Thomas Greene, Ph.D.', 
+        link: 'https://example.com/ebooks/positive-classroom-culture', 
+        image: "/assets/ebook6.jpg",
+        description: 'Research-backed methods to create a supportive and productive learning environment.'
       },
     ],
     Articles: [
@@ -60,42 +81,98 @@ const ResourcePage = () => {
         image: "/assets/article4.jpg",
         description: 'Design inclusive lesson plans that address diverse learning styles.'
       },
+      { 
+        title: 'The Neuroscience of Learning: What Teachers Need to Know', 
+        source: 'Education Neuroscience Quarterly', 
+        link: 'https://example.com/articles/neuroscience-learning', 
+        image: "/assets/article5.jpg",
+        description: 'How brain science can inform more effective teaching practices.'
+      },
+      { 
+        title: 'Formative Assessment Strategies That Actually Work', 
+        source: 'Assessment Practices', 
+        link: 'https://example.com/articles/formative-assessment', 
+        image: "/assets/article6.jpg",
+        description: 'Real-world techniques to gather meaningful feedback on student learning.'
+      },
+      { 
+        title: 'Project-Based Learning: A Framework for Success', 
+        source: 'Modern Educator', 
+        link: 'https://example.com/articles/project-based-learning', 
+        image: "/assets/article7.jpg",
+        description: 'Step-by-step guide to implementing effective project-based learning in any subject.'
+      },
+      { 
+        title: "Social-Emotional Learning in Today Digital Classroom", 
+        source: 'Whole Child Education', 
+        link: 'https://example.com/articles/sel-digital', 
+        image: "/assets/article8.jpg",
+        description: 'Integrating SEL competencies into virtual and hybrid learning environments.'
+      },
     ],
     Tools: [
       { 
         title: 'ClassTrack', 
         description: 'Attendance and participation tracking', 
         link: 'https://classtrack.edu',
-        image:"/assets/tools.jpg",
+        image: "/assets/tools.jpg",
         tags: ['attendance', 'tracking', 'analytics']
       },
       { 
         title: 'GradeWise', 
         description: 'AI-powered grading assistant', 
         link: 'https://gradewise.io', 
-        image:"/assets/tools1.jpg",
+        image: "/assets/tools1.jpg",
         tags: ['grading', 'AI', 'feedback']
       },
       { 
         title: 'LessonBuilder', 
         description: 'Interactive lesson planning tool', 
         link: 'https://lessonbuilder.app',
-        image:"/assets/tools2.jpg",
+        image: "/assets/tools2.jpg",
         tags: ['planning', 'curriculum', 'interactive']
       },
       { 
         title: 'ClassFlow', 
         description: 'Real-time classroom collaboration', 
         link: 'https://classflow.com',
-        image:"/assets/tools3.jpg",
+        image: "/assets/tools3.jpg",
         tags: ['collaboration', 'real-time', 'interaction']
       },
       { 
         title: 'EduMetrics', 
         description: 'Student progress analytics dashboard', 
         link: 'https://edumetrics.io',
-        image: "/assets/py.jpg",
+        image: "/assets/t5.jpg",
         tags: ['analytics', 'metrics', 'progress']
+      },
+      { 
+        title: 'QuizGenius', 
+        description: 'AI-powered quiz and assessment generator', 
+        link: 'https://quizgenius.com',
+        image: "/assets/tools4.jpg",
+        tags: ['assessment', 'quiz', 'test creation']
+      },
+      { 
+        title: 'ClassroomCast', 
+        description: 'Screen sharing and recording platform for educators', 
+        link: 'https://classroomcast.education',
+        image: "/assets/tools5.jpg",
+        tags: ['presentation', 'recording', 'multimedia']
+      },
+      { 
+        title: 'FeedbackLoop', 
+        description: 'Real-time student response and engagement system', 
+        link: 'https://feedbackloop.app',
+        image: "/assets/tools6.jpg",
+        tags: ['feedback', 'polling', 'student engagement']
+      },
+      { 
+        title: 'PlannerPro', 
+        description: 'Comprehensive curriculum and lesson planning suite', 
+        link: 'https://plannerpro.edu',
+        image: "/assets/tools7.jpg",
+        tags: ['planning', 'curriculum', 'organization']
       },
     ],
     Videos: [
@@ -104,7 +181,7 @@ const ResourcePage = () => {
         duration: '32:15', 
         creator: 'Teaching Excellence', 
         link: 'https://example.com/videos/digital-classroom', 
-        image:"/assets/video.jpg",
+        image: "/assets/video.jpg",
         description: 'Expert strategies for managing digital classroom environments.'
       },
       { 
@@ -112,8 +189,7 @@ const ResourcePage = () => {
         duration: '14:47', 
         creator: 'EdTech Tips', 
         link: 'https://example.com/videos/breakout-rooms', 
-        
-        image:"/assets/video1.jpg",
+        image: "/assets/video1.jpg",
         description: 'Step-by-step guide to creating effective virtual breakout sessions.'
       },
       { 
@@ -121,9 +197,40 @@ const ResourcePage = () => {
         duration: '45:33', 
         creator: 'Educator Insights', 
         link: 'https://example.com/videos/engagement', 
-       
-        image:"/assets/video2.jpg",
+        image: "/assets/video2.jpg",
         description: 'Practical techniques to boost student participation and interest.'
+      },
+      { 
+        title: 'The Science of Learning: Cognitive Load Theory Explained', 
+        duration: '28:52', 
+        creator: 'Education Brain Trust', 
+        link: 'https://example.com/videos/cognitive-load', 
+        image: "/assets/video3.jpg",
+        description: 'Understanding how working memory affects student learning and retention.'
+      },
+      { 
+        title: 'Formative Assessment in 5 Minutes a Day', 
+        duration: '23:18', 
+        creator: 'Assessment Matters', 
+        link: 'https://example.com/videos/quick-assessment', 
+        image: "/assets/video4.jpg",
+        description: 'Quick, effective techniques to check for understanding every day.'
+      },
+      { 
+        title: 'Creating Inclusive Classrooms: Universal Design for Learning', 
+        duration: '38:45', 
+        creator: 'Inclusive Education Channel', 
+        link: 'https://example.com/videos/udl-classroom', 
+        image: "/assets/video5.jpg",
+        description: 'Implementing UDL principles to create accessible learning for all students.'
+      },
+      { 
+        title: 'Effective Parent-Teacher Communication Strategies', 
+        duration: '25:10', 
+        creator: 'Community Education Partners', 
+        link: 'https://example.com/videos/parent-communication', 
+        image: "/assets/video6.jpg",
+        description: 'Building strong relationships with families to support student success.'
       },
     ],
     Courses: [
@@ -132,8 +239,7 @@ const ResourcePage = () => {
         provider: 'Teacher Academy', 
         duration: '6 weeks', 
         link: 'https://example.com/courses/master-management', 
-        
-        image:"/assets/video3.jpg",
+        image: "/assets/c1.jpg",
         description: 'Comprehensive course on effective classroom management strategies.'
       },
       { 
@@ -141,8 +247,7 @@ const ResourcePage = () => {
         provider: 'EdTech Institute', 
         duration: '4 weeks', 
         link: 'https://example.com/courses/assessment', 
-
-        image:"/assets/video4.jpg",
+        image: "/assets/c2.jpg",
         description: 'Learn to create and implement effective digital assessments.'
       },
       { 
@@ -150,9 +255,48 @@ const ResourcePage = () => {
         provider: 'Diversity in Education', 
         duration: '8 weeks', 
         link: 'https://example.com/courses/inclusive', 
-
-        image:"/assets/video2.jpg",
+        image: "/assets/c3.jpg",
         description: 'Build an inclusive learning environment for all students.'
+      },
+      { 
+        title: 'Social-Emotional Learning Integration', 
+        provider: 'Whole Child Academy', 
+        duration: '6 weeks', 
+        link: 'https://example.com/courses/sel-integration', 
+        image: "/assets/c4.jpg",
+        description: 'Strategies for embedding SEL competencies across the curriculum.'
+      },
+      { 
+        title: 'Project-Based Learning Design Workshop', 
+        provider: 'Learning by Design Institute', 
+        duration: '5 weeks', 
+        link: 'https://example.com/courses/pbl-design', 
+        image: "/assets/c5.jpg",
+        description: 'Learn to create, facilitate, and assess powerful project-based learning experiences.'
+      },
+      { 
+        title: 'Advanced Differentiation Techniques', 
+        provider: 'Personalized Learning Center', 
+        duration: '7 weeks', 
+        link: 'https://example.com/courses/advanced-differentiation', 
+        image: "/assets/c6.jpg",
+        description: 'Take your differentiated instruction to the next level with advanced strategies.'
+      },
+      { 
+        title: 'Educational Technology Integration', 
+        provider: 'Future Classroom Lab', 
+        duration: '6 weeks', 
+        link: 'https://example.com/courses/edtech-integration', 
+        image: "/assets/c7.jpg",
+        description: 'Learn to select and integrate the right technology tools for your teaching goals.'
+      },
+      { 
+        title: 'Data-Driven Instruction', 
+        provider: 'Assessment Analytics Academy', 
+        duration: '4 weeks', 
+        link: 'https://example.com/courses/data-driven', 
+        image: "/assets/c8.jpg",
+        description: 'Using assessment data to inform instruction and improve student outcomes.'
       },
     ],
   };
@@ -222,8 +366,17 @@ const ResourcePage = () => {
       <header className="header">
         <div className="banner">
           <div className="banner-overlay">
-            <h1>Edusphere Resources</h1>
-            <p>Curated resources to help you excel in classroom management and teaching</p>
+            <h1 className="main-heading">
+              <span className="heading-primary">Edusphere</span> 
+              <span className="heading-accent">Resources</span>
+            </h1>
+            <p className="banner-subtitle">Empowering educators with premium resources for classroom excellence</p>
+            <div className="banner-tags">
+              <span className="banner-tag">Classroom Management</span>
+              <span className="banner-tag">Digital Learning</span>
+              <span className="banner-tag">Assessment</span>
+              <span className="banner-tag">Student Engagement</span>
+            </div>
           </div>
         </div>
       </header>
@@ -309,7 +462,8 @@ const ResourcePage = () => {
           </div>
         )}
       </div>
-      <footer class="bg-white pt-8 border-t border-blue-700 mt-2  text-white py-12 px-6">
+      {/* footer  Section */}
+      <footer class=" w-full bg-white pt-8 border-t border-blue-700 mt-2  text-white py-12 px-6">
   <div class="max-w-7xl mx-auto">
   
    
@@ -322,8 +476,6 @@ const ResourcePage = () => {
         </p>
       </div>
       
-    
-       
       <div>
   <h4 className="text-lg font-bold mb-3">Quick Links</h4>
   <ul className="space-y-2">
@@ -389,9 +541,6 @@ const ResourcePage = () => {
     </div>
   );
 };
-
-
-
 // Inject the CSS directly into the document
 const injectCss = () => {
   const style = document.createElement('style');
