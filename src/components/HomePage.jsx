@@ -263,69 +263,65 @@ export default function HomePage() {
       {/* Add the Experience Section here */}
       <ExperienceSection />
       
-      {/* Add the application  Section here */}
-      <section className=" w-full py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50">
-          {/* Animated Header */}
-          <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-16 lg:mb-20"
+   {/* Add the application Section here */}
+<section className="w-full py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50">
+  {/* Animated Header */}
+  <motion.div
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="text-center mb-12 sm:mb-16 lg:mb-20"
+  >
+    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
+      SMART CLASSROOM APPLICATIONS
+    </h2>
+    <motion.div
+      className="w-24 h-1 bg-red-500 mx-auto"
+      initial={{ width: 0 }}
+      animate={{ width: "6rem" }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+    />
+  </motion.div>
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Animated Grid */}
+    <motion.div
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
+    >
+      {cards.map((card, index) => (
+        <motion.div
+          key={index}
+          className="relative overflow-hidden rounded-xl group transform transition-all duration-300 hover:shadow-2xl"
+          variants={itemVariants}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
-            SMART CLASSROOM APPLICATIONS
-          </h2>
-          <motion.div 
-            className="w-24 h-1 bg-red-500 mx-auto"
-            initial={{ width: 0 }}
-            animate={{ width: "6rem" }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          />
-        </motion.div>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-       
-
-        {/* Animated Grid */}
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          {cards.map((card, index) => (
-            <motion.div 
-              key={index}
-              className="relative overflow-hidden rounded-xl group transform transition-all duration-300 hover:shadow-2xl"
-              variants={itemVariants}
+          <div className="aspect-[4/3] relative">
+            <img
+              src={card.image}
+              alt={card.title}
+              className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+            />
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-300" />
+            {/* Title Container */}
+            <motion.div
+              className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="aspect-[4/3] relative">
-                <img 
-                  src={card.image} 
-                  alt={card.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-80 group-hover:opacity-70 transition-opacity duration-300"/>
-                
-                {/* Title Container */}
-               {/* Title Container */}
-<motion.div 
-  className="absolute inset-0 flex flex-col items-center justify-center p-4 text-white"
-  whileHover={{ scale: 1.05 }}
-  transition={{ duration: 0.3 }}
->
-  <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white-900 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-    {card.title}
-  </h3>
-  <div className="w-0 group-hover:w-16 h-0.5 bg-red-500 mt-2 transition-all duration-300"/>
-</motion.div>
-              </div>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white-900 text-center transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                {card.title}
+              </h3>
+              <div className="w-0 group-hover:w-16 h-0.5 bg-red-500 mt-2 transition-all duration-300" />
             </motion.div>
-          ))}
+          </div>
         </motion.div>
-      </div>
-    </section>
+      ))}
+    </motion.div>
+  </div>
+</section>
    
 
  {/* FAQ Section */}
