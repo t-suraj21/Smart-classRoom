@@ -32,24 +32,31 @@ const ContactPage = () => {
           <p className="text-gray-600 text-lg">We’re here to assist you. Reach out via phone, email, or visit us.</p>
           <div className="text-lg text-gray-700 space-y-3">
             <p><span className="font-semibold">📍 Address:</span> 123 School Lane, EduCity</p>
-            <p><span className="font-semibold">📧 Email:</span> support@smartclassroom.com</p>
+            <p><span className="font-semibold">📧 Email:</span> support@edusphere.com</p>
             <p><span className="font-semibold">📞 Phone:</span> +1 (800) 123-4567</p>
             <p><span className="font-semibold">⏰ Office Hours:</span> Mon - Fri, 9 AM - 5 PM</p>
           </div>
 
-          {/* Social Media Links */}
-          <div className="flex gap-4 flex-wrap">
-            {["Facebook", "Twitter", "Instagram", "LinkedIn"].map((platform, index) => (
-              <motion.a
-                key={index}
-                href="#"
-                whileHover={{ scale: 1.1 }}
-                className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-800 transition duration-300"
-              >
-                {platform}
-              </motion.a>
-            ))}
-          </div>
+{/* Social Media Links */}
+<div className="flex gap-4 flex-wrap">
+  {[
+    { name: "Facebook", url: "https://facebook.com" },
+    { name: "Twitter", url: "https://twitter.com" },
+    { name: "Instagram", url: "https://instagram.com" },
+    { name: "LinkedIn", url: "https://linkedin.com" },
+  ].map((platform, index) => (
+    <motion.a
+      key={index}
+      href={platform.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.1 }}
+      className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-800 transition duration-300"
+    >
+      {platform.name}
+    </motion.a>
+  ))}
+</div>
 
           {/* Google Maps */}
           <div>
