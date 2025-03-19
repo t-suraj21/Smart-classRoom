@@ -4,14 +4,9 @@ import axios from "axios";
 import { UserIcon, EnvelopeIcon, LockClosedIcon, IdentificationIcon } from "@heroicons/react/24/solid";
 
 const Auth = () => {
+  const [role, setRole] = useState(null); // "Student" or "Teacher"
   const [step, setStep] = useState("login"); // "login" or "register"
-  const [formData, setFormData] = useState({
-    name: "Guest User",
-    email: "guest@example.com",
-    password: "123456",
-    studentId: "N/A",
-    domain: "Student",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", password: "", studentId: "" });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,18 +19,14 @@ const Auth = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
-    if (step === "register" && (!formData.name || !formData.email || !formData.password || !formData.studentId)) {
-      alert("❌ Please fill in all required fields.");
+    if (step === "register" && (!formData.name || !formData.email || !formData.password || (role === "Student" && !formData.studentId))) {
+      alert("❌ Please fill in all fields.");
       return;
     }
 
-    const url = step === "register"
-      ? "https://backend-zgt2.onrender.com/register"
-      : "https://backend-zgt2.onrender.com/login";
-
+    const url = step === "register" ? "https://backend-zgt2.onrender.com/register" : "https://backend-zgt2.onrender.com/login";
     try {
-      const res = await axios.post(url, formData, { headers: { "Content-Type": "application/json" } });
+      const res = await axios.post(url, { ...formData, role }, { headers: { "Content-Type": "application/json" } });
 
       if (step === "login") {
         localStorage.setItem("token", res.data.token);
@@ -46,10 +37,21 @@ const Auth = () => {
         setStep("login");
       }
     } catch (error) {
-      console.error("Error:", error.response?.data?.message);
       alert("❌ " + (error.response?.data?.message || "Something went wrong"));
     }
   };
+
+  if (!role) {
+    return (
+      <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-600 to-blue-600">
+        <div className="bg-white p-8 shadow-lg rounded-xl w-96 text-center border border-gray-400">
+          <h2 className="text-2xl font-bold mb-4">Select Your Role</h2>
+          <button className="w-full py-2 mb-2 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-700" onClick={() => setRole("Student")}>Student</button>
+          <button className="w-full py-2 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-700" onClick={() => setRole("Teacher")}>Teacher</button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-600 to-blue-600">
@@ -58,63 +60,34 @@ const Auth = () => {
         
         <form onSubmit={handleSubmit}>
           {step === "register" && (
-            <>
-              <div className="relative mb-3">
-                <UserIcon className="w-5 h-5 text-gray-400 absolute left-3 top-3" />
-                <input 
-                  type="text" name="name" placeholder="Full Name" 
-                  className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-blue-500"
-                  onChange={handleChange} value={formData.name} required 
-                />
-              </div>
-              <div className="relative mb-3">
-                <IdentificationIcon className="w-5 h-5 text-gray-400 absolute left-3 top-3" />
-                <input 
-                  type="text" name="studentId" placeholder="Student ID" 
-                  className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-blue-500"
-                  onChange={handleChange} value={formData.studentId} required 
-                />
-              </div>
-            </>
+            <div className="relative mb-3">
+              <UserIcon className="w-5 h-5 text-gray-400 absolute left-3 top-3" />
+              <input type="text" name="name" placeholder="Full Name" className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800" onChange={handleChange} required />
+            </div>
+          )}
+          
+          {step === "register" && role === "Student" && (
+            <div className="relative mb-3">
+              <IdentificationIcon className="w-5 h-5 text-gray-400 absolute left-3 top-3" />
+              <input type="text" name="studentId" placeholder="Student ID" className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800" onChange={handleChange} required />
+            </div>
           )}
           
           <div className="relative mb-3">
             <EnvelopeIcon className="w-5 h-5 text-gray-400 absolute left-3 top-3" />
-            <input 
-              type="email" name="email" placeholder="Email" 
-              className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-blue-500"
-              onChange={handleChange} value={formData.email} required 
-            />
+            <input type="email" name="email" placeholder="Email" className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800" onChange={handleChange} required />
           </div>
           
           <div className="relative mb-3">
             <LockClosedIcon className="w-5 h-5 text-gray-400 absolute left-3 top-3" />
-            <input 
-              type="password" name="password" placeholder="Password" 
-              className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-blue-500"
-              onChange={handleChange} value={formData.password} required 
-            />
+            <input type="password" name="password" placeholder="Password" className="w-full p-2 pl-10 border border-gray-400 rounded-lg bg-white text-gray-800" onChange={handleChange} required />
           </div>
-
-          {step === "register" && (
-            <div className="mb-3">
-              <label className="block text-sm font-medium">Select Role:</label>
-              <select 
-                name="domain" 
-                className="w-full p-2 border border-gray-400 rounded-lg bg-white text-gray-800 focus:ring-2 focus:ring-blue-500" 
-                onChange={handleChange} value={formData.domain} required 
-              >
-                <option value="Student">Student</option>
-                <option value="Faculty">Faculty</option>
-              </select>
-            </div>
-          )}
           
           <button type="submit" className="w-full py-2 rounded-lg mt-3 text-white font-semibold transition-all duration-200 bg-blue-500 hover:bg-blue-700">
             {step === "register" ? "Register" : "Login"}
           </button>
         </form>
-
+        
         <p className="text-center mt-4 text-sm">
           {step === "register" ? (
             <>Already have an account? <span className="text-blue-300 cursor-pointer hover:underline" onClick={() => setStep("login")}>Login</span></>
