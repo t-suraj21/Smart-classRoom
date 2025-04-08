@@ -24,9 +24,7 @@ const ContactPage = () => {
     <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h2 className="text-3xl sm:text-4xl font-bold text-center text-blue-700 mb-10">📩 Get in Touch</h2>
 
-      {/* Responsive Grid Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        {/* Contact Info Section */}
         <div className="space-y-6 bg-gray-100 p-6 rounded-lg shadow-lg">
           <h3 className="text-2xl font-semibold text-gray-800">📞 Contact Information</h3>
           <p className="text-gray-600 text-lg">We’re here to assist you. Reach out via phone, email, or visit us.</p>
@@ -36,7 +34,6 @@ const ContactPage = () => {
             <p><span className="font-semibold">⏰ Office Hours:</span> Mon - Fri, 9 AM - 5 PM</p>
           </div>
 
-          {/* Social Media Icons */}
           <div className="flex gap-4 flex-wrap">
             {[
               {
@@ -92,13 +89,12 @@ const ContactPage = () => {
             ))}
           </div>
           <img
-  src="/assets/contact.jpg" 
-  alt="Map showing our location"
-  className="w-full h-64 rounded-md shadow-md object-cover"
-/>
+            src="/assets/contact.jpg"
+            alt="Map showing our location"
+            className="w-full h-64 rounded-md shadow-md object-cover"
+          />
         </div>
 
-        {/* Contact Form Section */}
         <div className="bg-white p-6 rounded-lg shadow-lg">
           <h3 className="text-2xl font-semibold text-gray-800">✉ Send Us a Message</h3>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -142,4 +138,3 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-// import React, { useState } from "react";
