@@ -1,7 +1,7 @@
-// filepath: c:\Users\VICTUS\TECH\Smart-classRoom\src\components\Header.jsx
 import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,7 +9,6 @@ const Header = () => {
   const dropdownRef = useRef(null);
   const mobileMenuRef = useRef(null);
 
-  // Close dropdown & menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -40,6 +39,7 @@ const Header = () => {
       <NavItem text="Contact" to="/contact" />
       <NavItem text="Profile" to="/profile" />
 
+<<<<<<< HEAD
       {/* Student Dropdown (Hover) */}
       <div
         className="relative"
@@ -102,6 +102,70 @@ const Header = () => {
     </div>
   )}
 </header>
+=======
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setStudentDropdown(!studentDropdown)}
+              className="flex items-center gap-1 hover:text-blue-500 transition"
+            >
+              Student <ChevronDown className="w-4 h-4" />
+            </button>
+            {studentDropdown && (
+              <div className="absolute left-0 mt-2 w-52 bg-white border rounded-lg shadow-lg py-2">
+                <DropdownItem text="👨‍🏫 Teacher Dashboard" to="/student/teacher-dashboard" />
+                <DropdownItem text="📅 Attendance" to="/student/attendance" />
+                <DropdownItem text="📖 Quizz" to="/student/Quizz" />
+              </div>
+            )}
+          </div>
+        </nav>
+
+        <Link to="/auth" className="hidden md:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition">
+          Let's Go!
+        </Link>
+
+        {/* Hamburger Toggle */}
+        <button className="md:hidden focus:outline-none" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <X className="w-7 h-7 text-gray-700" /> : <Menu className="w-7 h-7 text-gray-700" />}
+        </button>
+      </div>
+
+      {/* Mobile Menu with Motion */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            ref={mobileMenuRef}
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white text-gray-700 absolute top-16 left-0 w-full shadow-md px-6 py-4 rounded-b-lg"
+          >
+            <NavItem text="Home" to="/home" onClick={() => setMenuOpen(false)} />
+            <NavItem text="Courses" to="/course" onClick={() => setMenuOpen(false)} />
+            <NavItem text="Resources" to="/resources" onClick={() => setMenuOpen(false)} />
+            <NavItem text="Contact" to="/contact" onClick={() => setMenuOpen(false)} />
+            <NavItem text="Profile" to="/profile" onClick={() => setMenuOpen(false)} />
+
+            <div className="mt-3">
+              <p className="font-semibold">Student</p>
+              <DropdownItem text="👨‍🏫 Teacher Dashboard" to="/student/teacher-dashboard" onClick={() => setMenuOpen(false)} />
+              <DropdownItem text="📅 Attendance" to="/student/attendance" onClick={() => setMenuOpen(false)} />
+              <DropdownItem text="📖 Quizz" to="/student/Quizz" onClick={() => setMenuOpen(false)} />
+            </div>
+
+            <Link
+              to="/auth"
+              className="block text-center bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition mt-4"
+              onClick={() => setMenuOpen(false)}
+            >
+              Let's Go!
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
+>>>>>>> f51c4f975a375f16c556212f7c7628127e3a3417
   );
 };
 
