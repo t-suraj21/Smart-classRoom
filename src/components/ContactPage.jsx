@@ -133,46 +133,7 @@ const ContactPage = () => {
           </form>
         </div>
       
-        {/* Contact Form Section */}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-2xl font-semibold text-gray-800">✉ Send Us a Message</h3>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {["name", "email", "subject"].map((field, i) => (
-              <div key={i}>
-                <label className="block text-gray-600 font-medium mb-1 capitalize">{field}</label>
-                <input
-                  type={field === "email" ? "email" : "text"}
-                  name={field}
-                  value={formData[field]}
-                  onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400"
-                  required
-                />
-              </div>
-            ))}
-            <div>
-              <label className="block text-gray-600 font-medium mb-1">Message</label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400"
-                rows="4"
-                required
-              ></textarea>
-            </div>
-            <motion.button
-              type="submit"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300"
-            >
-              Send Message
-            </motion.button>
-          </form>
         </div>
-      </div>
-
       
       <footer class="bg-white pt-8 border-t border-blue-700 mt-2  text-white py-12 px-6">
   <div class="max-w-7xl mx-auto">
