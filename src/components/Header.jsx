@@ -79,8 +79,6 @@ const Header = () => {
           {/* Student Dropdown (Mobile) */}
           <div className="mt-3">
             <p className="font-semibold">Student</p>
-            <DropdownItem text="📜 Student List" to="/student/student-list" onClick={() => setMenuOpen(false)} />
-            <DropdownItem text="📊 Student Dashboard" to="/student/dashboard" onClick={() => setMenuOpen(false)} />
             <DropdownItem text="👨‍🏫 Teacher Dashboard" to="/student/teacher-dashboard" onClick={() => setMenuOpen(false)} />
             <DropdownItem text="📅 Attendance" to="/student/attendance" onClick={() => setMenuOpen(false)} />
             <DropdownItem text="📖 Quizz" to="/student/Quizz" onClick={() => setMenuOpen(false)} />
