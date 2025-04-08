@@ -17,6 +17,8 @@ import Profile from "./components/Profile";
 import Attendance from "./student/attendance";
 import TeacherDashboard from "./student/teacher-dashboard";
 import Quizz from "./student/Quizz";
+import ResumeUpload from "./student/ResumeUpload"; // ✅ NEW Import
+// import assignments from "./student/Assignments"; // ✅ NEW Import
 
 const App = () => {
   return (
@@ -32,12 +34,12 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/auth" element={<Auth />} />
-            {/* 👇 New Routes */}
             <Route path="/student/attendance" element={<Attendance />} />
             <Route path="/student/teacher-dashboard" element={<TeacherDashboard />} />
             <Route path="/student/Quizz" element={<Quizz />} />
-            {/* Add more student routes as needed */}
+            <Route path="/student/resume-upload" element={<ResumeUpload />} /> {/* ✅ NEW ROUTE */}
+            {/* <Route path="/student/assignments" element={<Assignments />} /> ✅ NEW ROUTE */}
+            {/* Add more routes as needed */}
           </Routes>
         </div>
       </div>
