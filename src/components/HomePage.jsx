@@ -217,9 +217,7 @@ export default function HomePage() {
                 transforming traditional learning spaces into interactive, tech-driven environments that 
                 enhance engagement, collaboration, and academic success.
               </p>
-              <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-800 px-6 py-2 rounded-md font-medium transition-all duration-300 hover:shadow-lg">
-                LEARN MORE
-              </button>
+              
             </motion.div>
           </div>
 
