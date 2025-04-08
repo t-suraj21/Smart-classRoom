@@ -8,113 +8,114 @@ const ResourcePage = () => {
 
   //  resource data structure
   const resources = {
-    Ebooks: [
+    Ebooks :[
       { 
-        title: 'The Art of Classroom Management', 
-        author: 'Dr. Sarah Johnson', 
-        link: 'https://teacherhub.edu/ebooks/classroom-management',
+        title: 'Enhancing the Art & Science of Teaching With Technology', 
+        author: 'Sonny Magana & Robert J. Marzano', 
+        link: 'https://www.amazon.com/Enhancing-Teaching-Technology-Classroom-Strategies-ebook/dp/B00H8HKDW8',
         image: "/assets/ebook1.jpg",
-        description: 'A comprehensive guide to managing modern classrooms effectively.'
+        description: 'Over 100 strategies for integrating technology into classroom practices effectively.'
       },
       { 
-        title: 'Digital Tools for Modern Educators', 
-        author: 'Prof. Michael Chen', 
-        link: 'https://edutechresources.org/ebooks/digital-tools', 
+        title: 'Effective Classroom Management: The Essentials', 
+        author: 'Tracey Garrett', 
+        link: 'https://students.aiu.edu/submissions/profiles/resources/onlineBook/P5e2H3_Effective%20Classroom%20Management2014.pdf',
         image: "/assets/ebooks2.jpg",
-        description: 'Explore essential digital tools that can transform your teaching experience.'
+        description: 'Practical strategies to engage learners and build supportive student relationships.'
       },
       { 
-        title: 'Student Engagement Strategies', 
-        author: 'Emily Rodriguez, Ed.D.', 
-        link: 'https://learningstyles.net/publications/engagement', 
+        title: 'Handbook of Research on Student Engagement', 
+        author: 'Sandra L. Christenson, Amy L. Reschly & Cathy Wylie', 
+        link: 'https://www.researchgate.net/publication/278666258_Handbook_of_Research_on_Student_Engagement',
         image: "/assets/ebooks3.jpg",
-        description: 'Learn proven techniques to boost student engagement and participation.'
+        description: 'Comprehensive insights into fostering student engagement in educational settings.'
       },
       { 
-        title: 'Differentiated Instruction: A Guide for K-12 Teachers', 
-        author: 'Dr. James Wilson', 
-        link: 'https://inclusiveteaching.com/resources/differentiated-instruction', 
+        title: 'The Inclusive Classroom: Strategies for Effective Differentiated Instruction', 
+        author: 'Margo A. Mastropieri & Thomas E. Scruggs', 
+        link: 'https://dokumen.pub/the-inclusive-classroom-strategies-for-effective-differentiated-instruction-0137848943-9780137848942.html',
         image: "/assets/ebook4.jpg",
-        description: 'Practical strategies for meeting the diverse needs of all students in your classroom.'
+        description: 'Practical strategies to meet diverse learning needs in inclusive classrooms.'
       },
       { 
-        title: 'The Future of Assessment in Education', 
-        author: 'Prof. Amara Singh', 
-        link: 'https://educationresearch.academy/publications/future-assessment', 
+        title: 'Artificial Intelligence and the Future of Teaching and Learning', 
+        author: 'U.S. Department of Education', 
+        link: 'https://www.ed.gov/sites/ed/files/documents/ai-report/ai-report.pdf',
         image: "/assets/ebook5.jpg",
-        description: 'New paradigms for evaluating student learning in the digital age.'
+        description: 'Insights into leveraging AI for enhancing teaching and learning outcomes.'
       },
       { 
-        title: 'Building a Positive Classroom Culture', 
-        author: 'Thomas Greene, Ph.D.', 
-        link: 'https://educatorlibrary.io/books/positive-classroom-culture', 
+        title: 'School Culture Rewired: Toward a More Positive and Productive School', 
+        author: 'Steve Gruenert & Todd Whitaker', 
+        link: 'https://files.ascd.org/pdfs/publications/books/School-Culture-Rewired-2ed-sample-chapters.pdf',
         image: "/assets/ebook6.jpg",
-        description: 'Research-backed methods to create a supportive and productive learning environment.'
+        description: 'Strategies for reshaping school culture for better productivity and positivity.'
       },
     ],
     Articles: [
       { 
-        title: '10 Proven Techniques for Behavior Management', 
-        source: 'Education Today', 
-        link: 'https://educationtoday.magazine/articles/behavior-management', 
-        image: "/assets/article2.jpg",
+        title: '10 Effective ABA Behavior Management Strategies', 
+        source: 'Ori Learning', 
+        link: 'https://orilearning.com/aba-behavior-management-strategies/', 
+        image: '/assets/article2.jpg',
         description: 'Research-backed approaches to classroom behavior management.'
       },
       { 
-        title: 'Using Technology to Save Time on Grading', 
-        source: 'Tech for Teachers', 
-        link: 'https://techforteachers.blog/articles/grading-tech', 
-        image: "/assets/article1.jpg",
+        title: 'Here\'s How Teachers Are Using AI to Save Time', 
+        source: 'Education Week', 
+        link: 'https://www.edweek.org/technology/heres-how-teachers-are-using-ai-to-save-time/2025/02', 
+        image: '/assets/article1.jpg',
         description: 'Time-saving grading solutions to help you focus more on teaching.'
       },
       { 
-        title: 'Building Student Autonomy in Virtual Classrooms', 
-        source: 'Digital Learning Journal', 
-        link: 'https://digitallearningjournal.edu/articles/student-autonomy', 
-        image: "/assets/article3.jpg",
+        title: 'Autonomous Learning and the Use of Digital Technologies in Online English Classrooms', 
+        source: 'Contemporary Educational Technology', 
+        link: 'https://www.cedtech.net/download/autonomous-learning-and-the-use-of-digital-technologies-in-online-english-classrooms-in-higher-13094.pdf', 
+        image: '/assets/article3.jpg',
         description: 'Methods to foster independent learning in online environments.'
       },
       { 
-        title: 'How to Create Effective Lesson Plans for Diverse Learners', 
-        source: 'Inclusive Teaching', 
-        link: 'https://inclusiveteachingpractices.net/articles/diverse-lesson-plans', 
-        image: "/assets/article4.jpg",
+        title: 'Inclusive Lessons for Diverse Classrooms', 
+        source: 'Edutopia', 
+        link: 'https://www.edutopia.org/article/inclusive-lessons-diverse-classrooms/', 
+        image: '/assets/article4.jpg',
         description: 'Design inclusive lesson plans that address diverse learning styles.'
       },
       { 
-        title: 'The Neuroscience of Learning: What Teachers Need to Know', 
-        source: 'Education Neuroscience Quarterly', 
-        link: 'https://neurolearning.science/articles/neuroscience-learning', 
-        image: "/assets/article5.jpg",
+        title: 'The Neuroscience of Active Learning and Direct Instruction', 
+        source: 'Neuroscience & Biobehavioral Reviews', 
+        link: 'https://www.sciencedirect.com/science/article/pii/S0149763424002069', 
+        image: '/assets/article5.jpg',
         description: 'How brain science can inform more effective teaching practices.'
       },
       { 
-        title: 'Formative Assessment Strategies That Actually Work', 
-        source: 'Assessment Practices', 
-        link: 'https://assessmentpro.org/articles/formative-assessment', 
-        image: "/assets/article6.jpg",
+        title: '27 Easy Formative Assessment Strategies for Gathering Evidence of Student Learning', 
+        source: 'NWEA', 
+        link: 'https://www.nwea.org/blog/2024/27-easy-formative-assessment-strategies-for-gathering-evidence-of-student-learning/', 
+        image: '/assets/article6.jpg',
         description: 'Real-world techniques to gather meaningful feedback on student learning.'
       },
       { 
-        title: 'Project-Based Learning: A Framework for Success', 
-        source: 'Modern Educator', 
-        link: 'https://moderneducatormag.com/articles/project-based-learning', 
-        image: "/assets/article7.jpg",
+        title: 'What is Project Based Learning?', 
+        source: 'PBLWorks', 
+        link: 'https://www.pblworks.org/what-is-pbl', 
+        image: '/assets/article7.jpg',
         description: 'Step-by-step guide to implementing effective project-based learning in any subject.'
       },
       { 
-        title: "Social-Emotional Learning in Today's Digital Classroom", 
-        source: 'Whole Child Education', 
-        link: 'https://wholechildinitiative.org/resources/sel-digital', 
-        image: "/assets/article8.jpg",
+        title: 'The Path to Social-Emotional Learning With Virtual Learning', 
+        source: 'Class', 
+        link: 'https://www.class.com/blog/building-relationships-in-online-settings-path-to-social-emotional-learning/', 
+        image: '/assets/article8.jpg',
         description: 'Integrating SEL competencies into virtual and hybrid learning environments.'
       },
+    
     ],
-    Tools: [
+     Tools : [
       { 
         title: 'ClassTrack', 
         description: 'Attendance and participation tracking', 
-        link: 'https://classtrack.edu',
+        link: 'https://www.recsolutions.com/classtrack',
         image: "/assets/tools.jpg",
         tags: ['attendance', 'tracking', 'analytics']
       },
@@ -149,38 +150,39 @@ const ResourcePage = () => {
       { 
         title: 'QuizGenius', 
         description: 'AI-powered quiz and assessment generator', 
-        link: 'https://quizgenius.net',
+        link: 'https://quizgecko.com/',
         image: "/assets/tools4.jpg",
         tags: ['assessment', 'quiz', 'test creation']
       },
       { 
         title: 'ClassroomCast', 
         description: 'Screen sharing and recording platform for educators', 
-        link: 'https://classroomcast.education',
+        link: 'https://www.screencastify.com/education/teachers',
         image: "/assets/tools5.jpg",
         tags: ['presentation', 'recording', 'multimedia']
       },
       { 
         title: 'FeedbackLoop', 
         description: 'Real-time student response and engagement system', 
-        link: 'https://feedbackloop.tools',
+        link: 'https://www.formative.com/feature/real-time-feedback',
         image: "/assets/tools6.jpg",
         tags: ['feedback', 'polling', 'student engagement']
       },
       { 
         title: 'PlannerPro', 
         description: 'Comprehensive curriculum and lesson planning suite', 
-        link: 'https://plannerpro.edu',
+        link: 'https://planbook.com/',
         image: "/assets/tools7.jpg",
         tags: ['planning', 'curriculum', 'organization']
       },
     ],
-    Videos: [
+    
+    Videos : [
       { 
         title: 'Classroom Management for the Digital Age', 
         duration: '32:15', 
         creator: 'Teaching Excellence', 
-        link: 'https://teachingtube.com/videos/digital-classroom', 
+        link: 'https://www.youtube.com/watch?v=yddBAhcYFpY', 
         image: "/assets/video.jpg",
         description: 'Expert strategies for managing digital classroom environments.'
       },
@@ -188,7 +190,7 @@ const ResourcePage = () => {
         title: 'Setting Up Virtual Breakout Rooms - Tutorial', 
         duration: '14:47', 
         creator: 'EdTech Tips', 
-        link: 'https://edtechacademy.video/tutorials/breakout-rooms', 
+        link: 'https://www.youtube.com/watch?v=VkK5WEf6xgk', 
         image: "/assets/video1.jpg",
         description: 'Step-by-step guide to creating effective virtual breakout sessions.'
       },
@@ -196,7 +198,7 @@ const ResourcePage = () => {
         title: 'Student Engagement Techniques that Work', 
         duration: '45:33', 
         creator: 'Educator Insights', 
-        link: 'https://teachingstrategies.org/videos/engagement', 
+        link: 'https://www.youtube.com/watch?v=e8CU11tjuLQ', 
         image: "/assets/video2.jpg",
         description: 'Practical techniques to boost student participation and interest.'
       },
@@ -204,7 +206,7 @@ const ResourcePage = () => {
         title: 'The Science of Learning: Cognitive Load Theory Explained', 
         duration: '28:52', 
         creator: 'Education Brain Trust', 
-        link: 'https://learningscience.tv/videos/cognitive-load', 
+        link: 'https://www.youtube.com/watch?v=e8CU11tjuLQ', 
         image: "/assets/video3.jpg",
         description: 'Understanding how working memory affects student learning and retention.'
       },
@@ -212,7 +214,7 @@ const ResourcePage = () => {
         title: 'Formative Assessment in 5 Minutes a Day', 
         duration: '23:18', 
         creator: 'Assessment Matters', 
-        link: 'https://teacherscollege.media/videos/quick-assessment', 
+        link: 'https://www.youtube.com/watch?v=OLNTFEhcLAk', 
         image: "/assets/video4.jpg",
         description: 'Quick, effective techniques to check for understanding every day.'
       },
@@ -220,7 +222,7 @@ const ResourcePage = () => {
         title: 'Creating Inclusive Classrooms: Universal Design for Learning', 
         duration: '38:45', 
         creator: 'Inclusive Education Channel', 
-        link: 'https://udlcenter.org/videos/udl-classroom', 
+        link: 'https://www.youtube.com/watch?v=0WJG7lZA27o', 
         image: "/assets/video5.jpg",
         description: 'Implementing UDL principles to create accessible learning for all students.'
       },
@@ -228,17 +230,18 @@ const ResourcePage = () => {
         title: 'Effective Parent-Teacher Communication Strategies', 
         duration: '25:10', 
         creator: 'Community Education Partners', 
-        link: 'https://familyengagement.school/videos/parent-communication', 
+        link: 'https://www.youtube.com/watch?v=W3qtYv7-s5w', 
         image: "/assets/video6.jpg",
         description: 'Building strong relationships with families to support student success.'
       },
     ],
-    Courses: [
+    
+     Courses:[
       { 
         title: 'Mastering Classroom Management', 
         provider: 'Teacher Academy', 
         duration: '6 weeks', 
-        link: 'https://teacheracademy.course/master-management', 
+        link: 'https://www.wholechildacademy.edu/courses/sel-integration', 
         image: "/assets/c1.jpg",
         description: 'Comprehensive course on effective classroom management strategies.'
       },
@@ -246,7 +249,7 @@ const ResourcePage = () => {
         title: 'Digital Assessment Strategies', 
         provider: 'EdTech Institute', 
         duration: '4 weeks', 
-        link: 'https://edtechinstitute.learn/courses/assessment', 
+        link: 'https://www.edtechinstitute.org/courses/digital-assessment-strategies', 
         image: "/assets/c2.jpg",
         description: 'Learn to create and implement effective digital assessments.'
       },
@@ -254,7 +257,7 @@ const ResourcePage = () => {
         title: 'Creating an Inclusive Classroom', 
         provider: 'Diversity in Education', 
         duration: '8 weeks', 
-        link: 'https://diversityeducation.org/courses/inclusive', 
+        link: 'https://www.projectbasedlearning.org/courses/pbl-design', 
         image: "/assets/c3.jpg",
         description: 'Build an inclusive learning environment for all students.'
       },
@@ -262,7 +265,7 @@ const ResourcePage = () => {
         title: 'Social-Emotional Learning Integration', 
         provider: 'Whole Child Academy', 
         duration: '6 weeks', 
-        link: 'https://wholechildacademy.edu/courses/sel-integration', 
+        link: 'https://www.projectbasedlearning.org/courses/pbl-design', 
         image: "/assets/c4.jpg",
         description: 'Strategies for embedding SEL competencies across the curriculum.'
       },
@@ -278,7 +281,7 @@ const ResourcePage = () => {
         title: 'Advanced Differentiation Techniques', 
         provider: 'Personalized Learning Center', 
         duration: '7 weeks', 
-        link: 'https://personalizededucation.learn/courses/advanced-differentiation', 
+        link: 'https://www.personalizededucation.org/courses/advanced-differentiation', 
         image: "/assets/c6.jpg",
         description: 'Take your differentiated instruction to the next level with advanced strategies.'
       },
@@ -286,7 +289,7 @@ const ResourcePage = () => {
         title: 'Educational Technology Integration', 
         provider: 'Future Classroom Lab', 
         duration: '6 weeks', 
-        link: 'https://futureclassroomlab.training/courses/edtech-integration', 
+        link: 'https://www.phxtraining.com/courses/future-classroom-lab-fcl/', 
         image: "/assets/c7.jpg",
         description: 'Learn to select and integrate the right technology tools for your teaching goals.'
       },
@@ -300,7 +303,6 @@ const ResourcePage = () => {
       },
     ],
   };
-
   const categories = ['All', ...Object.keys(resources)];
 
   // Search and filter functionality - simplified

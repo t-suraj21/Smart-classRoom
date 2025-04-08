@@ -176,16 +176,17 @@ export default function HomePage() {
                 transition={{ delay: 0.6 }}
               >
                 {slides[currentSlide].description}
-              </motion.p>
-              <motion.a
-                href="#"
-                className="inline-block bg-white text-blue-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full 
-                         text-base sm:text-lg font-semibold transition-all duration-300 
-                         hover:bg-blue-600 hover:text-white hover:scale-105 shadow-md"
-              >
-                Try Demo
-              </motion.a>
-            </motion.div>
+                </motion.p>
+              <motion.div
+  className="inline-block bg-white text-blue-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full 
+           text-base sm:text-lg font-semibold transition-all duration-300 
+           hover:bg-blue-600 hover:text-white hover:scale-105 shadow-md"
+>
+  <Link to="/auth">
+    Try Demo
+  </Link>
+</motion.div>
+            </motion.div>
           </AnimatePresence>
         </div>
       </div>
