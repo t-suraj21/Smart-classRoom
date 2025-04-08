@@ -1,3 +1,4 @@
+// src/pages/Auth.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +25,6 @@ const Auth = () => {
       ? "http://localhost:3000/auth/register"
       : "http://localhost:3000/auth/login";
 
-    // Only send necessary fields
     const payload = isRegister
       ? {
           name: formData.name,
@@ -36,7 +36,7 @@ const Auth = () => {
           password: formData.password,
         };
 
-    console.log("Sending payload:", payload); // Optional: for debugging
+    console.log("Sending to backend:", payload);
 
     try {
       const res = await axios.post(url, payload);
@@ -44,7 +44,7 @@ const Auth = () => {
       localStorage.setItem("token", token);
 
       alert(`${isRegister ? "Registration" : "Login"} successful!`);
-      navigate("/profile");
+      navigate("/dashboard");
     } catch (err) {
       console.error("❌ Auth error:", err);
       setError(err.response?.data?.message || "Something went wrong.");
