@@ -16,6 +16,7 @@ import Profile from "./components/Profile";
 // Student Pages
 import Attendance from "./student/attendance";
 import TeacherDashboard from "./student/teacher-dashboard";
+import Quizz from "./student/Quizz";
 
 const App = () => {
   return (
@@ -35,6 +36,8 @@ const App = () => {
             {/* 👇 New Routes */}
             <Route path="/student/attendance" element={<Attendance />} />
             <Route path="/student/teacher-dashboard" element={<TeacherDashboard />} />
+            <Route path="/student/Quizz" element={<Quizz />} />
+            {/* Add more student routes as needed */}
           </Routes>
         </div>
       </div>

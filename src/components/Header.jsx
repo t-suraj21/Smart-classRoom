@@ -51,7 +51,7 @@ const Header = () => {
               <div className="absolute left-0 mt-2 w-52 bg-white border rounded-lg shadow-lg py-2">
                 <DropdownItem text="👨‍🏫 Teacher Dashboard" to="/student/teacher-dashboard" />
                 <DropdownItem text="📅 Attendance" to="/student/attendance" />
-                <DropdownItem text="📖 Notebook" to="/student/Quizz" />
+                <DropdownItem text="📖 Quizz" to="/student/Quizz" />
               </div>
             )}
           </div>
@@ -83,7 +83,7 @@ const Header = () => {
             <DropdownItem text="📊 Student Dashboard" to="/student/dashboard" onClick={() => setMenuOpen(false)} />
             <DropdownItem text="👨‍🏫 Teacher Dashboard" to="/student/teacher-dashboard" onClick={() => setMenuOpen(false)} />
             <DropdownItem text="📅 Attendance" to="/student/attendance" onClick={() => setMenuOpen(false)} />
-            <DropdownItem text="📖 Notebook" to="/student/Qizz" onClick={() => setMenuOpen(false)} />
+            <DropdownItem text="📖 Quizz" to="/student/Quizz" onClick={() => setMenuOpen(false)} />
           </div>
 
           {/* Login Button (Mobile) */}

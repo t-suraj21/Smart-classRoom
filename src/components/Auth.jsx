@@ -1,4 +1,3 @@
-// src/pages/Auth.jsx
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -36,18 +35,40 @@ const Auth = () => {
           password: formData.password,
         };
 
-    console.log("Sending to backend:", payload);
-
     try {
       const res = await axios.post(url, payload);
+      console.log("✅ Auth response:", res.data);
+
       const token = res.data.token;
+
+      if (!token) {
+        setError("Login failed: No token returned from server.");
+        return;
+      }
+
       localStorage.setItem("token", token);
+
+      // 🔥 Fetch user profile using the token
+      const profileRes = await axios.get("http://localhost:3000/auth/me", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      console.log("👤 User profile:", profileRes.data);
 
       alert(`${isRegister ? "Registration" : "Login"} successful!`);
       navigate("/dashboard");
     } catch (err) {
       console.error("❌ Auth error:", err);
-      setError(err.response?.data?.message || "Something went wrong.");
+
+      if (err.response) {
+        setError(err.response.data.message || "Invalid credentials or server error.");
+      } else if (err.request) {
+        setError("No response from server. Please check if backend is running.");
+      } else {
+        setError("Something went wrong. Please try again.");
+      }
     }
   };
 
