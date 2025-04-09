@@ -35,12 +35,13 @@ const Auth = () => {
           password: formData.password,
         };
 
+    console.log("👉 Payload being sent:", payload);
+
     try {
       const res = await axios.post(url, payload);
       console.log("✅ Auth response:", res.data);
 
       const token = res.data.token;
-
       if (!token) {
         setError("Login failed: No token returned from server.");
         return;
@@ -48,11 +49,8 @@ const Auth = () => {
 
       localStorage.setItem("token", token);
 
-      // 🔥 Fetch user profile using the token
       const profileRes = await axios.get("http://localhost:3000/auth/me", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+        headers: { Authorization: `Bearer ${token}` },
       });
 
       console.log("👤 User profile:", profileRes.data);
@@ -72,9 +70,15 @@ const Auth = () => {
     }
   };
 
+  const toggleMode = () => {
+    setFormData({ name: "", email: "", password: "" });
+    setError(null);
+    setIsRegister(!isRegister);
+  };
+
   return (
     <div className="min-h-screen bg-black text-white flex justify-center items-center">
-      <div className="bg-white p-6 rounded-lg text-black w-full max-w-sm">
+      <div className="bg-white p-6 rounded-lg text-black w-full max-w-sm shadow-lg">
         <h2 className="text-2xl font-semibold mb-4 text-center">
           {isRegister ? "Register" : "Login"}
         </h2>
@@ -108,16 +112,13 @@ const Auth = () => {
             className="w-full border px-3 py-2 rounded"
             required
           />
-          <button type="submit" className="w-full bg-black text-white py-2 rounded">
+          <button type="submit" className="w-full bg-black text-white py-2 rounded hover:bg-gray-800">
             {isRegister ? "Register" : "Login"}
           </button>
         </form>
         <p className="text-center mt-4">
           {isRegister ? "Already have an account?" : "Don't have an account?"}{" "}
-          <button
-            onClick={() => setIsRegister(!isRegister)}
-            className="underline text-black"
-          >
+          <button onClick={toggleMode} className="underline text-black">
             {isRegister ? "Login" : "Register"}
           </button>
         </p>
