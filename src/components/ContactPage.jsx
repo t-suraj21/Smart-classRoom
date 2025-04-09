@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -68,7 +69,11 @@ const ContactPage = () => {
                 className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-800 transition duration-300"
                 aria-label={name}
               >
-                <i className={`fab fa-${icon}`}></i>
+                {icon === "facebook" && <FaFacebookF className="text-xl" />}
+{icon === "twitter" && <FaTwitter className="text-xl" />}
+{icon === "instagram" && <FaInstagram className="text-xl" />}
+{icon === "linkedin" && <FaLinkedinIn className="text-xl" />}
+
               </motion.a>
             ))}
           </div>

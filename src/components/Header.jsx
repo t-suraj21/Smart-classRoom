@@ -92,14 +92,14 @@ const Header = () => {
 
             <div className="mt-3">
               <p className="font-semibold">Student</p>
-              <DropdownItem text="👨‍🏫 Teacher Dashboard" to="/student/teacher-dashboard" onClick={() => setMenuOpen(false)} />
+              <DropdownItem text="👨‍🏫 Teacher Dashboard" to="/student/teacher-dashboard" Click={() => setMenuOpen(false)} />
               <DropdownItem text="📅 Attendance" to="/student/attendance" onClick={() => setMenuOpen(false)} />
               <DropdownItem text="📖 Quizz" to="/student/Quizz" onClick={() => setMenuOpen(false)} />
             </div>
 
             <Link
               to="/auth"
-              className="block text-center bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition mt-4"
+              className="block text-center bg-blue-600 text-white px-5 py-2 rounded-lg Onclick:bg-blue-700 transition mt-4"
               onClick={() => setMenuOpen(false)}
             >
               Let's Go!
@@ -112,25 +112,25 @@ const Header = () => {
 };
 
 // Reusable Components
-const NavItem = ({ text, to, onClick }) => (
+const NavItem = ({ text, to, Click }) => (
   <Link
     to={to}
     className="relative py-2 px-3 hover:text-blue-500 transition group"
-    onClick={onClick}
+    Click={Click}
   >
     {text}
-    <span className="absolute left-1/2 bottom-0 w-0 h-1 bg-blue-500 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+    <span className="absolute left-1/2 bottom-0 w-0 h-1  transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
   </Link>
 );
 
-const DropdownItem = ({ text, to, onClick }) => (
+const DropdownItem = ({ text, to, Click }) => (
   <Link
     to={to}
     className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition"
-    onClick={onClick}
+    Click={Click}
   >
     {text}
   </Link>
 );
 
-export default Header;
+export default Header; 
