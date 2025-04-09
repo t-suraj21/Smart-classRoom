@@ -35,27 +35,19 @@ const QuizApp = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleAnswer = (answer) => {
-    setSelected(answer);
-  };
+  const handleAnswer = (answer) => setSelected(answer);
 
   const handleNext = () => {
     const correct = questions[currentQ]?.correct_answers[`${selected}_correct`] === "true";
     if (correct) setScore(score + 1);
     setSelected(null);
-    if (currentQ + 1 < questions.length) {
-      setCurrentQ(currentQ + 1);
-    } else {
-      setShowScore(true);
-    }
+    if (currentQ + 1 < questions.length) setCurrentQ(currentQ + 1);
+    else setShowScore(true);
   };
 
   const handleFlag = () => {
-    if (!flagged.includes(currentQ)) {
-      setFlagged([...flagged, currentQ]);
-    } else {
-      setFlagged(flagged.filter(i => i !== currentQ));
-    }
+    if (!flagged.includes(currentQ)) setFlagged([...flagged, currentQ]);
+    else setFlagged(flagged.filter(i => i !== currentQ));
   };
 
   const formatTime = () => {
@@ -65,22 +57,24 @@ const QuizApp = () => {
   };
 
   if (questions.length === 0) {
-    return <div className="text-center mt-10 text-xl font-semibold">Loading questions...</div>;
+    return <div className="text-center mt-10 text-lg md:text-xl font-semibold">Loading questions...</div>;
   }
 
   if (showScore) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-lime-200">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-100 to-lime-200 px-4">
         <motion.div
-          className="bg-white rounded-3xl shadow-lg p-10 text-center w-full max-w-md"
+          className="bg-white rounded-3xl shadow-lg p-6 md:p-10 text-center w-full max-w-md"
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
         >
-          <h1 className="text-3xl font-bold text-green-600">Quiz Completed!</h1>
-          <p className="mt-4 text-lg">Your Score: <span className="text-2xl">{score}/{questions.length}</span></p>
+          <h1 className="text-2xl md:text-3xl font-bold text-green-600">Quiz Completed!</h1>
+          <p className="mt-4 text-base md:text-lg">
+            Your Score: <span className="text-xl md:text-2xl">{score}/{questions.length}</span>
+          </p>
           <button
             onClick={() => window.location.reload()}
-            className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700"
+            className="mt-6 px-6 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-sm md:text-base"
           >
             Restart
           </button>
@@ -93,31 +87,33 @@ const QuizApp = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-200 to-blue-200 px-4 py-6">
-      <div className="bg-white shadow-xl rounded-2xl w-full max-w-5xl flex overflow-hidden">
-        {/* Left Panel */}
-        <div className="bg-sky-100 w-1/4 p-4 flex flex-col justify-between">
+      <div className="bg-white shadow-xl rounded-2xl w-full max-w-6xl flex flex-col md:flex-row overflow-hidden">
+        
+        {/* Sidebar / Palette */}
+        <div className="bg-sky-100 w-full md:w-1/4 p-4 flex flex-col justify-between">
           <div>
-            <div className="text-xl font-bold mb-6 text-center text-blue-800">Sections</div>
-            <button className="w-full bg-blue-500 text-white py-2 rounded-lg mb-3">Section 1</button>
-            <button className="w-full bg-blue-500 text-white py-2 rounded-lg mb-3">Section 2</button>
-            <button className="w-full bg-blue-500 text-white py-2 rounded-lg mb-3">Section 3</button>
-            <button
-              onClick={handleFlag}
-              className={`w-full py-2 rounded-lg mt-2 font-medium ${
-                flagged.includes(currentQ) ? 'bg-red-500 text-white' : 'bg-red-100 text-red-600'
-              }`}
-            >
-              {flagged.includes(currentQ) ? 'Unflag' : 'Flagged'}
-            </button>
+            <div className="text-lg md:text-xl font-bold mb-6 text-center text-blue-800">Sections</div>
+            <div className="space-y-2">
+              <button className="w-full bg-blue-500 text-white py-2 rounded-lg text-sm">Section 1</button>
+              <button className="w-full bg-blue-500 text-white py-2 rounded-lg text-sm">Section 2</button>
+              <button className="w-full bg-blue-500 text-white py-2 rounded-lg text-sm">Section 3</button>
+              <button
+                onClick={handleFlag}
+                className={`w-full py-2 rounded-lg mt-2 font-medium text-sm ${
+                  flagged.includes(currentQ) ? 'bg-red-500 text-white' : 'bg-red-100 text-red-600'
+                }`}
+              >
+                {flagged.includes(currentQ) ? 'Unflag' : 'Flag Question'}
+              </button>
+            </div>
           </div>
 
-          {/* Palette */}
-          <div className="mt-6 grid grid-cols-4 gap-2">
+          <div className="mt-6 grid grid-cols-5 md:grid-cols-4 gap-2">
             {questions.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setCurrentQ(idx)}
-                className={`rounded-full w-10 h-10 font-medium ${
+                className={`rounded-full w-8 h-8 md:w-10 md:h-10 text-sm font-medium ${
                   idx === currentQ
                     ? 'bg-green-500 text-white'
                     : flagged.includes(idx)
@@ -132,24 +128,24 @@ const QuizApp = () => {
         </div>
 
         {/* Main Quiz Panel */}
-        <div className="w-3/4 p-6 relative">
+        <div className="w-full md:w-3/4 p-4 md:p-6 relative">
           {/* Timer */}
-          <div className="absolute top-4 right-6 bg-white px-4 py-2 rounded-lg shadow text-green-700 font-bold">
-            ⏰ Time left: {formatTime()}
+          <div className="absolute top-3 right-4 bg-white px-3 py-1.5 rounded-md shadow text-green-700 font-bold text-sm md:text-base">
+            ⏰ {formatTime()}
           </div>
 
-          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+          <h2 className="text-lg md:text-xl font-semibold text-gray-800 mb-2">
             Question {currentQ + 1} / {questions.length}
           </h2>
-          <p className="text-gray-700 mb-6">{current.question}</p>
+          <p className="text-gray-700 mb-6 text-sm md:text-base">{current.question}</p>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {Object.entries(current.answers).map(([key, value]) => (
               value && (
                 <button
                   key={key}
                   onClick={() => handleAnswer(key)}
-                  className={`px-4 py-3 rounded-lg border text-left ${
+                  className={`px-4 py-3 rounded-lg border text-left text-sm ${
                     selected === key
                       ? 'bg-indigo-600 text-white'
                       : 'bg-gray-100 hover:bg-gray-200'
@@ -161,10 +157,10 @@ const QuizApp = () => {
             ))}
           </div>
 
-          <div className="flex justify-between items-center mt-6">
+          <div className="flex flex-col sm:flex-row justify-between items-center mt-6 gap-3">
             <button
               onClick={() => setCurrentQ(prev => Math.max(0, prev - 1))}
-              className="bg-yellow-500 text-white px-5 py-2 rounded-lg disabled:bg-gray-300"
+              className="bg-yellow-500 text-white px-5 py-2 rounded-lg text-sm w-full sm:w-auto"
               disabled={currentQ === 0}
             >
               ⬅️ Back
@@ -172,7 +168,7 @@ const QuizApp = () => {
             <button
               onClick={handleNext}
               disabled={selected === null}
-              className={`px-6 py-2 rounded-lg text-white font-semibold ${
+              className={`px-6 py-2 rounded-lg text-white font-semibold w-full sm:w-auto text-sm ${
                 selected === null
                   ? 'bg-gray-400 cursor-not-allowed'
                   : 'bg-green-500 hover:bg-green-600'
