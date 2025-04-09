@@ -19,7 +19,7 @@ import TeacherDashboard from "./student/teacher-dashboard";
 import Quizz from "./student/Quizz";
 import ResumeUpload from "./student/ResumeUpload";
 import ClassSchedule from "./student/ClassSchedule"; // ✅ Class Schedule Import
-import TeacherAssignmentUpload from "./student/assignments"; // ✅ Assignment Upload Import
+import TeacherAssignmentUpload from "./student/Assignments"; // ✅ Assignment Upload Import
 import ResourceUpload from "./student/ResourceUpload"; // ✅ Resource Upload Import
 import ManageExams from "./student/ManageExams"; // ✅ Manage Exams Import
 import  NotebookPage from "./student/NotebookPage"
