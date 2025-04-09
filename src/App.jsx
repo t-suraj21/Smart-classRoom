@@ -19,8 +19,11 @@ import TeacherDashboard from "./student/teacher-dashboard";
 import Quizz from "./student/Quizz";
 import ResumeUpload from "./student/ResumeUpload";
 import ClassSchedule from "./student/ClassSchedule"; // ✅ Class Schedule Import
-import TeacherAssignmentUpload from "./student/assignments"; // ✅ Assignment Upload Import
+import TeacherAssignmentUpload from "./student/Assignment"; // ✅ Assignment Upload Import
 import ResourceUpload from "./student/ResourceUpload"; // ✅ Resource Upload Import
+import ManageExams from "./student/ManageExams"; // ✅ Manage Exams Import
+import  NotebookPage from "./student/NotebookPage"
+
 
 const App = () => {
   return (
@@ -43,6 +46,8 @@ const App = () => {
             <Route path="/student/ClassSchedule" element={<ClassSchedule />} />
             <Route path="/student/Assignments" element={<TeacherAssignmentUpload />} />
             <Route path="/student/ResourceUpload" element={<ResourceUpload />} />
+            <Route path="/student/ManageExams" element={<ManageExams/>} />
+            <Route path="/student/ NotebookPage" element={<NotebookPage/>} />
           </Routes>
         </div>
       </div>

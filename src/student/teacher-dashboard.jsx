@@ -34,9 +34,9 @@ const TeacherDashboard = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           <AnimatedCard title="📅 Attendance Sheet" to="/student/attendance" Icon={ClipboardList} />
           <AnimatedCard title="📚 Assignments" to="/student/Assignments" Icon={Book} />
-          <AnimatedCard title="📖 Notebook Access" to="/teacher/notebooks" Icon={NotebookPen} />
+          <AnimatedCard title="📖 Notebook Access" to="/student/NotebookPage" Icon={NotebookPen} />
           <AnimatedCard title="📤 Upload Resources" to="/student/ResourceUpload" Icon={Upload} />
-          <AnimatedCard title="📝 Manage Exams" to="/teacher/exams" Icon={FileBarChart2} />
+          <AnimatedCard title="📝 Test Shedule" to="/student/ManageExams" Icon={FileBarChart2} />
           <AnimatedCard title="📆 Class Schedule" to="/student/ClassSchedule" Icon={CalendarClock} />
           {/* ✅ New Resume Upload Card */}
           <AnimatedCard title="📄 Analyze Student Resumes" to="/student/resume-upload" Icon={Upload} />
