@@ -17,8 +17,10 @@ import Profile from "./components/Profile";
 import Attendance from "./student/attendance";
 import TeacherDashboard from "./student/teacher-dashboard";
 import Quizz from "./student/Quizz";
-import ResumeUpload from "./student/ResumeUpload"; // ✅ NEW Import
-// import assignments from "./student/Assignments"; // ✅ NEW Import
+import ResumeUpload from "./student/ResumeUpload";
+import ClassSchedule from "./student/ClassSchedule"; // ✅ Class Schedule Import
+import TeacherAssignmentUpload from "./student/assignments"; // ✅ Assignment Upload Import
+import ResourceUpload from "./student/ResourceUpload"; // ✅ Resource Upload Import
 
 const App = () => {
   return (
@@ -37,9 +39,10 @@ const App = () => {
             <Route path="/student/attendance" element={<Attendance />} />
             <Route path="/student/teacher-dashboard" element={<TeacherDashboard />} />
             <Route path="/student/Quizz" element={<Quizz />} />
-            <Route path="/student/resume-upload" element={<ResumeUpload />} /> {/* ✅ NEW ROUTE */}
-            {/* <Route path="/student/assignments" element={<Assignments />} /> ✅ NEW ROUTE */}
-            {/* Add more routes as needed */}
+            <Route path="/student/resume-upload" element={<ResumeUpload />} />
+            <Route path="/student/ClassSchedule" element={<ClassSchedule />} />
+            <Route path="/student/Assignments" element={<TeacherAssignmentUpload />} />
+            <Route path="/student/ResourceUpload" element={<ResourceUpload />} />
           </Routes>
         </div>
       </div>
