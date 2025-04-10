@@ -39,18 +39,16 @@ const Header = () => {
           <NavItem text="Contact" to="/contact" />
           <NavItem text="Profile" to="/profile" />
 
-          {/* Student Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setStudentDropdown(true)}
-            onMouseLeave={() => setStudentDropdown(false)}
-            ref={dropdownRef}
-          >
-            <button className="flex items-center gap-1 hover:text-blue-500 transition">
+          {/* Student Dropdown - Now click-based */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              className="flex items-center gap-1 hover:text-blue-500 transition"
+              onClick={() => setStudentDropdown((prev) => !prev)}
+            >
               Student <ChevronDown className="w-4 h-4" />
             </button>
             {studentDropdown && (
-              <div className="absolute left-0 mt-2 w-52 bg-white border rounded-lg shadow-lg py-2">
+              <div className="absolute left-0 mt-2 w-52 bg-white border rounded-lg shadow-lg py-2 z-50">
                 <DropdownItem text="👨‍🏫 Teacher Dashboard" to="/student/teacher-dashboard" />
                 <DropdownItem text="📅 Attendance" to="/student/attendance" />
                 <DropdownItem text="📖 Quizz" to="/student/Quizz" />
@@ -119,7 +117,7 @@ const NavItem = ({ text, to, onClick }) => (
     onClick={onClick}
   >
     {text}
-    <span className="absolute left-1/2 bottom-0 w-0 h-1 bg-blue-500 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+    <span className="absolute left-1/2 bottom-0 w-0 h-1 transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
   </Link>
 );
 

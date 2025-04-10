@@ -22,7 +22,8 @@ import ClassSchedule from "./student/ClassSchedule"; // ✅ Class Schedule Impor
 import TeacherAssignmentUpload from "./student/Assignment"; // ✅ Assignment Upload Import
 import ResourceUpload from "./student/ResourceUpload"; // ✅ Resource Upload Import
 import ManageExams from "./student/ManageExams"; // ✅ Manage Exams Import
-import  NotebookPage from "./student/NotebookPage"
+import NotebookPage from "./student/NotebookPage"; // ✅ Notebook Page Import
+
 
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/profile" element={<Profile />} />
+            {/* Student Routes */}
             <Route path="/student/attendance" element={<Attendance />} />
             <Route path="/student/teacher-dashboard" element={<TeacherDashboard />} />
             <Route path="/student/Quizz" element={<Quizz />} />
@@ -47,7 +49,7 @@ const App = () => {
             <Route path="/student/Assignments" element={<TeacherAssignmentUpload />} />
             <Route path="/student/ResourceUpload" element={<ResourceUpload />} />
             <Route path="/student/ManageExams" element={<ManageExams/>} />
-            <Route path="/student/ NotebookPage" element={<NotebookPage/>} />
+            <Route path="/student/NotebookPage" element={<NotebookPage/>} />
           </Routes>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -10,8 +10,14 @@ const Auth = () => {
   });
   const [isRegister, setIsRegister] = useState(false);
   const [error, setError] = useState(null);
-
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/Profile");
+    }
+  }, [navigate]);
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -35,12 +41,8 @@ const Auth = () => {
           password: formData.password,
         };
 
-    console.log("👉 Payload being sent:", payload);
-
     try {
       const res = await axios.post(url, payload);
-      console.log("✅ Auth response:", res.data);
-
       const token = res.data.token;
       if (!token) {
         setError("Login failed: No token returned from server.");
@@ -53,13 +55,9 @@ const Auth = () => {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      console.log("👤 User profile:", profileRes.data);
-
       alert(`${isRegister ? "Registration" : "Login"} successful!`);
-      navigate("/dashboard");
+      navigate("/Profile");
     } catch (err) {
-      console.error("❌ Auth error:", err);
-
       if (err.response) {
         setError(err.response.data.message || "Invalid credentials or server error.");
       } else if (err.request) {
