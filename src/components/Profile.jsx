@@ -16,7 +16,7 @@ const Profile = () => {
 
       try {
         const res = await axios.get("http://localhost:3000/auth/me", {
-          headers: { Authorization: token },
+          headers: { Authorization: `Bearer ${token}` }
         });
         setUser(res.data);
         setFormData(res.data);
@@ -38,7 +38,7 @@ const Profile = () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.put("http://localhost:3000/auth/update", formData, {
-        headers: { Authorization: token },
+        headers: { Authorization: `Bearer ${token}` }
       });
       setUser(res.data);
       setEditMode(false);
